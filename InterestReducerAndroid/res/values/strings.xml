@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">InterestReducerAndroid</string>
-    <string name="hello_world">Hello world!</string>
+    <!-- Main Activity -->
+    <string name="app_name">Interest Reducer</string>
     <string name="action_settings">Settings</string>
-	<string-array name="duration_spinner_items">
-	    <item>Months</item>
-	    <item>Years</item>
-	</string-array>
+    <string name="calculate">Calculate</string>
+    <string name="amortize">Amortize</string>        
+    <string name="inMonths">In Months</string>
+    <string name="lengthOfLoan">Loan Length:</string>
+    <string name="interestRate">Interest Rate:</string>
+    <string name="principalAmount">Principal:</string>
+    <string name="percent">Enter percent</string>
+    <string name="dollarAmount">In dollars</string>
+    <string name="monthlyPaymentAmount">Monthly Payment: $</string>     
 </resources>
