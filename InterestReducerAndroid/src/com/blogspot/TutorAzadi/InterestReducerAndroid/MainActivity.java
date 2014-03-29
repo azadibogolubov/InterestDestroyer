@@ -3,6 +3,7 @@ package com.blogspot.TutorAzadi.InterestReducerAndroid;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -56,15 +57,55 @@ public class MainActivity extends Activity {
 		interestRateTxt = (EditText)findViewById(R.id.interestRateTxt);
 		loanTermTxt = (EditText)findViewById(R.id.loanTermTxt);
 	}
-	
+
+	public void checkPrincipalValue(EditText value)
+	{
+		try 
+		{
+			principalAmount = Double.parseDouble(value.getText().toString());
+		}
+		catch (NumberFormatException nfe)
+		{
+			Log.e(null, "Bad principal data entered...Try again...");
+			principalAmount = 0.00f;
+		}
+	}
+
+	public void checkInterestRateValue(EditText value)
+	{
+		try 
+		{
+			interestRate = Double.parseDouble(value.getText().toString());
+		}
+		catch (NumberFormatException nfe)
+		{
+			Log.e(null, "Bad interest rate data entered...Try again...");
+			interestRate = 0.00f;
+		}
+	}
+
+	public void checkLoanTermValue(EditText value)
+	{
+		try 
+		{
+			loanTerm = Double.parseDouble(value.getText().toString());
+		}
+		catch (NumberFormatException nfe)
+		{
+			Log.e(null, "Bad loan term data entered...Try again...");
+			loanTerm = 0.00f;
+		}
+	}
+
 	public void initializeButtons() {
 		calculateBtn = (Button) findViewById(R.id.calculateBtn);
 		calculateBtn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				principalAmount = Double.parseDouble(principalTxt.getText().toString());
-				interestRate = Double.parseDouble(interestRateTxt.getText().toString());
-				loanTerm = Double.parseDouble(loanTermTxt.getText().toString());
+				checkPrincipalValue(principalTxt);
+				checkInterestRateValue(interestRateTxt);
+				checkLoanTermValue(loanTermTxt);
+			
 				paymentAmount = Driver.amortize(principalAmount, interestRate, loanTerm);
 				Toast.makeText(MainActivity.this, "Calculate Payment Request",
 						Toast.LENGTH_LONG).show();
