@@ -9,13 +9,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 import android.view.View.OnClickListener;
 
 public class MainActivity extends Activity {
 
+	private EditText principalTxt, interestRateTxt, loanTermTxt;
 	private Button calculateBtn, amortizeBtn;
-
+	private double principalAmount, interestRate, loanTerm, paymentAmount;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -47,11 +50,22 @@ public class MainActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	public void initializeEditTextControls()
+	{
+		principalTxt = (EditText)findViewById(R.id.principalTxt);
+		interestRateTxt = (EditText)findViewById(R.id.interestRateTxt);
+		loanTermTxt = (EditText)findViewById(R.id.loanTermTxt);
+	}
+	
 	public void initializeButtons() {
 		calculateBtn = (Button) findViewById(R.id.calculateBtn);
 		calculateBtn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				principalAmount = Double.parseDouble(principalTxt.getText().toString());
+				interestRate = Double.parseDouble(interestRateTxt.getText().toString());
+				loanTerm = Double.parseDouble(loanTermTxt.getText().toString());
+				paymentAmount = Driver.amortize(principalAmount, interestRate, loanTerm);
 				Toast.makeText(MainActivity.this, "Calculate Payment Request",
 						Toast.LENGTH_LONG).show();
 			}

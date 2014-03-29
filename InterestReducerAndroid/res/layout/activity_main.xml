@@ -7,7 +7,7 @@
     >
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/principalTxt"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -16,7 +16,7 @@
         android:inputType="numberDecimal" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/interestRateTxt"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="130dp"
@@ -25,7 +25,7 @@
         android:inputType="numberDecimal" />
     
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/loanTermTxt"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="130dp"
@@ -34,7 +34,7 @@
         android:inputType="numberDecimal" />
 
     <TextView
-        android:id="@+id/principalTxt"
+        android:id="@+id/principalLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
@@ -43,7 +43,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/interestRateTxt"
+        android:id="@+id/interestRateLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
@@ -52,7 +52,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
     
     <TextView
-        android:id="@+id/lengthOfLoanTxt"
+        android:id="@+id/loanTermLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
@@ -61,7 +61,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
     
     <TextView
-        android:id="@+id/monthlyPaymentAmountTxt"
+        android:id="@+id/monthlyPaymentAmountLbl"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
