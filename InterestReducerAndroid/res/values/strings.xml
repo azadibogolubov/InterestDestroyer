@@ -12,6 +12,7 @@
 	<string name="principal">Principal:</string>
     <string name="interest">Interest Rate:</string>
     <string name="extra_payment">Extra Payment:</string>
+    <string name="num_months"># of Months:</string>
 	<string name="get_results">Get Results</string>
 	    
     <string name="title_activity_extra_payments_chart">Extra Payments Chart</string>

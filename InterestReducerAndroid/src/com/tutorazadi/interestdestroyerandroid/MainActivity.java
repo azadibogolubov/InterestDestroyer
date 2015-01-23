@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
 	public static double principal_paid;
 	public static int payoff_years;
 	public static double payoff_months;
-	
+	//
 	public static double[] extra_payments, minimum_payments;
 	public static double interest_paid = 0.00f;
 	public static double timeSaved;
@@ -52,7 +52,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-/*
+
 		getInfo = (Button)findViewById(R.id.getInfo);
 		
 		principalTxt = (EditText)findViewById(R.id.principalTxt);
@@ -115,7 +115,7 @@ public class MainActivity extends Activity {
         		}
                 calculate(v);
             }
-        });*/
+        });
 	}
 
 	@Override
@@ -137,7 +137,7 @@ public class MainActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	/*
+	
 	public void calculate(View v)
 	{		
 		extra_payments = new double[(int)time];
@@ -218,7 +218,7 @@ public class MainActivity extends Activity {
 			}
 		}
 		
-		Intent goToResultsChart = new Intent(this, ExtraPaymentChart.class);
+		Intent goToResultsChart = new Intent(this, ExtraPaymentChartActivity.class);
 		Bundle extra = new Bundle();
 		extra.putDouble("TIME_SAVED", timeSaved);
 		extra.putDouble("INTEREST_SAVED", interestSaved);
@@ -237,5 +237,5 @@ public class MainActivity extends Activity {
 		// Turn into monthly amount instead of annual.
 		rate /= 12;
 		return principal * ((rate * Math.pow((1 + rate), time))/(Math.pow((1+rate),time)-1));
-	}*/
+	}
 }
