@@ -18,34 +18,8 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name="com.tutorazadi.interestdestroyerandroid.ResultsActivity"
-            android:label="@string/title_activity_results" >
-        </activity>
-        <activity
-            android:name="com.tutorazadi.interestdestroyerandroid.Amortization"
-            android:label="@string/title_activity_amortization" >
-        </activity>
-        <activity
-            android:name="com.tutorazadi.interestdestroyerandroid.ResultsChartActivity"
-            android:label="@string/title_activity_results_chart" >
-        </activity>
-        <activity android:name="org.achartengine.GraphicalActivity" />
-        <activity
-            android:name="com.tutorazadi.interestdestroyerandroid.ExtraPaymentsChart"
-            android:label="@string/title_activity_extra_payments_chart" >
-        </activity>
-        <activity
-            android:name="com.tutorazadi.interestdestroyerandroid.BarChart"
-            android:label="@string/title_activity_bar_chart" >
-        </activity>
-        <activity
-            android:name="com.tutorazadi.interestdestroyerandroid.ExtraPaymentChart"
-            android:label="@string/title_activity_extra_payment_chart" >
         </activity>
     </application>
 

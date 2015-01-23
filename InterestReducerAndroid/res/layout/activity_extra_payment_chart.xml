@@ -1,37 +1,8 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/chartsRelativeLayout"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@android:color/black" >
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
 
-    <TextView
-        android:id="@+id/interestSaved"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
-        android:text="Interest Saved: "
-        android:textAppearance="?android:attr/textAppearanceMedium" 
-        android:textColor="@android:color/white" />
-
-    <TextView
-        android:id="@+id/monthsSaved"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/interestSaved"
-        android:text="Years Saved: "
-        android:textAppearance="?android:attr/textAppearanceMedium" 
-        android:textColor="@android:color/white" />
-
-<!--     <Button
-        android:id="@+id/amortizeBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/monthsSaved"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:textColor="@android:color/white" 
-        android:text="Amortization"  /> -->
-
-</RelativeLayout>
+</LinearLayout>

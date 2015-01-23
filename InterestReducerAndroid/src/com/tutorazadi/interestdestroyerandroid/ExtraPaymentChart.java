@@ -136,17 +136,17 @@ public class ExtraPaymentChart extends Activity {
         multiRenderer.addSeriesRenderer(extraPaymentRenderer);
         
         
-        monthsSavedLbl = (TextView)findViewById(R.id.monthsSaved);
-        interestSavedLbl = (TextView)findViewById(R.id.interestSaved);
+        //monthsSavedLbl = (TextView)findViewById(R.id.monthsSaved);
+        //interestSavedLbl = (TextView)findViewById(R.id.interestSaved);
 
-        monthsSavedLbl.setText(monthsSavedLbl.getText() + String.valueOf(df.format(extras.getDouble("TIME_SAVED"))));
-        interestSavedLbl.setText(interestSavedLbl.getText() + String.valueOf(n.format(extras.getDouble("INTEREST_SAVED"))));
+        //monthsSavedLbl.setText(monthsSavedLbl.getText() + String.valueOf(df.format(extras.getDouble("TIME_SAVED"))));
+        //interestSavedLbl.setText(interestSavedLbl.getText() + String.valueOf(n.format(extras.getDouble("INTEREST_SAVED"))));
         mChartView = ChartFactory.getBarChartView(this, dataset, multiRenderer, BarChart.Type.DEFAULT);
 		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
 //		params.addRule(RelativeLayout.BELOW, findViewById(R.id.amortizeBtn).getId());
 		mChartView.setLayoutParams(params);
-		RelativeLayout layout = (RelativeLayout) findViewById(R.id.chartsRelativeLayout);
-		layout.addView(mChartView);
+//		RelativeLayout layout = (RelativeLayout) findViewById(R.id.chartsRelativeLayout);
+		//layout.addView(mChartView);
 	}
 
 	public void paidOnly(View v)
@@ -185,22 +185,4 @@ public class ExtraPaymentChart extends Activity {
 	    }
 	    return super.onKeyDown(keyCode, event);
 	}
-	
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	/*public static class PlaceholderFragment extends Fragment {
-
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(
-					R.layout.fragment_extra_payment_chart, container, false);
-			return rootView;
-		}
-	}*/
-
 }

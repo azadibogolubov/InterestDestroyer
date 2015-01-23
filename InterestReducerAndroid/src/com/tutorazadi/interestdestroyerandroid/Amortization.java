@@ -33,12 +33,8 @@ public class Amortization extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_amortization);
 		this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-/*		if (savedInstanceState == null) {
-			getFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
-		}*/
-		table = (TableLayout)findViewById(R.id.table);
-		spinner = (Spinner)findViewById(R.id.spinner_compare);		
+		//table = (TableLayout)findViewById(R.id.table);
+		//spinner = (Spinner)findViewById(R.id.spinner_compare);		
 		
 		TableRow row[] = new TableRow[360];
 		for (int i = 0; i < 360; i++)
@@ -94,21 +90,4 @@ public class Amortization extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-/*	public static class PlaceholderFragment extends Fragment {
-
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_amortization,
-					container, false);
-			return rootView;
-		}
-	}*/
-
 }
