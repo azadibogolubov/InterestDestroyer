@@ -3,67 +3,90 @@ package com.tutorazadi.interestdestroyerandroid;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
-import java.util.Random;
-
-import org.achartengine.ChartFactory;
-import org.achartengine.GraphicalView;
-import org.achartengine.chart.BarChart;
-import org.achartengine.model.CategorySeries;
-import org.achartengine.model.XYMultipleSeriesDataset;
-import org.achartengine.model.XYSeries;
-import org.achartengine.renderer.DefaultRenderer;
-import org.achartengine.renderer.SimpleSeriesRenderer;
-import org.achartengine.renderer.XYMultipleSeriesRenderer;
-import org.achartengine.renderer.XYSeriesRenderer;
 
 import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.widget.Button;
-import android.widget.RelativeLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.os.Build;
 
 public class ExtraPaymentChartActivity extends Activity {
 
-	GraphicalView mChartView = null;
 	public static NumberFormat n = NumberFormat.getCurrencyInstance(Locale.US);
 	public static DecimalFormat df = new DecimalFormat("#.##");
 	public static double[] extraPayment, minimumPayment;
+	double payoff_months, interest;
+	TextView yearsSaved, interestSaved;
+	String data;
+	ProgressBar progressBar;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_extra_payment_chart);
 
+		yearsSaved = (TextView) findViewById(R.id.yearsSaved);
+		interestSaved = (TextView) findViewById(R.id.interestSaved);
+		
 		Bundle extras = getIntent().getExtras();
-		int size = (int)extras.getDouble("TOTAL_MONTHS");
-
 		extraPayment = extras.getDoubleArray("EXTRA_PAYMENTS");
 		minimumPayment = extras.getDoubleArray("MINIMUM_PAYMENTS");
+		payoff_months = extras.getDouble("PAYOFF_MONTHS");
+		interest = extras.getDouble("INTEREST_SAVED");
+		
+		yearsSaved.setText(String.format("%s %.2f", yearsSaved.getText().toString(), payoff_months));
+		interestSaved.setText(String.format("%s $%.2f", interestSaved.getText().toString(), interest));
+		
+		int year = 2014;
+		String values = "";
+		for (int i = 0; i < extraPayment.length; i++)
+		{
+			values += "[\'" + year + "\', " + minimumPayment[i] / 1000 + ", " + extraPayment[i] / 1000 + "]";
+			if (i % 11 == 0)
+				year++;
+			if (i != extraPayment.length-1)
+				values += ",";
+			if (i == extraPayment.length-1)
+				values += "]);";
+		}
+//		Toast.makeText(this, values, 100).show();
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-		String data = "<html> <head> <script type=\"text/javascript\" src=\"https://www.google.com/jsapi\"></script> <script type=\"text/javascript\">google.load(\"visualization\", \"1.1\",{packages:[\"bar\"]}); google.setOnLoadCallback(drawChart); function drawChart(){var data=google.visualization.arrayToDataTable([ ['Year', 'Sales', 'Expenses', 'Profit'], ['2014', 1000, 400, 200], ['2015', 1170, 460, 250], ['2016', 660, 1120, 300], ['2017', 1030, 540, 350]]); var options={chart:{title: 'Company Performance', subtitle: 'Sales, Expenses, and Profit: 2014-2017',}, bars: 'horizontal' }; var chart=new google.charts.Bar(document.getElementById('barchart_material')); chart.draw(data, options);}</script></head><body><div id=\"barchart_material\" style=\"width: 900px; height: 500px;\"></div></body></html>";
-        WebView webview = (WebView)this.findViewById(R.id.webView);
+		
+		data = "<html> "
+				+ "<head> "
+				+ "<script type=\"text/javascript\" src=\"https://www.google.com/jsapi\"></script>"
+				+ " <script type=\"text/javascript\">"
+				+ "google.load(\"visualization\", \"1.1\",{packages:[\"bar\"]}); "
+				+ "google.setOnLoadCallback(drawChart); "
+				+ "function drawChart(){var data=google.visualization.arrayToDataTable([ ['Year', 'Minimum payment', 'Extra payment'], "
+				+ values
+				+ "var options={chart:{title: 'Mortgage information', subtitle: '30 year view',}, bars: 'horizontal' }; "
+				+ "var chart=new google.charts.Bar(document.getElementById('barchart_material')); "
+				+ "chart.draw(data, options);"
+				+ "}</script>"
+				+ "</head>"
+				+ "<body>"
+				+ "<div id=\"barchart_material\" style=\"width: 900px; height: 500px;\">"
+				+ "</div>"
+				+ "</body>"
+				+ "</html>";
+        final WebView webview = (WebView)this.findViewById(R.id.webView);
         webview.getSettings().setLoadWithOverviewMode(true); 
         webview.getSettings().setUseWideViewPort(true);
         webview.getSettings().setJavaScriptEnabled(true);
-        webview.loadData(data, "text/html", "UTF-8");
-        //webview.loadUrl("http://www.google.com");
+        Runnable r = new Runnable() {
+        	public void run()
+        	{
+        	       webview.loadData(data, "text/html", "UTF-8");
 
-	}
+        	}
+        };
+        r.run();
+ 	}
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
