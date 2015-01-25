@@ -28,7 +28,7 @@ public class MainActivity extends Activity {
 
 	public static double rate;
 	public static double principal, principal_original;
-	public static int time;
+	public static double time;
 	public static double payment_amount;
 	public static double extra_payment;
 	public static double simple_interest;
@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
 	public static double principal_paid;
 	public static int payoff_years;
 	public static double payoff_months;
-	//
+	
 	public static double[] extra_payments, minimum_payments;
 	public static double interest_paid = 0.00f;
 	public static double timeSaved;
@@ -53,6 +53,10 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+/*		if (savedInstanceState == null) {
+			getFragmentManager().beginTransaction()
+					.add(R.id.container, new PlaceholderFragment()).commit();
+		}*/
 		getInfo = (Button)findViewById(R.id.getInfo);
 		
 		principalTxt = (EditText)findViewById(R.id.principalTxt);
@@ -88,7 +92,7 @@ public class MainActivity extends Activity {
         		
         		try 
         		{ 
-        			time = Integer.parseInt(monthsTxt.getText().toString()); 
+        			time = Double.parseDouble(monthsTxt.getText().toString()); 
         		}
         		catch (InputMismatchException e) 
         		{ 
@@ -137,6 +141,22 @@ public class MainActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
+	/**
+	 * A placeholder fragment containing a simple view.
+	 */
+	public static class PlaceholderFragment extends Fragment {
+
+		public PlaceholderFragment() {
+		}
+
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			View rootView = inflater.inflate(R.layout.activity_main, container, false);
+			return rootView;
+		}
+	}
 	
 	public void calculate(View v)
 	{		
@@ -159,6 +179,7 @@ public class MainActivity extends Activity {
 		{
 				if (principal <= 0)
 					break;
+				//System.out.println("Month #: " + i);
 				net_interest = principal * (1+ (rate / 100) / 12) - principal;
 				if (net_interest <= 0)
 					net_interest = 0;
@@ -197,7 +218,7 @@ public class MainActivity extends Activity {
 			if (principal <= 0)
 				break;
 			//System.out.println("Month #: " + i);
-			net_interest = principal * (1 + (rate / 100) / 12) - principal;
+			net_interest = principal * (1+ (rate / 100) / 12) - principal;
 			if (net_interest <= 0)
 				net_interest = 0;
 			if ((principal + net_interest) < payment_amount)
@@ -221,9 +242,7 @@ public class MainActivity extends Activity {
 		Bundle extra = new Bundle();
 		extra.putDouble("TIME_SAVED", timeSaved);
 		extra.putDouble("INTEREST_SAVED", interestSaved);
-		extra.putInt("TOTAL_MONTHS", time);
-		extra.putDouble("PAYOFF_MONTHS", timeSaved);
-		extra.putDouble("INTEREST_SAVED", interestSaved);
+		extra.putDouble("TOTAL_MONTHS", time);
 		extra.putDoubleArray("EXTRA_PAYMENTS", extra_payments);
 		extra.putDoubleArray("MINIMUM_PAYMENTS", minimum_payments);
 		

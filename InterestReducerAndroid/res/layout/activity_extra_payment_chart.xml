@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="#000000" >
 
     <TextView
         android:id="@+id/yearsSaved"
@@ -10,18 +11,22 @@
         android:layout_height="wrap_content"
         android:layout_gravity="left"
         android:text="Number of years saved:"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium" 
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/interestSaved"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Interest saved:"
+        android:textColor="#FFFFFF"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <WebView
-        android:id="@+id/webView"
+    <RelativeLayout
+        android:id="@+id/chartsRelativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" >
+
+    </RelativeLayout>
 
 </LinearLayout>

@@ -4,103 +4,142 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+import org.achartengine.ChartFactory;
+import org.achartengine.GraphicalView;
+import org.achartengine.chart.BarChart;
+import org.achartengine.model.XYMultipleSeriesDataset;
+import org.achartengine.model.XYSeries;
+import org.achartengine.renderer.XYMultipleSeriesRenderer;
+import org.achartengine.renderer.XYSeriesRenderer;
+
 import android.app.Activity;
-import android.content.pm.ActivityInfo;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.webkit.WebView;
-import android.widget.ProgressBar;
+import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ExtraPaymentChartActivity extends Activity {
 
+	GraphicalView mChartView = null;
 	public static NumberFormat n = NumberFormat.getCurrencyInstance(Locale.US);
 	public static DecimalFormat df = new DecimalFormat("#.##");
 	public static double[] extraPayment, minimumPayment;
-	double payoff_months, interest;
-	TextView yearsSaved, interestSaved;
-	String data;
-	ProgressBar progressBar;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_extra_payment_chart);
 
-		yearsSaved = (TextView) findViewById(R.id.yearsSaved);
-		interestSaved = (TextView) findViewById(R.id.interestSaved);
-		
 		Bundle extras = getIntent().getExtras();
+		int size = (int)extras.getDouble("TOTAL_MONTHS");
+		String[] mMonth = new String[size/12];
+		int[] x = new int[size];
+		int b = 0;
+		for (int i = 0; i < size; i+=12)
+		{
+			mMonth[b] = String.valueOf(b+1);
+			x[b] = (b+1);
+			b++;
+		}
 		extraPayment = extras.getDoubleArray("EXTRA_PAYMENTS");
 		minimumPayment = extras.getDoubleArray("MINIMUM_PAYMENTS");
-		payoff_months = extras.getDouble("PAYOFF_MONTHS");
-		interest = extras.getDouble("INTEREST_SAVED");
-		
-		yearsSaved.setText(String.format("%s %.2f", yearsSaved.getText().toString(), payoff_months));
-		interestSaved.setText(String.format("%s $%.2f", interestSaved.getText().toString(), interest));
-		
-		int year = 2014;
-		String values = "";
-		for (int i = 0; i < extraPayment.length; i++)
-		{
-			values += "[\'" + year + "\', " + minimumPayment[i] / 1000 + ", " + extraPayment[i] / 1000 + "]";
-			if (i % 11 == 0)
-				year++;
-			if (i != extraPayment.length-1)
-				values += ",";
-			if (i == extraPayment.length-1)
-				values += "]);";
-		}
-//		Toast.makeText(this, values, 100).show();
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-		
-		data = "<html> "
-				+ "<head> "
-				+ "<script type=\"text/javascript\" src=\"https://www.google.com/jsapi\"></script>"
-				+ " <script type=\"text/javascript\">"
-				+ "google.load(\"visualization\", \"1.1\",{packages:[\"bar\"]}); "
-				+ "google.setOnLoadCallback(drawChart); "
-				+ "function drawChart(){var data=google.visualization.arrayToDataTable([ ['Year', 'Minimum payment', 'Extra payment'], "
-				+ values
-				+ "var options={chart:{title: 'Mortgage information', subtitle: '30 year view',}, bars: 'horizontal' }; "
-				+ "var chart=new google.charts.Bar(document.getElementById('barchart_material')); "
-				+ "chart.draw(data, options);"
-				+ "}</script>"
-				+ "</head>"
-				+ "<body>"
-				+ "<div id=\"barchart_material\" style=\"width: 900px; height: 500px;\">"
-				+ "</div>"
-				+ "</body>"
-				+ "</html>";
-        final WebView webview = (WebView)this.findViewById(R.id.webView);
-        webview.getSettings().setLoadWithOverviewMode(true); 
-        webview.getSettings().setUseWideViewPort(true);
-        webview.getSettings().setJavaScriptEnabled(true);
-        Runnable r = new Runnable() {
-        	public void run()
-        	{
-        	       webview.loadData(data, "text/html", "UTF-8");
 
-        	}
-        };
-        r.run();
- 	}
+		TextView yearsSavedLbl;
+        TextView interestSavedLbl;
+        
+        DisplayMetrics metrics = this.getResources().getDisplayMetrics();
+        float val = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 12, metrics);
+        
+        XYSeries baseSeries = new XYSeries("Base");
+        XYSeries extraPaymentSeries = new XYSeries("Extra Payment");
+        
+        int c = 0;
+        for(int i=0;i<size;i+=12)
+        {
+            baseSeries.add(c,minimumPayment[i] / 100);
+            extraPaymentSeries.add(c,extraPayment[i] / 100);
+            c++;
+        }
+ 
+        XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
+        dataset.addSeries(baseSeries);
+        dataset.addSeries(extraPaymentSeries);
+ 
+        XYSeriesRenderer baseRenderer = new XYSeriesRenderer();
+        baseRenderer.setGradientEnabled(true);
+        baseRenderer.setGradientStart(0, Color.rgb(255, 255, 255));
+        baseRenderer.setGradientStop(1000, Color.rgb(0, 0, 255));       
+        baseRenderer.setFillPoints(true);
+        baseRenderer.setLineWidth(5);
+        baseRenderer.setDisplayChartValues(false);
+
+        XYSeriesRenderer extraPaymentRenderer = new XYSeriesRenderer();
+        extraPaymentRenderer.setGradientEnabled(true);
+        extraPaymentRenderer.setGradientStart(0, Color.rgb(255, 255, 255));
+        extraPaymentRenderer.setGradientStop(1000, Color.rgb(0, 255, 0));
+        extraPaymentRenderer.setFillPoints(true);
+        extraPaymentRenderer.setLineWidth(5);
+        extraPaymentRenderer.setColor(Color.GREEN);
+        extraPaymentRenderer.setDisplayChartValues(false);
+        
+        XYMultipleSeriesRenderer multiRenderer = new XYMultipleSeriesRenderer();
+        multiRenderer.setXLabels(0);
+        multiRenderer.setYLabels(0);
+        multiRenderer.setXTitle("Year #");
+        multiRenderer.setYTitle("Principal remaining");
+        multiRenderer.setZoomButtonsVisible(true);
+        multiRenderer.setLegendTextSize(24);
+        multiRenderer.setXAxisMin(-5.0f);
+        multiRenderer.setXAxisMax(10.0f);
+        multiRenderer.setYAxisMin(0.0f);
+        multiRenderer.setYAxisMax(1000.0f);
+        multiRenderer.setAxisTitleTextSize(val);
+        multiRenderer.setLabelsColor(Color.GREEN);
+        multiRenderer.setApplyBackgroundColor(true);
+        multiRenderer.setBackgroundColor(Color.BLACK);
+        multiRenderer.setMarginsColor(Color.BLACK);
+        multiRenderer.setPanEnabled(true,  false);
+        
+        for(int i=0; i< size/12;i++)
+            multiRenderer.addXTextLabel(i, mMonth[i]);
+        
+        multiRenderer.addSeriesRenderer(baseRenderer);
+        multiRenderer.addSeriesRenderer(extraPaymentRenderer);
+        
+        yearsSavedLbl = (TextView)findViewById(R.id.yearsSaved);
+        interestSavedLbl = (TextView)findViewById(R.id.interestSaved);
+
+        yearsSavedLbl.setText(yearsSavedLbl.getText() + String.valueOf(df.format(extras.getDouble("TIME_SAVED"))));
+        interestSavedLbl.setText(interestSavedLbl.getText() + String.valueOf(n.format(extras.getDouble("INTEREST_SAVED"))));
+        mChartView = ChartFactory.getBarChartView(this, dataset, multiRenderer, BarChart.Type.DEFAULT);
+		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
+		mChartView.setLayoutParams(params);
+		RelativeLayout layout = (RelativeLayout) findViewById(R.id.chartsRelativeLayout);
+		layout.addView(mChartView);
+	}
+
+	public void paidOnly(View v)
+	{
+		Intent intent = new Intent(this, Amortization.class);
+		startActivity(intent);
+	}
 	
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-
-		// Inflate the menu; this adds items to the action bar if it is present.
+	public boolean onCreateOptionsMenu(Menu menu) 
+	{
 		getMenuInflater().inflate(R.menu.extra_payment_chart, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;
