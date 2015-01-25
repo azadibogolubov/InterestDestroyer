@@ -22,6 +22,8 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -31,13 +33,27 @@ public class ExtraPaymentChartActivity extends Activity {
 	public static NumberFormat n = NumberFormat.getCurrencyInstance(Locale.US);
 	public static DecimalFormat df = new DecimalFormat("#.##");
 	public static double[] extraPayment, minimumPayment;
+	public Button amortizeBtn;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_extra_payment_chart);
 
+		amortizeBtn = (Button) findViewById(R.id.amortizeBtn);
+		amortizeBtn.setOnClickListener(new OnClickListener()
+		{
+			public void onClick(View v)
+			{
+				Intent intent = new Intent(ExtraPaymentChartActivity.this, AmortizationActivity.class);
+				startActivity(intent);
+			}
+		});
+		
 		Bundle extras = getIntent().getExtras();
+		extraPayment = extras.getDoubleArray("EXTRA_PAYMENTS");
+		minimumPayment = extras.getDoubleArray("MINIMUM_PAYMENTS");
+		
 		int size = (int)extras.getDouble("TOTAL_MONTHS");
 		String[] mMonth = new String[size/12];
 		int[] x = new int[size];
@@ -48,8 +64,6 @@ public class ExtraPaymentChartActivity extends Activity {
 			x[b] = (b+1);
 			b++;
 		}
-		extraPayment = extras.getDoubleArray("EXTRA_PAYMENTS");
-		minimumPayment = extras.getDoubleArray("MINIMUM_PAYMENTS");
 
 		TextView yearsSavedLbl;
         TextView interestSavedLbl;
@@ -123,12 +137,6 @@ public class ExtraPaymentChartActivity extends Activity {
 		mChartView.setLayoutParams(params);
 		RelativeLayout layout = (RelativeLayout) findViewById(R.id.chartsRelativeLayout);
 		layout.addView(mChartView);
-	}
-
-	public void paidOnly(View v)
-	{
-		Intent intent = new Intent(this, Amortization.class);
-		startActivity(intent);
 	}
 	
 	@Override
