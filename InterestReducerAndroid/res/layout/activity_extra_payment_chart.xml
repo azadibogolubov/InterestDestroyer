@@ -25,7 +25,8 @@
     <RelativeLayout
         android:id="@+id/chartsRelativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="374dp" >
+        android:layout_height="338dp"
+        android:layout_marginTop="10dp" >
 
     </RelativeLayout>
 
@@ -34,6 +35,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="#C3C3C3"
         android:text="Amortization" />
 
 </LinearLayout>

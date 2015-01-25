@@ -26,6 +26,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ExtraPaymentChartActivity extends Activity {
 
@@ -34,25 +35,43 @@ public class ExtraPaymentChartActivity extends Activity {
 	public static DecimalFormat df = new DecimalFormat("#.##");
 	public static double[] extraPayment, minimumPayment;
 	public Button amortizeBtn;
+	public double timeSaved, interestSaved, totalMonths;
+	public String principal, extraPaymentAmount, interest;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_extra_payment_chart);
 
+		Bundle extras = getIntent().getExtras();
+		minimumPayment = extras.getDoubleArray("MINIMUM_PAYMENTS");
+		extraPayment = extras.getDoubleArray("EXTRA_PAYMENTS");
+		principal = extras.getString("PRINCIPAL");
+		interestSaved = extras.getDouble("INTEREST_SAVED");
+		timeSaved = extras.getDouble("TIME_SAVED");
+		interest = extras.getString("INTEREST_RATE");
+		extraPaymentAmount = extras.getString("EXTRA_PAYMENT_AMOUNT");
+		Toast.makeText(this, "Time: " + timeSaved + "\nInterest" + interestSaved, 1000).show();
+		
 		amortizeBtn = (Button) findViewById(R.id.amortizeBtn);
 		amortizeBtn.setOnClickListener(new OnClickListener()
 		{
 			public void onClick(View v)
 			{
 				Intent intent = new Intent(ExtraPaymentChartActivity.this, AmortizationActivity.class);
+				Bundle extra = new Bundle();
+				extra.putDoubleArray("MINIMUM_PAYMENTS", minimumPayment);
+				extra.putDoubleArray("EXTRA_PAYMENTS", extraPayment);
+				extra.putString("PRINCIPAL", principal);
+				extra.putString("INTEREST_RATE", interest);
+				extra.putDouble("TIME_SAVED", timeSaved);
+				extra.putDouble("INTEREST_SAVED", interestSaved);
+				extra.putString("EXTRA_PAYMENT_AMOUNT", extraPaymentAmount);
+				extra.putDouble("TOTAL_MONTHS", totalMonths);
+				intent.putExtras(extra);
 				startActivity(intent);
 			}
 		});
-		
-		Bundle extras = getIntent().getExtras();
-		extraPayment = extras.getDoubleArray("EXTRA_PAYMENTS");
-		minimumPayment = extras.getDoubleArray("MINIMUM_PAYMENTS");
 		
 		int size = (int)extras.getDouble("TOTAL_MONTHS");
 		String[] mMonth = new String[size/12];
