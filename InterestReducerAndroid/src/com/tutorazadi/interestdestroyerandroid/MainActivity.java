@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -68,42 +69,31 @@ public class MainActivity extends Activity {
         		principal_paid = 0.00;
         		payment_amount = amortize(principal, rate, time);
 
-        		try 
-        		{ 
-        			System.out.println("Principal: " + principalTxt.getText());
+        		try
+        		{
+        			if (principalTxt.getText().length() < 4)
+        			{
+        				Toast.makeText(MainActivity.this, "Minimum amount for principal must be greater than $1000.", Toast.LENGTH_LONG).show();
+        				return;
+        			}
+        			else if (monthsTxt.getText().length() < 1)
+        			{
+        				Toast.makeText(MainActivity.this, "Minimum number of months must be greater than 0.", Toast.LENGTH_LONG).show();
+        				return;        				
+        			}
+        			else if (interestTxt.getText().length() < 1)
+        			{
+        				Toast.makeText(MainActivity.this, "Minimum interest rate must be greater than 0%.", Toast.LENGTH_LONG).show();
+        				return;
+        			}
         			principal_original = principal = Double.parseDouble(principalTxt.getText().toString());
-        		}
-        		catch (InputMismatchException e) 
-        		{ 
-        			//Toast.makeText(this, "Usage: Decimal or Integer input", Toast.LENGTH_LONG).show();
-        		}
-        		
-        		try 
-        		{ 
         			time = Double.parseDouble(monthsTxt.getText().toString()); 
-        		}
-        		catch (InputMismatchException e) 
-        		{ 
-        			//Toast.makeText(this, "Usage: Decimal or Integer input", Toast.LENGTH_LONG).show();
-        		}
-
-        		try 
-        		{ 
         			rate = Double.parseDouble(interestTxt.getText().toString()); 
-        		}
-        		catch (InputMismatchException e) 
-        		{ 
-        			//Toast.makeText(this, "Usage: Decimal or Integer input", Toast.LENGTH_LONG).show();
-        		}
-
-        		//System.out.println("Enter extra payment amount: (e.g. 500.50");
-        		try 
-        		{ 
         			extra_payment = Double.parseDouble(extraPaymentTxt.getText().toString()); 
         		}
-        		catch (InputMismatchException e)
+        		catch (NumberFormatException e)
         		{
-        			//Toast.makeText(this, "Usage: Decimal or Integer input", Toast.LENGTH_LONG).show();
+        			Toast.makeText(MainActivity.this, "You have entered invalid data.", Toast.LENGTH_LONG).show();
         		}
                 calculate(v);
             }
