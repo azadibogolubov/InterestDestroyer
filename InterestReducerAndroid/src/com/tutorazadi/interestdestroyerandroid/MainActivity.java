@@ -2,7 +2,6 @@ package com.tutorazadi.interestdestroyerandroid;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.InputMismatchException;
 import java.util.Locale;
 
 import android.app.Activity;
@@ -128,75 +127,30 @@ public class MainActivity extends Activity {
 			extra_payments[i] = 0.00;
 			minimum_payments[i] = 0.00;
 		}
-		//Toast.makeText(this, "Extra Payment: " + n.format(extra_payment), Toast.LENGTH_LONG).show();
 		
-		simple_interest = principal * (rate / 100) * (time / 12);
-		//Toast.makeText(this, "Simple interest: " + n.format(simple_interest), Toast.LENGTH_LONG).show();
+		// Toast.makeText(this, "Simple interest: " + n.format(simple_interest), Toast.LENGTH_LONG).show();
 		payment_amount = amortize(principal, rate, time);
+		simple_interest = principal * (rate / 100) * (time / 12);
 
 		// Calculate extra payment #s.
 		for (int i = 0; i < time; i++)
-		{
-				if (principal <= 0)
-					break;
-				//System.out.println("Month #: " + i);
-				net_interest = principal * (1+ (rate / 100) / 12) - principal;
-				if (net_interest <= 0)
-					net_interest = 0;
-				if ((principal + net_interest) < (payment_amount + extra_payment))
-				{
-					payment_amount = principal + net_interest;
-					principal_paid = payment_amount - net_interest;
-					principal -= principal_paid;
-					extra_payments[i] = principal;
-					interest_paid += net_interest;
-				}
-				else
-				{
-					principal_paid = payment_amount - net_interest  + extra_payment;
-					principal -= principal_paid;
-					extra_payments[i] = principal;
-					interest_paid += net_interest;
-				}
-				payoff_years = i / 12;
-				payoff_months = (double)i % 12;
-		}
-		timeSaved = (time - (payoff_years * 12) - payoff_months) / 12;
+        {
+                compound_interest = principal * (1 + (rate / 1200)) - principal;
+                if (compound_interest <= 0)
+                        break;
+                interest_paid += compound_interest;
+                principal_paid = (payment_amount + extra_payment) - compound_interest;
+                principal -= principal_paid;
+        }
+		timeSaved = 0;
 		interestSaved = simple_interest - interest_paid;
 		
 		// Reset variables...
 		principal = principal_original;
-		simple_interest = principal * (rate / 100) * (time / 12);
 		interest_paid = 0.00;
 		net_interest = 0.00;
 		principal_paid = 0.00;
 		payment_amount = amortize(principal, rate, time);
-
-		// Loop for minimum payments...
-		for (int i = 1; i < time+1; i++)
-		{
-			if (principal <= 0)
-				break;
-			//System.out.println("Month #: " + i);
-			net_interest = principal * (1+ (rate / 100) / 12) - principal;
-			if (net_interest <= 0)
-				net_interest = 0;
-			if ((principal + net_interest) < payment_amount)
-			{
-				payment_amount = principal + net_interest;
-				principal_paid = payment_amount - net_interest;
-				principal -= principal_paid;
-				minimum_payments[i-1] = principal;
-				interest_paid += net_interest;
-			}
-			else
-			{
-				principal_paid = payment_amount - net_interest;
-				principal -= principal_paid;
-				minimum_payments[i-1] = principal;
-				interest_paid += net_interest;
-			}
-		}
 		
 		Intent goToResultsChart = new Intent(this, ExtraPaymentChartActivity.class);
 		Bundle extra = new Bundle();
@@ -214,10 +168,6 @@ public class MainActivity extends Activity {
 	
 	public static double amortize(double principal, double rate, double time)
 	{
-		// Turn X.XX% into 0.XX for decimal figure.
-		rate /= 100;
-		// Turn into monthly amount instead of annual.
-		rate /= 12;
-		return principal * ((rate * Math.pow((1 + rate), time))/(Math.pow((1+rate),time)-1));
-	}
+		rate /= 1200;
+        return (principal * rate * Math.pow((1 + rate), time))/(Math.pow((1+rate),time)-1);	}
 }

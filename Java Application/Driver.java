@@ -26,7 +26,7 @@ public class Driver
 
         public static void main(String args[])
         {
-                Scanner scanner = new Scanner(System.in);
+                /*Scanner scanner = new Scanner(System.in);
                 System.out.println("Enter principal");
                 try { principal = scanner.nextDouble(); }
                 catch (InputMismatchException e)
@@ -58,30 +58,52 @@ public class Driver
                         System.out.println("Usage: Decimal or Integer input");
                         scanner.nextLine();
                 }
-                scanner.close();
+                scanner.close();*/
 
-                /*principal = 100000;
+                principal = 100000;
                 rate = 5.25;
-                time = 360;*/
+                time = 360;
 
-                System.out.println("Principal: " + n.format(principal));
+                /*System.out.println("Principal: " + n.format(principal));
                 System.out.println("Interest Rate: " + df.format(rate) + "%");
-                System.out.println("Time: " + df.format(time) + " months");
+                System.out.println("Time: " + df.format(time) + " months");*/
 
                 payment_amount = amortize(principal, rate, time);
                 System.out.println("Monthly payment amount: " + payment_amount);
                 for (int i = 0; i < time; i++)
                 {
-                        System.out.println("Month #: " + i);
+                        //System.out.println("Month #: " + i);
                         compound_interest = principal * (1 + (rate / 1200)) - principal;
                         if (compound_interest <= 0)
                                 break;
                         total_interest += compound_interest;
-                        System.out.println("Monthly payment amount is: " + n.format((payment_amount + extra_payment_amount)));
-                        System.out.println("Interest charged = " + n.format(compound_interest));
+                        //System.out.println("Monthly payment amount is: " + n.format((payment_amount + extra_payment_amount)));
+                        //System.out.println("Interest charged = " + n.format(compound_interest));
                         principal_paid = (payment_amount + extra_payment_amount) - compound_interest;
                         principal -= principal_paid;
-                        System.out.println("Principal paid down = " + n.format(principal_paid) + "\n");
+                        //System.out.println("Principal paid down = " + n.format(principal_paid) + "\n");
+                }
+                System.out.println("Total interest paid: " + n.format(total_interest));
+
+                principal = 100000;
+                rate = 5.25;
+                time = 360;
+                extra_payment_amount = 500;
+                total_interest = compound_interest = principal_paid = simple_interest = 0;
+                payment_amount = amortize(principal, rate, time);
+                System.out.println("Monthly payment amount: " + payment_amount);
+                for (int i = 0; i < time; i++)
+                {
+                        //System.out.println("Month #: " + i);
+                        compound_interest = principal * (1 + (rate / 1200)) - principal;
+                        if (compound_interest <= 0)
+                                break;
+                        total_interest += compound_interest;
+                        //System.out.println("Monthly payment amount is: " + n.format((payment_amount + extra_payment_amount)));
+                        //System.out.println("Interest charged = " + n.format(compound_interest));
+                        principal_paid = (payment_amount + extra_payment_amount) - compound_interest;
+                        principal -= principal_paid;
+                        //System.out.println("Principal paid down = " + n.format(principal_paid) + "\n");
                 }
                 System.out.println("Total interest paid: " + n.format(total_interest));
         }
