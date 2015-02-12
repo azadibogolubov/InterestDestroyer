@@ -88,7 +88,7 @@ public class Driver
                 principal = 100000;
                 rate = 5.25;
                 time = 360;
-                extra_payment_amount = 500;
+                extra_payment_amount = 100;
                 total_interest = compound_interest = principal_paid = simple_interest = 0;
                 payment_amount = amortize(principal, rate, time);
                 System.out.println("Monthly payment amount: " + payment_amount);

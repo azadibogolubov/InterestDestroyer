@@ -24,6 +24,7 @@ public class MainActivity extends Activity {
 	public static double extra_payment;
 	public static double simple_interest;
 	public static double compound_interest;
+	public static double original_interest;
 	public static double net_interest;
 	public double interestSaved;
 	public static double principal_paid;
@@ -31,7 +32,7 @@ public class MainActivity extends Activity {
 	public static double payoff_months;
 	
 	public static double[] extra_payments, minimum_payments;
-	public static double interest_paid = 0.00f;
+	public static double interest_paid = original_interest = 0.00f;
 	public static double timeSaved;
 	public static NumberFormat n = NumberFormat.getCurrencyInstance(Locale.US);
 	public static DecimalFormat df = new DecimalFormat("#.##");
@@ -121,36 +122,47 @@ public class MainActivity extends Activity {
 	{		
 		extra_payments = new double[(int)time];
 		minimum_payments = new double[(int)time];
-		
-		for (int i = 0; i < time; i++)
+		for (int i = 0; i < extra_payments.length; i++)
 		{
-			extra_payments[i] = 0.00;
-			minimum_payments[i] = 0.00;
+			minimum_payments[i] = 0.00f;
+			extra_payments[i] = 0.00f;
 		}
-		
-		// Toast.makeText(this, "Simple interest: " + n.format(simple_interest), Toast.LENGTH_LONG).show();
-		payment_amount = amortize(principal, rate, time);
-		simple_interest = principal * (rate / 100) * (time / 12);
 
-		// Calculate extra payment #s.
+		payment_amount = amortize(principal, rate, time);
 		for (int i = 0; i < time; i++)
         {
                 compound_interest = principal * (1 + (rate / 1200)) - principal;
                 if (compound_interest <= 0)
                         break;
                 interest_paid += compound_interest;
+                principal_paid = payment_amount - compound_interest;
+                principal -= principal_paid;
+        }		
+
+		original_interest = interest_paid;
+		
+		principal_original = principal = Double.parseDouble(principalTxt.getText().toString());
+		time = Double.parseDouble(monthsTxt.getText().toString()); 
+		rate = Double.parseDouble(interestTxt.getText().toString()); 
+		extra_payment = Double.parseDouble(extraPaymentTxt.getText().toString()); 
+
+		interest_paid = compound_interest = principal_paid = simple_interest = 0;
+        payment_amount = amortize(principal, rate, time);
+        System.out.println("Monthly payment amount: " + payment_amount);
+        for (int i = 0; i < time; i++)
+        {
+                compound_interest = principal * (1 + (rate / 1200)) - principal;
+                if (compound_interest <= 0)
+                {
+                	payoff_months = i;
+                    break;
+                }
+                interest_paid += compound_interest;
                 principal_paid = (payment_amount + extra_payment) - compound_interest;
                 principal -= principal_paid;
         }
-		timeSaved = 0;
-		interestSaved = simple_interest - interest_paid;
-		
-		// Reset variables...
-		principal = principal_original;
-		interest_paid = 0.00;
-		net_interest = 0.00;
-		principal_paid = 0.00;
-		payment_amount = amortize(principal, rate, time);
+        timeSaved = (time - payoff_months) / 12;
+        interestSaved = original_interest - interest_paid;
 		
 		Intent goToResultsChart = new Intent(this, ExtraPaymentChartActivity.class);
 		Bundle extra = new Bundle();
