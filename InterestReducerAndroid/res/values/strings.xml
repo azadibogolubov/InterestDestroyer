@@ -2,30 +2,30 @@
 <resources>
 
     <string name="app_name">Interest Destroyer</string>
-	<string name="welcome">Welcome to Interest Destroyer</string>
+    <string name="welcome">Welcome to Interest Destroyer</string>
     <string name="action_settings">Settings</string>
-    
     <string name="title_activity_main">Gathering Information</string>
     <string name="title_activity_results">Results</string>
     <string name="title_activity_amortization">Amortization</string>
     <string name="title_activity_results_chart">Charted Results</string>
-	
-	<string name="principal">Principal:</string>
+    <string name="principal">Principal:</string>
     <string name="interest">Interest Rate:</string>
     <string name="extra_payment">Extra Payment:</string>
     <string name="num_months"># of Months:</string>
-	<string name="get_results">Get Results</string>
-	    
+    <string name="get_results">Get Results</string>
     <string name="title_activity_extra_payments_chart">Extra Payments Chart</string>
     <string name="title_activity_bar_chart">Bar Chart</string>
 
     <string-array name="time_display">
-		<item>Months</item>
-		<item>Years</item>
-	</string-array>
-	
-	<string-array name="comparisons_display">
-	    <item>No Extra Payment</item>
-	    <item>Extra Payment</item>
-	</string-array>
+        <item>Months</item>
+        <item>Years</item>
+    </string-array>
+    <string-array name="comparisons_display">
+        <item>No Extra Payment</item>
+        <item>Extra Payment</item>
+    </string-array>
+
+    <string name="title_activity_options">OptionsActivity</string>
+    <string name="hello_world">Hello world!</string>
+
 </resources>

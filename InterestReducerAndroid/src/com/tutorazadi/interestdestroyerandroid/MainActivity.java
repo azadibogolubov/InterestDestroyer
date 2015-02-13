@@ -175,7 +175,10 @@ public class MainActivity extends Activity {
 		extra.putString("INTEREST_RATE",interestTxt.getText().toString());
 		extra.putString("EXTRA_PAYMENT_AMOUNT", extraPaymentTxt.getText().toString());
 		goToResultsChart.putExtras(extra);
-		startActivity(goToResultsChart);
+		Intent goToOptions = new Intent(this, OptionsActivity.class);
+		goToOptions.putExtras(extra);
+		startActivity(goToOptions);
+//		startActivity(goToResultsChart);
 	}
 	
 	public static double amortize(double principal, double rate, double time)
