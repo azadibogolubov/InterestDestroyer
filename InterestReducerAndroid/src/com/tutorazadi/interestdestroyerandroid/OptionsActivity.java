@@ -8,11 +8,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 public class OptionsActivity extends Activity {
 
-	Button button1, button2, button3, button4;
+	Button button1, button2, button3, button4, button5;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,23 @@ public class OptionsActivity extends Activity {
 		final Bundle extra = getIntent().getExtras();
 		
 		button1 = (Button) findViewById(R.id.button1);
+		button2 = (Button) findViewById(R.id.button2);
+		button3 = (Button) findViewById(R.id.button3);
+		button4 = (Button) findViewById(R.id.button4);
+		button5 = (Button) findViewById(R.id.button5);
+		
+		Animation fly_in_bottom = AnimationUtils.loadAnimation(this, R.anim.fly_in_bottom);
+		Animation fly_in_top = AnimationUtils.loadAnimation(this, R.anim.fly_in_top);
+		Animation fly_in_left = AnimationUtils.loadAnimation(this, R.anim.fly_in_left);
+		Animation fly_in_right = AnimationUtils.loadAnimation(this, R.anim.fly_in_right);
+		Animation fly_in_diagonal_top_left = AnimationUtils.loadAnimation(this, R.anim.fly_in_diagonal_top_left);
+		
+		button1.startAnimation(fly_in_bottom);
+		button2.startAnimation(fly_in_top);
+		button3.startAnimation(fly_in_left);
+		button4.startAnimation(fly_in_right);
+		button5.startAnimation(fly_in_diagonal_top_left);
+		
 		button1.setOnClickListener(new OnClickListener()
 		{
 			public void onClick(View v)
@@ -31,7 +50,6 @@ public class OptionsActivity extends Activity {
 			}
 		});
 		
-		button2 = (Button) findViewById(R.id.button2);
 		button2.setOnClickListener(new OnClickListener()
 		{
 			public void onClick(View v)
@@ -42,7 +60,6 @@ public class OptionsActivity extends Activity {
 			}
 		});
 		
-		button3 = (Button) findViewById(R.id.button3);
 		button3.setOnClickListener(new OnClickListener()
 		{
 			public void onClick(View v)
@@ -56,7 +73,6 @@ public class OptionsActivity extends Activity {
 			}
 		});
 		
-		button4 = (Button) findViewById(R.id.button4);
 		button4.setOnClickListener(new OnClickListener()
 		{
 			public void onClick(View v)
@@ -66,8 +82,7 @@ public class OptionsActivity extends Activity {
 			}
 		});
 		
-		button4 = (Button) findViewById(R.id.button4);
-		button4.setOnClickListener(new OnClickListener()
+		button5.setOnClickListener(new OnClickListener()
 		{
 			public void onClick(View v)
 			{
