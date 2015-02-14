@@ -11,8 +11,11 @@ import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -39,24 +42,27 @@ public class MainActivity extends Activity {
 
 	Button getInfo;
 	EditText principalTxt, interestTxt, monthsTxt, extraPaymentTxt;
+	LinearLayout mainLayout;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		Animation fade_in = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+		
+		mainLayout = (LinearLayout) findViewById(R.id.mainLayout);
+		mainLayout.startAnimation(fade_in);
+		
 		getInfo = (Button)findViewById(R.id.getInfo);
-		
 		principalTxt = (EditText)findViewById(R.id.principalTxt);
-		principalTxt.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-		
 		monthsTxt = (EditText)findViewById(R.id.monthsTxt);
-		monthsTxt.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-		
 		interestTxt = (EditText)findViewById(R.id.interestTxt);
-		interestTxt.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-		
 		extraPaymentTxt = (EditText)findViewById(R.id.extraPaymentTxt);
+		
+		principalTxt.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+		monthsTxt.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+		interestTxt.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 		extraPaymentTxt.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 		
 		getInfo.setOnClickListener(new View.OnClickListener() 
