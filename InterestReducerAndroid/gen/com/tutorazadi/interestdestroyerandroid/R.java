@@ -16,11 +16,13 @@ public final class R {
         public static final int fly_in_right=0x7f040004;
         public static final int fly_in_top=0x7f040005;
     }
-    public static final class array {
-        public static final int comparisons_display=0x7f070001;
-        public static final int time_display=0x7f070000;
-    }
     public static final class attr {
+    }
+    public static final class color {
+        public static final int fountain_blue=0x7f050000;
+        public static final int granny_smith=0x7f050003;
+        public static final int light_green=0x7f050002;
+        public static final int teal_green=0x7f050001;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -30,8 +32,8 @@ public final class R {
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
+        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_vertical_margin=0x7f060001;
     }
     public static final class drawable {
         public static final int dollarsign=0x7f020000;
@@ -40,9 +42,9 @@ public final class R {
     public static final class id {
         public static final int action_settings=0x7f0a0017;
         public static final int amortizeBtn=0x7f0a0007;
-        public static final int button1=0x7f0a0013;
+        public static final int button1=0x7f0a0014;
         public static final int button2=0x7f0a0012;
-        public static final int button3=0x7f0a0014;
+        public static final int button3=0x7f0a0013;
         public static final int button4=0x7f0a0015;
         public static final int button5=0x7f0a0016;
         public static final int chartsRelativeLayout=0x7f0a0006;
@@ -80,22 +82,36 @@ public final class R {
         public static final int results_chart=0x7f090007;
     }
     public static final class string {
-        public static final int action_settings=0x7f060002;
-        public static final int app_name=0x7f060000;
-        public static final int extra_payment=0x7f060009;
-        public static final int get_results=0x7f06000b;
-        public static final int hello_world=0x7f06000f;
-        public static final int interest=0x7f060008;
-        public static final int num_months=0x7f06000a;
-        public static final int principal=0x7f060007;
-        public static final int title_activity_amortization=0x7f060005;
-        public static final int title_activity_bar_chart=0x7f06000d;
-        public static final int title_activity_extra_payments_chart=0x7f06000c;
-        public static final int title_activity_main=0x7f060003;
-        public static final int title_activity_options=0x7f06000e;
-        public static final int title_activity_results=0x7f060004;
-        public static final int title_activity_results_chart=0x7f060006;
-        public static final int welcome=0x7f060001;
+        public static final int action_settings=0x7f070002;
+        public static final int amortization=0x7f070018;
+        public static final int app_name=0x7f070000;
+        public static final int content_desc=0x7f070013;
+        public static final int email_amortization=0x7f07001b;
+        public static final int extra_payment=0x7f070009;
+        public static final int extra_payment_hint=0x7f070011;
+        public static final int get_results=0x7f07000b;
+        public static final int interest=0x7f070008;
+        public static final int interest_hint=0x7f07000f;
+        public static final int interest_saved=0x7f070014;
+        public static final int months_hint=0x7f070010;
+        public static final int num_months=0x7f07000a;
+        public static final int principal=0x7f070007;
+        public static final int principal_hint=0x7f07000e;
+        public static final int results_ready=0x7f070016;
+        public static final int see_amortization=0x7f07001a;
+        public static final int see_buy_down_effect=0x7f07001c;
+        public static final int see_graphical_results=0x7f070019;
+        public static final int share_on_facebook=0x7f07001d;
+        public static final int title_activity_amortization=0x7f070005;
+        public static final int title_activity_bar_chart=0x7f07000d;
+        public static final int title_activity_extra_payments_chart=0x7f07000c;
+        public static final int title_activity_main=0x7f070003;
+        public static final int title_activity_options=0x7f070012;
+        public static final int title_activity_results=0x7f070004;
+        public static final int title_activity_results_chart=0x7f070006;
+        public static final int welcome=0x7f070001;
+        public static final int what_next=0x7f070017;
+        public static final int years_saved=0x7f070015;
     }
     public static final class style {
         /** 

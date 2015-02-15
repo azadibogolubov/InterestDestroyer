@@ -3,6 +3,7 @@
     android:id="@+id/mainLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@color/teal_green"
     android:layout_margin="10dp"
     android:orientation="vertical" >
 
@@ -11,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:textColor="@color/light_green"
         android:layout_margin="10dp"
         android:text="@string/welcome"
         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -23,19 +25,23 @@
             android:id="@+id/interestSaved"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+	        android:textColor="@color/light_green"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"  
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"  
             android:layout_marginTop="10dp"
             android:text="@string/principal"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
             android:id="@+id/principalTxt"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="100000" >
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+	        android:textColorHint="@color/light_green"
+	        android:textColor="@color/light_green"
+            android:hint="@string/principal_hint" >
 
             <requestFocus />
         </EditText>
@@ -49,19 +55,23 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/light_green"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:text="@string/interest"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
             android:id="@+id/interestTxt"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="5.25" />
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:textColorHint="@color/light_green"
+	        android:textColor="@color/light_green"
+            android:hint="@string/interest_hint" />
     </LinearLayout>
 
     <LinearLayout
@@ -73,8 +83,10 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/light_green"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:text="@string/num_months"
             android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -83,9 +95,12 @@
             android:id="@+id/monthsTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:ems="10"
-            android:hint="360" />
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+	        android:textColorHint="@color/light_green"
+	        android:textColor="@color/light_green"
+            android:hint="@string/months_hint" />
     </LinearLayout>
 
     <LinearLayout
@@ -94,21 +109,25 @@
 
         <TextView
             android:id="@+id/textView6"
-            android:layout_width="wrap_content"
+	        android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/light_green"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:text="@string/extra_payment"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
             android:id="@+id/extraPaymentTxt"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="100" />
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+	        android:textColor="@color/light_green"
+	        android:textColorHint="@color/light_green"
+            android:hint="@string/extra_payment_hint" />
     </LinearLayout>
 
     <RelativeLayout
@@ -121,6 +140,7 @@
         	android:layout_height="wrap_content"
         	android:layout_centerVertical="true"
         	android:layout_centerHorizontal="true"
+        	android:contentDescription="@string/content_desc"
         	android:src="@drawable/dollarsign" />
 	    
 	</RelativeLayout>
@@ -131,7 +151,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:textColor="@color/light_green"
+    	android:layout_marginTop="10dp"
         android:text="@string/get_results" />
 
 </LinearLayout>

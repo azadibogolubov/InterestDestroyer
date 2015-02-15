@@ -15,17 +15,21 @@
     <string name="get_results">Get Results</string>
     <string name="title_activity_extra_payments_chart">Extra Payments Chart</string>
     <string name="title_activity_bar_chart">Bar Chart</string>
-
-    <string-array name="time_display">
-        <item>Months</item>
-        <item>Years</item>
-    </string-array>
-    <string-array name="comparisons_display">
-        <item>No Extra Payment</item>
-        <item>Extra Payment</item>
-    </string-array>
-
-    <string name="title_activity_options">OptionsActivity</string>
-    <string name="hello_world">Hello world!</string>
-
+	<string name="principal_hint">100000</string>
+	<string name="interest_hint">5.25</string>
+	<string name="months_hint">360</string>
+	<string name="extra_payment_hint">100</string>
+	<string name="title_activity_options">OptionsActivity</string>
+    <string name="content_desc">Content Description</string>
+	<string name="interest_saved">Interest Saved:</string>
+	<string name="years_saved">Years Saved:</string>
+	<string name="results_ready">Your results are ready!</string>
+	<string name="what_next">What would you like to do now?</string>
+	<string name="amortization">Amortization:</string>
+	<string name="see_graphical_results">See graphical results</string>
+	<string name="see_amortization">See amortization schedule</string>
+	<string name="email_amortization">E-MAIL Amortization Schedule</string>
+	<string name="see_buy_down_effect">See graphical effect of buy down points.</string>
+	<string name="share_on_facebook">Share on Facebook.</string>
+	
 </resources>

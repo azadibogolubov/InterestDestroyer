@@ -9,8 +9,8 @@
         android:id="@+id/yearsSaved"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:text="Number of years saved:"
+        android:layout_gravity="start"
+        android:text="@string/years_saved"
         android:textAppearance="?android:attr/textAppearanceMedium" 
         android:textColor="#FFFFFF" />
 
@@ -18,7 +18,7 @@
         android:id="@+id/interestSaved"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Interest saved:"
+        android:text="@string/interest_saved"
         android:textColor="#FFFFFF"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -37,6 +37,6 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:background="#C3C3C3"
-        android:text="Amortization" />
+        android:text="@string/amortization" />
 
 </LinearLayout>
