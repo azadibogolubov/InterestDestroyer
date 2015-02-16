@@ -3,7 +3,7 @@
     android:id="@+id/mainLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/teal_green"
+    android:background="@color/green_background"
     android:layout_margin="10dp"
     android:orientation="vertical" >
 
@@ -12,9 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textColor="@color/light_green"
+        android:textColor="@color/white"
         android:layout_margin="10dp"
         android:text="@string/welcome"
+        android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <LinearLayout
@@ -25,7 +26,7 @@
             android:id="@+id/interestSaved"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-	        android:textColor="@color/light_green"
+	        android:textColor="@color/white"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"  
@@ -37,10 +38,11 @@
             android:id="@+id/principalTxt"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
-	        android:textColorHint="@color/light_green"
-	        android:textColor="@color/light_green"
+	        android:textColorHint="@color/white"
+	        android:textColor="@color/white"
             android:hint="@string/principal_hint" >
 
             <requestFocus />
@@ -55,7 +57,7 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/light_green"
+            android:textColor="@color/white"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
@@ -67,10 +69,11 @@
             android:id="@+id/interestTxt"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
-            android:textColorHint="@color/light_green"
-	        android:textColor="@color/light_green"
+            android:textColorHint="@color/white"
+	        android:textColor="@color/white"
             android:hint="@string/interest_hint" />
     </LinearLayout>
 
@@ -83,7 +86,7 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/light_green"
+            android:textColor="@color/white"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
@@ -95,11 +98,12 @@
             android:id="@+id/monthsTxt"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:ems="10"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
-	        android:textColorHint="@color/light_green"
-	        android:textColor="@color/light_green"
+	        android:textColorHint="@color/white"
+	        android:textColor="@color/white"
             android:hint="@string/months_hint" />
     </LinearLayout>
 
@@ -111,7 +115,7 @@
             android:id="@+id/textView6"
 	        android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/light_green"
+            android:textColor="@color/white"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
@@ -123,10 +127,11 @@
             android:id="@+id/extraPaymentTxt"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
-	        android:textColor="@color/light_green"
-	        android:textColorHint="@color/light_green"
+	        android:textColor="@color/white"
+	        android:textColorHint="@color/white"
             android:hint="@string/extra_payment_hint" />
     </LinearLayout>
 
@@ -151,7 +156,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textColor="@color/light_green"
+        android:textColor="@color/white"
     	android:layout_marginTop="10dp"
         android:text="@string/get_results" />
 

@@ -7,6 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.tutorazadi.interestdestroyerandroid.OptionsActivity" 
+    android:background="@color/green_background"
     android:orientation="vertical" >
 
     <TextView
@@ -16,6 +17,8 @@
         android:layout_gravity="center"
         android:layout_marginTop="18dp"
         android:text="@string/results_ready"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -25,6 +28,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="14dp"
         android:text="@string/what_next"
+        android:textColor="@color/white"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
@@ -32,30 +36,34 @@
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:text="@string/see_amortization" />
+        android:text="@string/see_amortization" 
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
-        android:text="@string/email_amortization" />
+        android:text="@string/email_amortization" 
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
-        android:text="@string/see_graphical_results" />
+        android:text="@string/see_graphical_results" 
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
-        android:text="@string/see_buy_down_effect" />
+        android:text="@string/see_buy_down_effect" 
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
-        android:text="@string/share_on_facebook" />
-
+        android:text="@string/share_on_facebook" 
+        android:textColor="@color/white" />
 </LinearLayout>

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/green_background"
     android:orientation="vertical" >
 
     <TextView
@@ -9,7 +10,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Amortization:"
+        android:text="@string/amortization"
+        android:textColor="@color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -18,14 +20,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
-        android:text="Principal amounts: minimum vs. extra payment"
+        android:text="@string/principal_vs_extra"
+        android:textColor="@color/white"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <ListView
         android:id="@+id/listView1"
         android:layout_width="match_parent"
-        android:layout_height="321dp"
-        android:layout_weight="0.24" >
+        android:layout_height="match_parent" >
     </ListView>
 
     <Button
@@ -35,6 +37,6 @@
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        android:text="EMAIL Results" />
-
+        android:text="@string/email_results" 
+        android:textColor="@color/white" />
 </LinearLayout>

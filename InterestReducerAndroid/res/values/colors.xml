@@ -4,4 +4,7 @@
 	<color name="teal_green">#41924B</color>
 	<color name="light_green">#AFEAAA</color>
 	<color name="granny_smith">#87E293</color>
+	<color name="white">#FFFFFF</color>
+	<color name="green_background">#64C750</color>
+	<color name="black">#000000</color>
 </resources> 

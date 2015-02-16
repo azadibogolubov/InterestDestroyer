@@ -31,5 +31,6 @@
 	<string name="email_amortization">E-MAIL Amortization Schedule</string>
 	<string name="see_buy_down_effect">See graphical effect of buy down points.</string>
 	<string name="share_on_facebook">Share on Facebook.</string>
-	
+	<string name="email_results">EMAIL Results</string>
+	<string name="principal_vs_extra">Principal amounts: minimum vs. extra payment</string>
 </resources>
