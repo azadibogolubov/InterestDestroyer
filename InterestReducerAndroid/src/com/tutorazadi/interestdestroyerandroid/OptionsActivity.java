@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 public class OptionsActivity extends Activity {
 
-	Button button1, button2, button3, button4, button5;
+	Button amortizeBtn, emailAmortizeBtn, graphicalResultsBtn, graphicalBuyDownBtn, shareOnFacebookBtn;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +30,11 @@ public class OptionsActivity extends Activity {
 		
 		final Bundle extra = getIntent().getExtras();
 		
-		button1 = (Button) findViewById(R.id.amortizeBtn);
-		button2 = (Button) findViewById(R.id.emailAmortizeBtn);
-		button3 = (Button) findViewById(R.id.graphicalResultsBtn);
-		button4 = (Button) findViewById(R.id.graphicalBuyDownBtn);
-		button5 = (Button) findViewById(R.id.shareOnFacebookBtn);
+		amortizeBtn = (Button) findViewById(R.id.amortizeBtn);
+		emailAmortizeBtn = (Button) findViewById(R.id.emailAmortizeBtn);
+		graphicalResultsBtn = (Button) findViewById(R.id.graphicalResultsBtn);
+		graphicalBuyDownBtn = (Button) findViewById(R.id.graphicalBuyDownBtn);
+		shareOnFacebookBtn = (Button) findViewById(R.id.shareOnFacebookBtn);
 		
 		Animation fly_in_bottom = AnimationUtils.loadAnimation(this, R.anim.fly_in_bottom);
 		Animation fly_in_top = AnimationUtils.loadAnimation(this, R.anim.fly_in_top);
@@ -42,13 +42,13 @@ public class OptionsActivity extends Activity {
 		Animation fly_in_right = AnimationUtils.loadAnimation(this, R.anim.fly_in_right);
 		Animation fly_in_diagonal_top_left = AnimationUtils.loadAnimation(this, R.anim.fly_in_diagonal_top_left);
 		
-		button1.startAnimation(fly_in_bottom);
-		button2.startAnimation(fly_in_top);
-		button3.startAnimation(fly_in_left);
-		button4.startAnimation(fly_in_right);
-		button5.startAnimation(fly_in_diagonal_top_left);
+		amortizeBtn.startAnimation(fly_in_bottom);
+		emailAmortizeBtn.startAnimation(fly_in_top);
+		graphicalResultsBtn.startAnimation(fly_in_left);
+		graphicalBuyDownBtn.startAnimation(fly_in_right);
+		shareOnFacebookBtn.startAnimation(fly_in_diagonal_top_left);
 		
-		button1.setOnClickListener(new OnClickListener()
+		amortizeBtn.setOnClickListener(new OnClickListener()
 		{
 			public void onClick(View v)
 			{
@@ -58,7 +58,7 @@ public class OptionsActivity extends Activity {
 			}
 		});
 		
-		button2.setOnClickListener(new OnClickListener()
+		emailAmortizeBtn.setOnClickListener(new OnClickListener()
 		{
 			public void onClick(View v)
 			{
@@ -68,7 +68,7 @@ public class OptionsActivity extends Activity {
 			}
 		});
 		
-		button3.setOnClickListener(new OnClickListener()
+		graphicalResultsBtn.setOnClickListener(new OnClickListener()
 		{
 			public void onClick(View v)
 			{
@@ -81,7 +81,7 @@ public class OptionsActivity extends Activity {
 			}
 		});
 		
-		button4.setOnClickListener(new OnClickListener()
+		graphicalBuyDownBtn.setOnClickListener(new OnClickListener()
 		{
 			public void onClick(View v)
 			{
@@ -91,7 +91,7 @@ public class OptionsActivity extends Activity {
 			}
 		});
 		
-		button5.setOnClickListener(new OnClickListener()
+		shareOnFacebookBtn.setOnClickListener(new OnClickListener()
 		{
 			public void onClick(View v)
 			{
