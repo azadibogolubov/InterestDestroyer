@@ -26,7 +26,7 @@ public class OptionsActivity extends Activity {
 		setContentView(R.layout.activity_options);
 		
 		ActionBar bar = getActionBar();
-		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#46A0C6")));
+		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#066891")));
 		
 		final Bundle extra = getIntent().getExtras();
 		

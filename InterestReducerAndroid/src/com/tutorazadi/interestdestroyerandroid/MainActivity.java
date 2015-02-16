@@ -8,6 +8,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.InputType;
@@ -18,7 +19,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -43,7 +46,8 @@ public class MainActivity extends Activity {
 	public static NumberFormat n = NumberFormat.getCurrencyInstance(Locale.US);
 	public static DecimalFormat df = new DecimalFormat("#.##");
 
-	Button getInfo;
+	ImageView getInfo;
+	TextView welcomeLbl, principalLbl, interestRateLbl, numMonthsLbl, extraPaymentLbl;
 	EditText principalTxt, interestTxt, monthsTxt, extraPaymentTxt;
 	LinearLayout mainLayout;
 	
@@ -57,10 +61,28 @@ public class MainActivity extends Activity {
 		
 		Animation fade_in = AnimationUtils.loadAnimation(this, R.anim.fade_in);
 		
+		Typeface arimo = Typeface.createFromAsset(getAssets(), "fonts/Arimo-Regular.ttf");
+		Typeface arimoItalic = Typeface.createFromAsset(getAssets(), "fonts/Arimo-Italic.ttf");
+		
+		welcomeLbl = (TextView) findViewById(R.id.welcomeLbl);
+		welcomeLbl.setTypeface(arimoItalic);
+		
+		principalLbl = (TextView) findViewById(R.id.principalLbl);
+		principalLbl.setTypeface(arimo);
+
+		interestRateLbl = (TextView) findViewById(R.id.interestRateLbl);
+		interestRateLbl.setTypeface(arimo);
+		
+		numMonthsLbl = (TextView) findViewById(R.id.numMonthsLbl);
+		numMonthsLbl.setTypeface(arimo);
+		
+		extraPaymentLbl = (TextView) findViewById(R.id.extraPaymentLbl);
+		extraPaymentLbl.setTypeface(arimo);
+		
 		mainLayout = (LinearLayout) findViewById(R.id.mainLayout);
 		mainLayout.startAnimation(fade_in);
 		
-		getInfo = (Button)findViewById(R.id.getInfo);
+		getInfo = (ImageView) findViewById(R.id.getInfo);
 		principalTxt = (EditText)findViewById(R.id.principalTxt);
 		monthsTxt = (EditText)findViewById(R.id.monthsTxt);
 		interestTxt = (EditText)findViewById(R.id.interestTxt);

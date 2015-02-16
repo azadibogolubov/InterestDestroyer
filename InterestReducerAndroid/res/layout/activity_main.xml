@@ -8,7 +8,7 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/yearsSaved"
+        android:id="@+id/welcomeLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/interestSaved"
+            android:id="@+id/principalLbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 	        android:textColor="@color/white"
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/interestRateLbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
@@ -83,7 +83,7 @@
         android:orientation="horizontal" >
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/numMonthsLbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
@@ -112,7 +112,7 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/extraPaymentLbl"
 	        android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
@@ -151,13 +151,13 @@
 	</RelativeLayout>
 
     
-    <Button
+    <ImageView
         android:id="@+id/getInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textColor="@color/white"
-    	android:layout_marginTop="10dp"
-        android:text="@string/get_results" />
+        android:contentDescription="@string/content_desc"
+        android:src="@drawable/get_results"
+    	android:layout_marginTop="10dp" />
 
 </LinearLayout>
