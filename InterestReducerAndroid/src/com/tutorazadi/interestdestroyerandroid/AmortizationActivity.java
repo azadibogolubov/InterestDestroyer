@@ -46,7 +46,7 @@ public class AmortizationActivity extends Activity
 
 		final int SIZE = minimum_payments.length;
 
-        listView = (ListView) findViewById(R.id.listView1);
+        listView = (ListView) findViewById(R.id.amortizationList);
 
         String[] values = new String[SIZE]; 
         for (int i = 0; i < SIZE; i++)

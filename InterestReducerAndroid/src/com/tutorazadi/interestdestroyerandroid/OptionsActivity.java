@@ -30,11 +30,11 @@ public class OptionsActivity extends Activity {
 		
 		final Bundle extra = getIntent().getExtras();
 		
-		button1 = (Button) findViewById(R.id.button1);
-		button2 = (Button) findViewById(R.id.button2);
-		button3 = (Button) findViewById(R.id.button3);
-		button4 = (Button) findViewById(R.id.button4);
-		button5 = (Button) findViewById(R.id.button5);
+		button1 = (Button) findViewById(R.id.amortizeBtn);
+		button2 = (Button) findViewById(R.id.emailAmortizeBtn);
+		button3 = (Button) findViewById(R.id.graphicalResultsBtn);
+		button4 = (Button) findViewById(R.id.graphicalBuyDownBtn);
+		button5 = (Button) findViewById(R.id.shareOnFacebookBtn);
 		
 		Animation fly_in_bottom = AnimationUtils.loadAnimation(this, R.anim.fly_in_bottom);
 		Animation fly_in_top = AnimationUtils.loadAnimation(this, R.anim.fly_in_top);

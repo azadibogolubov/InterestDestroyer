@@ -11,7 +11,7 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/resultsTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -22,7 +22,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/whatNextTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -32,7 +32,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/amortizeBtn"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
@@ -41,7 +41,7 @@
         android:textColor="@color/white" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/emailAmortizeBtn"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -49,7 +49,7 @@
         android:textColor="@color/white" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/graphicalResultsBtn"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -57,7 +57,7 @@
         android:textColor="@color/white" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/graphicalBuyDownBtn"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -65,7 +65,7 @@
         android:textColor="@color/white" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/shareOnFacebookBtn"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

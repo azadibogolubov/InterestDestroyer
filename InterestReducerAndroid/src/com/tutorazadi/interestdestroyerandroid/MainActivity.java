@@ -17,7 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -48,7 +47,7 @@ public class MainActivity extends Activity {
 
 	ImageView getInfo;
 	TextView welcomeLbl, principalLbl, interestRateLbl, numMonthsLbl, extraPaymentLbl;
-	EditText principalTxt, interestTxt, monthsTxt, extraPaymentTxt;
+	EditText principalTxt, interestTxt, numMonthsTxt, extraPaymentTxt;
 	LinearLayout mainLayout;
 	
 	@Override
@@ -66,7 +65,7 @@ public class MainActivity extends Activity {
 		
 		welcomeLbl = (TextView) findViewById(R.id.welcomeLbl);
 		welcomeLbl.setTypeface(arimoItalic);
-		
+
 		principalLbl = (TextView) findViewById(R.id.principalLbl);
 		principalLbl.setTypeface(arimo);
 
@@ -79,17 +78,25 @@ public class MainActivity extends Activity {
 		extraPaymentLbl = (TextView) findViewById(R.id.extraPaymentLbl);
 		extraPaymentLbl.setTypeface(arimo);
 		
+		principalTxt = (EditText)findViewById(R.id.principalTxt);
+		principalTxt.setTypeface(arimoItalic);
+
+		numMonthsTxt = (EditText)findViewById(R.id.numMonthsTxt);
+		numMonthsTxt.setTypeface(arimoItalic);
+
+		interestTxt = (EditText)findViewById(R.id.interestTxt);
+		interestTxt.setTypeface(arimoItalic);
+		
+		extraPaymentTxt = (EditText)findViewById(R.id.extraPaymentTxt);
+		extraPaymentTxt.setTypeface(arimoItalic);
+
 		mainLayout = (LinearLayout) findViewById(R.id.mainLayout);
 		mainLayout.startAnimation(fade_in);
 		
 		getInfo = (ImageView) findViewById(R.id.getInfo);
-		principalTxt = (EditText)findViewById(R.id.principalTxt);
-		monthsTxt = (EditText)findViewById(R.id.monthsTxt);
-		interestTxt = (EditText)findViewById(R.id.interestTxt);
-		extraPaymentTxt = (EditText)findViewById(R.id.extraPaymentTxt);
 		
 		principalTxt.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-		monthsTxt.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+		numMonthsTxt.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 		interestTxt.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 		extraPaymentTxt.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 		
@@ -110,7 +117,7 @@ public class MainActivity extends Activity {
         				Toast.makeText(MainActivity.this, "Minimum amount for principal must be greater than $1000.", Toast.LENGTH_LONG).show();
         				return;
         			}
-        			else if (monthsTxt.getText().length() < 1)
+        			else if (numMonthsTxt.getText().length() < 1)
         			{
         				Toast.makeText(MainActivity.this, "Minimum number of months must be greater than 0.", Toast.LENGTH_LONG).show();
         				return;        				
@@ -121,7 +128,7 @@ public class MainActivity extends Activity {
         				return;
         			}
         			principal_original = principal = Double.parseDouble(principalTxt.getText().toString());
-        			time = Double.parseDouble(monthsTxt.getText().toString()); 
+        			time = Double.parseDouble(numMonthsTxt.getText().toString()); 
         			rate = Double.parseDouble(interestTxt.getText().toString()); 
         			extra_payment = Double.parseDouble(extraPaymentTxt.getText().toString()); 
         		}
@@ -176,7 +183,7 @@ public class MainActivity extends Activity {
 		original_interest = interest_paid;
 		
 		principal_original = principal = Double.parseDouble(principalTxt.getText().toString());
-		time = Double.parseDouble(monthsTxt.getText().toString()); 
+		time = Double.parseDouble(numMonthsTxt.getText().toString()); 
 		rate = Double.parseDouble(interestTxt.getText().toString()); 
 		extra_payment = Double.parseDouble(extraPaymentTxt.getText().toString()); 
 
