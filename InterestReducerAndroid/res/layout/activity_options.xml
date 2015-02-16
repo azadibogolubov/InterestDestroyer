@@ -36,13 +36,15 @@
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:text="@string/see_amortization" 
+        android:layout_gravity="center"
+        android:text="@string/see_amortization"
         android:textColor="@color/white" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="@string/email_amortization" 
         android:textColor="@color/white" />
 
@@ -50,6 +52,7 @@
         android:id="@+id/button1"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="@string/see_graphical_results" 
         android:textColor="@color/white" />
 
@@ -57,6 +60,7 @@
         android:id="@+id/button4"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="@string/see_buy_down_effect" 
         android:textColor="@color/white" />
 
@@ -64,6 +68,7 @@
         android:id="@+id/button5"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="@string/share_on_facebook" 
         android:textColor="@color/white" />
 </LinearLayout>

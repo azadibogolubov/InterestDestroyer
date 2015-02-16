@@ -12,9 +12,11 @@ import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -43,6 +45,9 @@ public class ExtraPaymentChartActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_extra_payment_chart);
 
+		ActionBar bar = getActionBar();
+		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#066891")));
+		
 		Bundle extras = getIntent().getExtras();
 		minimumPayment = extras.getDoubleArray("MINIMUM_PAYMENTS");
 		extraPayment = extras.getDoubleArray("EXTRA_PAYMENTS");
@@ -51,7 +56,7 @@ public class ExtraPaymentChartActivity extends Activity {
 		timeSaved = extras.getDouble("TIME_SAVED");
 		interest = extras.getString("INTEREST_RATE");
 		extraPaymentAmount = extras.getString("EXTRA_PAYMENT_AMOUNT");
-		Toast.makeText(this, "Time: " + timeSaved + "\nInterest" + interestSaved, 1000).show();
+		Toast.makeText(this, "Time: " + timeSaved + "\nInterest" + interestSaved, Toast.LENGTH_LONG).show();
 		
 		amortizeBtn = (Button) findViewById(R.id.amortizeBtn);
 		amortizeBtn.setOnClickListener(new OnClickListener()

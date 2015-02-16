@@ -1,7 +1,10 @@
 package com.tutorazadi.interestdestroyerandroid;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +14,7 @@ import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class OptionsActivity extends Activity {
 
@@ -20,6 +24,10 @@ public class OptionsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_options);
+		
+		ActionBar bar = getActionBar();
+		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#46A0C6")));
+		
 		final Bundle extra = getIntent().getExtras();
 		
 		button1 = (Button) findViewById(R.id.button1);
@@ -79,6 +87,7 @@ public class OptionsActivity extends Activity {
 			{
 				// Create new activity which is similar to ExtraPaymentActivity but instead shows effect of 1 and 2
 				// interest points bought down in comparison to regular amount.
+				Toast.makeText(OptionsActivity.this, "This functionality is not yet implemented...", Toast.LENGTH_LONG).show();
 			}
 		});
 		
@@ -87,6 +96,7 @@ public class OptionsActivity extends Activity {
 			public void onClick(View v)
 			{
 				// Add Facebook sharing logic.
+				Toast.makeText(OptionsActivity.this, "This functionality is not yet implemented...", Toast.LENGTH_LONG).show();
 			}
 		});
 

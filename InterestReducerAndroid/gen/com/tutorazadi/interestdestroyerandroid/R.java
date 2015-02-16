@@ -19,6 +19,7 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        public static final int action_bar_blue=0x7f050007;
         public static final int black=0x7f050006;
         public static final int fountain_blue=0x7f050000;
         public static final int granny_smith=0x7f050003;
@@ -145,5 +146,6 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f080001;
+        public static final int BlueActionBarTheme=0x7f080002;
     }
 }
