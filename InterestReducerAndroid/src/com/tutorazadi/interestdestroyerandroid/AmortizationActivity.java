@@ -15,13 +15,13 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class AmortizationActivity extends Activity 
 {
 	Button emailResults;
 	ListView listView;
-	public double[] minimum_payments;
-	public double[] extra_payments;
+	public double[] minimum_payments, extra_payments;
 	public String principal, interest, extraPaymentAmount;
 	public double totalMonths, timeSaved, interestSaved;
 	
@@ -43,6 +43,15 @@ public class AmortizationActivity extends Activity
 		timeSaved = extras.getDouble("TIME_SAVED");
 		interestSaved = extras.getDouble("INTEREST_SAVED");
 		extraPaymentAmount = extras.getString("EXTRA_PAYMENT_AMOUNT");
+
+		Toast.makeText(this, "" + extras.getDouble("TIME_SAVED"), Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "" + extras.getDouble("INTEREST_SAVED"), Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "" + extras.getDouble("TOTAL_MONTHS"), Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "" + extras.getDoubleArray("EXTRA_PAYMENTS"), Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "" + extras.getDoubleArray("MINIMUM_PAYMENTS"), Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "" + extras.getString("PRINCIPAL"), Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "" + extras.getString("INTEREST_RATE"), Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "" + extras.getString("EXTRA_PAYMENT_AMOUNT"), Toast.LENGTH_LONG).show();
 
 		final int SIZE = minimum_payments.length;
 

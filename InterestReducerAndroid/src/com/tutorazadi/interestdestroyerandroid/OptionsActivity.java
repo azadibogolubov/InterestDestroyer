@@ -29,6 +29,14 @@ public class OptionsActivity extends Activity {
 		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#066891")));
 		
 		final Bundle extra = getIntent().getExtras();
+		/*Toast.makeText(this, "" + extra.getDouble("TIME_SAVED"), Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "" + extra.getDouble("INTEREST_SAVED"), Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "" + extra.getDouble("TOTAL_MONTHS"), Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "" + extra.getDoubleArray("EXTRA_PAYMENTS"), Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "" + extra.getDoubleArray("MINIMUM_PAYMENTS"), Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "" + extra.getString("PRINCIPAL"), Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "" + extra.getString("INTEREST_RATE"), Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "" + extra.getString("EXTRA_PAYMENT_AMOUNT"), Toast.LENGTH_LONG).show();*/
 		
 		amortizeBtn = (Button) findViewById(R.id.amortizeBtn);
 		emailAmortizeBtn = (Button) findViewById(R.id.emailAmortizeBtn);
