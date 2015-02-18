@@ -210,8 +210,8 @@ public class MainActivity extends Activity {
 		extra.putDouble("TIME_SAVED", timeSaved);
 		extra.putDouble("INTEREST_SAVED", interestSaved);
 		extra.putDouble("TOTAL_MONTHS", time);
-		extra.putDoubleArray("EXTRA_PAYMENTS", extra_payments);
-		extra.putDoubleArray("MINIMUM_PAYMENTS", minimum_payments);
+		extra.putDouble("EXTRA_PAYMENTS", extra_payment);
+		extra.putDouble("MINIMUM_PAYMENTS", payment_amount);
 		extra.putString("PRINCIPAL", principalTxt.getText().toString());
 		extra.putString("INTEREST_RATE",interestTxt.getText().toString());
 		extra.putString("EXTRA_PAYMENT_AMOUNT", extraPaymentTxt.getText().toString());

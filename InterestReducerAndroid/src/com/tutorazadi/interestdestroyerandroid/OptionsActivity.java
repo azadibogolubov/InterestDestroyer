@@ -60,23 +60,13 @@ public class OptionsActivity extends Activity {
 		{
 			public void onClick(View v)
 			{
-				Intent goToChartActivity = new Intent(OptionsActivity.this, ExtraPaymentChartActivity.class);
-				goToChartActivity.putExtras(extra);
-				startActivity(goToChartActivity);
-			}
-		});
-		
-		emailAmortizeBtn.setOnClickListener(new OnClickListener()
-		{
-			public void onClick(View v)
-			{
 				Intent goToAmortization = new Intent(OptionsActivity.this, AmortizationActivity.class);
 				goToAmortization.putExtras(extra);
 				startActivity(goToAmortization);
 			}
 		});
 		
-		graphicalResultsBtn.setOnClickListener(new OnClickListener()
+		emailAmortizeBtn.setOnClickListener(new OnClickListener()
 		{
 			public void onClick(View v)
 			{
@@ -86,6 +76,16 @@ public class OptionsActivity extends Activity {
 				emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Interest Destroyer Amortization Results");
 				emailIntent.putExtra(Intent.EXTRA_TEXT, "");
 				startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+			}
+		});
+		
+		graphicalResultsBtn.setOnClickListener(new OnClickListener()
+		{
+			public void onClick(View v)
+			{
+				Intent goToChartActivity = new Intent(OptionsActivity.this, ExtraPaymentChartActivity.class);
+				goToChartActivity.putExtras(extra);
+				startActivity(goToChartActivity);
 			}
 		});
 		
