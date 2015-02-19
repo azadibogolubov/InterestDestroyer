@@ -1,5 +1,8 @@
 package com.tutorazadi.interestdestroyerandroid;
 
+/**
+ * @todo Add my own Canvas based charting engine in here, as well as add Apache license file for fonts.
+ */
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
