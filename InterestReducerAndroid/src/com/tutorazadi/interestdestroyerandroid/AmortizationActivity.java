@@ -45,15 +45,6 @@ public class AmortizationActivity extends Activity
 		interestSaved = extras.getDouble("INTEREST_SAVED");
 		extraPaymentAmount = extras.getString("EXTRA_PAYMENT_AMOUNT");
 
-/*		Toast.makeText(this, "" + extras.getDouble("TIME_SAVED"), Toast.LENGTH_LONG).show();
-		Toast.makeText(this, "" + extras.getDouble("INTEREST_SAVED"), Toast.LENGTH_LONG).show();
-		Toast.makeText(this, "" + extras.getDouble("TOTAL_MONTHS"), Toast.LENGTH_LONG).show();
-		Toast.makeText(this, "" + extras.getDoubleArray("EXTRA_PAYMENTS"), Toast.LENGTH_LONG).show();
-		Toast.makeText(this, "" + extras.getDoubleArray("MINIMUM_PAYMENTS"), Toast.LENGTH_LONG).show();
-		Toast.makeText(this, "" + extras.getString("PRINCIPAL"), Toast.LENGTH_LONG).show();
-		Toast.makeText(this, "" + extras.getString("INTEREST_RATE"), Toast.LENGTH_LONG).show();
-		Toast.makeText(this, "" + extras.getString("EXTRA_PAYMENT_AMOUNT"), Toast.LENGTH_LONG).show();*/
-
         listView = (ListView) findViewById(R.id.amortizationList);
         Toast.makeText(this, "Min: " + minimum_payment, Toast.LENGTH_LONG).show();        	
         
