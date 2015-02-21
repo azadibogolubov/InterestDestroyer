@@ -6,6 +6,10 @@
 	<color name="granny_smith">#87E293</color>
 	<color name="white">#FFFFFF</color>
 	<color name="green_background">#64C750</color>
-	<color name="black">#000000</color>
+	<color name="headline_text">#000000</color>
+	<color name="light_black_text">#0E0E0E</color>
+	<color name="green_gradient_start">#5E9C56</color>
+	<color name="green_gradient_end">#8DF082</color>
 	<color name="action_bar_blue">#46A0C6</color>
+	
 </resources> 
