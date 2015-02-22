@@ -38,7 +38,7 @@ public class ExtraPaymentChartActivity extends Activity {
 	GraphicalView mChartView = null;
 	public static NumberFormat n = NumberFormat.getCurrencyInstance(Locale.US);
 	public static DecimalFormat df = new DecimalFormat("#.##");
-	public static double[] extraPayment, minimumPayment;
+	public static double[] extraPayment, minimumPayment, min_principal_remaining, extra_principal_remaining;
 	public Button amortizeBtn;
 	public double timeSaved, interestSaved, totalMonths;
 	public String principal, extraPaymentAmount, interest;
@@ -59,6 +59,9 @@ public class ExtraPaymentChartActivity extends Activity {
 		timeSaved = extras.getDouble("TIME_SAVED");
 		interest = extras.getString("INTEREST_RATE");
 		extraPaymentAmount = extras.getString("EXTRA_PAYMENT_AMOUNT");
+		min_principal_remaining = extras.getDoubleArray("MIN_PRINCIPAL_REMAINING");
+		extra_principal_remaining = extras.getDoubleArray("EXTRA_PRINCIPAL_REMAINING");
+		
 		Toast.makeText(this, "Time: " + timeSaved + "\nInterest" + interestSaved, Toast.LENGTH_LONG).show();
 		
 		amortizeBtn = (Button) findViewById(R.id.amortizeBtn);
@@ -104,8 +107,8 @@ public class ExtraPaymentChartActivity extends Activity {
         int c = 0;
         for(int i=0;i<size;i+=12)
         {
-            baseSeries.add(c,minimumPayment[i] / 100);
-            extraPaymentSeries.add(c,extraPayment[i] / 100);
+            baseSeries.add(c,min_principal_remaining[i] / 100);
+            extraPaymentSeries.add(c,extra_principal_remaining[i] / 100);
             c++;
         }
  
