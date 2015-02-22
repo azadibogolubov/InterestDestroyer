@@ -29,14 +29,14 @@ public class OptionsActivity extends Activity {
 		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#066891")));
 		
 		final Bundle extra = getIntent().getExtras();
-		/*Toast.makeText(this, "" + extra.getDouble("TIME_SAVED"), Toast.LENGTH_LONG).show();
-		Toast.makeText(this, "" + extra.getDouble("INTEREST_SAVED"), Toast.LENGTH_LONG).show();
-		Toast.makeText(this, "" + extra.getDouble("TOTAL_MONTHS"), Toast.LENGTH_LONG).show();
-		Toast.makeText(this, "" + extra.getDoubleArray("EXTRA_PAYMENTS"), Toast.LENGTH_LONG).show();
-		Toast.makeText(this, "" + extra.getDoubleArray("MINIMUM_PAYMENTS"), Toast.LENGTH_LONG).show();
-		Toast.makeText(this, "" + extra.getString("PRINCIPAL"), Toast.LENGTH_LONG).show();
-		Toast.makeText(this, "" + extra.getString("INTEREST_RATE"), Toast.LENGTH_LONG).show();
-		Toast.makeText(this, "" + extra.getString("EXTRA_PAYMENT_AMOUNT"), Toast.LENGTH_LONG).show();*/
+/*		Toast.makeText(this, "" + extra.getDouble("TIME_SAVED"), Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "" + extra.getDouble("INTEREST_SAVED"), Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "" + extra.getDouble("TOTAL_MONTHS"), Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "" + extra.getDouble("EXTRA_PAYMENTS"), Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "" + extra.getDouble("MINIMUM_PAYMENTS"), Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "" + extra.getString("PRINCIPAL"), Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "" + extra.getString("INTEREST_RATE"), Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "" + extra.getString("EXTRA_PAYMENT_AMOUNT"), Toast.LENGTH_SHORT).show();*/
 		
 		amortizeBtn = (Button) findViewById(R.id.amortizeBtn);
 		emailAmortizeBtn = (Button) findViewById(R.id.emailAmortizeBtn);
@@ -95,7 +95,7 @@ public class OptionsActivity extends Activity {
 			{
 				// Create new activity which is similar to ExtraPaymentActivity but instead shows effect of 1 and 2
 				// interest points bought down in comparison to regular amount.
-				Toast.makeText(OptionsActivity.this, "This functionality is not yet implemented...", Toast.LENGTH_LONG).show();
+				Toast.makeText(OptionsActivity.this, "This functionality is not yet implemented...", Toast.LENGTH_SHORT).show();
 			}
 		});
 		
@@ -104,7 +104,7 @@ public class OptionsActivity extends Activity {
 			public void onClick(View v)
 			{
 				// Add Facebook sharing logic.
-				Toast.makeText(OptionsActivity.this, "This functionality is not yet implemented...", Toast.LENGTH_LONG).show();
+				Toast.makeText(OptionsActivity.this, "This functionality is not yet implemented...", Toast.LENGTH_SHORT).show();
 			}
 		});
 

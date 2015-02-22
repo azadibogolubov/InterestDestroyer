@@ -42,6 +42,7 @@ public class MainActivity extends Activity {
 	public static double[] extra_payments, minimum_payments;
 	public static double interest_paid = original_interest = 0.00f;
 	public static double timeSaved;
+	public static double[] min_interest_paid, extra_interest_paid, min_principal_paid, extra_principal_paid;
 	public static NumberFormat n = NumberFormat.getCurrencyInstance(Locale.US);
 	public static DecimalFormat df = new DecimalFormat("#.##");
 
@@ -163,6 +164,11 @@ public class MainActivity extends Activity {
 	{		
 		extra_payments = new double[(int)time];
 		minimum_payments = new double[(int)time];
+		min_principal_paid = new double[(int)time];
+		extra_principal_paid = new double[(int)time];
+		min_interest_paid = new double[(int)time];
+		extra_interest_paid = new double[(int)time];
+		
 		for (int i = 0; i < extra_payments.length; i++)
 		{
 			minimum_payments[i] = 0.00f;
@@ -176,7 +182,9 @@ public class MainActivity extends Activity {
                 if (compound_interest <= 0)
                         break;
                 interest_paid += compound_interest;
+                min_interest_paid[i] = compound_interest;
                 principal_paid = payment_amount - compound_interest;
+                min_principal_paid[i] = principal_paid;
                 principal -= principal_paid;
         }		
 
@@ -199,7 +207,9 @@ public class MainActivity extends Activity {
                     break;
                 }
                 interest_paid += compound_interest;
+                extra_interest_paid[i] = interest_paid - extra_payment;
                 principal_paid = (payment_amount + extra_payment) - compound_interest;
+                extra_principal_paid[i] = principal_paid;
                 principal -= principal_paid;
         }
         timeSaved = (time - payoff_months) / 12;
@@ -215,11 +225,19 @@ public class MainActivity extends Activity {
 		extra.putString("PRINCIPAL", principalTxt.getText().toString());
 		extra.putString("INTEREST_RATE",interestTxt.getText().toString());
 		extra.putString("EXTRA_PAYMENT_AMOUNT", extraPaymentTxt.getText().toString());
+		extra.putDoubleArray("MIN_PRINCIPAL_PAID", min_principal_paid);
+		extra.putDoubleArray("EXTRA_PRINCIPAL_PAID", extra_principal_paid);
+		extra.putDoubleArray("MIN_INTEREST_PAID", min_interest_paid);
+		extra.putDoubleArray("EXTRA_INTEREST_PAID", extra_interest_paid);
+
+		Toast.makeText(MainActivity.this, "Min Princ: " + min_principal_paid[0], Toast.LENGTH_SHORT).show();
+		Toast.makeText(MainActivity.this, "Extra Princ: " + extra_principal_paid[0], Toast.LENGTH_SHORT).show();
+		Toast.makeText(MainActivity.this, "Min Interest: " + min_interest_paid[0], Toast.LENGTH_SHORT).show();
+		Toast.makeText(MainActivity.this, "Extra Interest: " + extra_interest_paid[0], Toast.LENGTH_SHORT).show();
 		goToResultsChart.putExtras(extra);
 		Intent goToOptions = new Intent(this, OptionsActivity.class);
 		goToOptions.putExtras(extra);
 		startActivity(goToOptions);
-//		startActivity(goToResultsChart);
 	}
 	
 	public static double amortize(double principal, double rate, double time)
