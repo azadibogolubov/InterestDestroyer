@@ -19,11 +19,14 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
-        public static final int action_bar_blue=0x7f050007;
-        public static final int black=0x7f050006;
+        public static final int action_bar_blue=0x7f05000a;
         public static final int fountain_blue=0x7f050000;
         public static final int granny_smith=0x7f050003;
         public static final int green_background=0x7f050005;
+        public static final int green_gradient_end=0x7f050009;
+        public static final int green_gradient_start=0x7f050008;
+        public static final int headline_text=0x7f050006;
+        public static final int light_black_text=0x7f050007;
         public static final int light_green=0x7f050002;
         public static final int teal_green=0x7f050001;
         public static final int white=0x7f050004;
