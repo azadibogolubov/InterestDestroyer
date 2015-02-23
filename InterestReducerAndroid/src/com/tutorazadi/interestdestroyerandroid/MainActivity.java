@@ -8,7 +8,6 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.InputType;
@@ -61,35 +60,15 @@ public class MainActivity extends Activity {
 		
 		Animation fade_in = AnimationUtils.loadAnimation(this, R.anim.fade_in);
 		
-		Typeface arimo = Typeface.createFromAsset(getAssets(), "fonts/Arimo-Regular.ttf");
-		Typeface arimoItalic = Typeface.createFromAsset(getAssets(), "fonts/Arimo-Italic.ttf");
-		
 		welcomeLbl = (TextView) findViewById(R.id.welcomeLbl);
-		welcomeLbl.setTypeface(arimoItalic);
-
 		principalLbl = (TextView) findViewById(R.id.principalLbl);
-		principalLbl.setTypeface(arimo);
-
 		interestRateLbl = (TextView) findViewById(R.id.interestRateLbl);
-		interestRateLbl.setTypeface(arimo);
-		
 		numMonthsLbl = (TextView) findViewById(R.id.numMonthsLbl);
-		numMonthsLbl.setTypeface(arimo);
-		
 		extraPaymentLbl = (TextView) findViewById(R.id.extraPaymentLbl);
-		extraPaymentLbl.setTypeface(arimo);
-		
 		principalTxt = (EditText)findViewById(R.id.principalTxt);
-		principalTxt.setTypeface(arimoItalic);
-
 		numMonthsTxt = (EditText)findViewById(R.id.numMonthsTxt);
-		numMonthsTxt.setTypeface(arimoItalic);
-
 		interestTxt = (EditText)findViewById(R.id.interestTxt);
-		interestTxt.setTypeface(arimoItalic);
-		
 		extraPaymentTxt = (EditText)findViewById(R.id.extraPaymentTxt);
-		extraPaymentTxt.setTypeface(arimoItalic);
 
 		mainLayout = (LinearLayout) findViewById(R.id.mainLayout);
 		mainLayout.startAnimation(fade_in);
@@ -103,7 +82,8 @@ public class MainActivity extends Activity {
 		
 		getInfo.setOnClickListener(new View.OnClickListener() 
 		{
-            public void onClick(View v) {
+            public void onClick(View v) 
+            {
         		principal = principal_original;
         		simple_interest = principal * (rate / 100) * (time / 12);
         		interest_paid = 0.00;

@@ -17,7 +17,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="18dp"
         android:text="@string/results_ready"
-        android:textColor="@color/white"
+        android:textColor="@color/headline_text"
         android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -28,7 +28,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="14dp"
         android:text="@string/what_next"
-        android:textColor="@color/white"
+        android:textColor="@color/light_black_text"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
@@ -38,7 +38,7 @@
         android:layout_marginTop="14dp"
         android:layout_gravity="center"
         android:text="@string/see_amortization"
-        android:textColor="@color/white" />
+        android:textColor="@color/light_black_text" />
 
     <Button
         android:id="@+id/emailAmortizeBtn"
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/email_amortization" 
-        android:textColor="@color/white" />
+        android:textColor="@color/light_black_text" />
 
     <Button
         android:id="@+id/graphicalResultsBtn"
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/see_graphical_results" 
-        android:textColor="@color/white" />
+        android:textColor="@color/light_black_text" />
 
     <Button
         android:id="@+id/graphicalBuyDownBtn"
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/see_buy_down_effect" 
-        android:textColor="@color/white" />
+        android:textColor="@color/light_black_text" />
 
     <Button
         android:id="@+id/shareOnFacebookBtn"
@@ -70,5 +70,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/share_on_facebook" 
-        android:textColor="@color/white" />
+        android:textColor="@color/light_black_text" />
 </LinearLayout>

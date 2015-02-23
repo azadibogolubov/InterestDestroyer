@@ -70,12 +70,13 @@ public class OptionsActivity extends Activity {
 		{
 			public void onClick(View v)
 			{
-				Intent emailIntent = new Intent(Intent.ACTION_SEND);
+				Toast.makeText(OptionsActivity.this, "This functionality is not yet implemented...", Toast.LENGTH_SHORT).show();
+/*				Intent emailIntent = new Intent(Intent.ACTION_SEND);
 				emailIntent.setData(Uri.parse("mailto:"));
 				emailIntent.setType("text/plain");
 				emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Interest Destroyer Amortization Results");
 				emailIntent.putExtra(Intent.EXTRA_TEXT, "");
-				startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+				startActivity(Intent.createChooser(emailIntent, "Send mail..."));*/
 			}
 		});
 		
