@@ -3,7 +3,7 @@
     android:id="@+id/mainLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/green_gradient_start"
+    android:background="@drawable/green_gradient"
     android:layout_margin="10dp"
     android:orientation="vertical" >
 
@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textColor="@color/white"
+        android:textColor="@color/headline_text"
         android:layout_margin="10dp"
         android:text="@string/welcome"
         android:textStyle="bold"
@@ -26,7 +26,7 @@
             android:id="@+id/principalLbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-	        android:textColor="@color/white"
+	        android:textColor="@color/light_black_text"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"  
@@ -41,8 +41,8 @@
             android:layout_gravity="center_vertical"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
-	        android:textColorHint="@color/white"
-	        android:textColor="@color/white"
+	        android:textColorHint="@color/light_black_text"
+	        android:textColor="@color/light_black_text"
             android:hint="@string/principal_hint" 
             android:text="@string/principal_hint" >
             
@@ -59,7 +59,7 @@
             android:id="@+id/interestRateLbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/light_black_text"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
@@ -74,8 +74,8 @@
             android:layout_gravity="center_vertical"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
-            android:textColorHint="@color/white"
-	        android:textColor="@color/white"
+            android:textColorHint="@color/light_black_text"
+	        android:textColor="@color/light_black_text"
             android:hint="@string/interest_hint" 
             android:text="@string/interest_hint" />
     </LinearLayout>
@@ -89,7 +89,7 @@
             android:id="@+id/numMonthsLbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/light_black_text"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
@@ -105,8 +105,8 @@
             android:ems="10"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
-	        android:textColorHint="@color/white"
-	        android:textColor="@color/white"
+	        android:textColorHint="@color/light_black_text"
+	        android:textColor="@color/light_black_text"
             android:hint="@string/months_hint" 
             android:text="@string/months_hint" />
     </LinearLayout>
@@ -119,7 +119,7 @@
             android:id="@+id/extraPaymentLbl"
 	        android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/light_black_text"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
@@ -134,8 +134,8 @@
             android:layout_gravity="center_vertical"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
-	        android:textColor="@color/white"
-	        android:textColorHint="@color/white"
+	        android:textColor="@color/light_black_text"
+	        android:textColorHint="@color/light_black_text"
             android:hint="@string/extra_payment_hint" 
             android:text="@string/extra_payment_hint" />
     </LinearLayout>

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_gradient_start"
+    android:background="@drawable/green_gradient"
     android:orientation="vertical" >
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_gravity="center"
         android:text="@string/amortization"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/white" />
+        android:textColor="@color/headline_text" />
 
     <TextView
         android:id="@+id/principalVsExtraTxt"
@@ -22,7 +22,7 @@
         android:layout_marginBottom="10dp"
         android:text="@string/principal_vs_extra"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/white" />
+        android:textColor="@color/light_black_text" />
 
     <ListView
         android:id="@+id/amortizationList"
@@ -39,6 +39,6 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:text="@string/email_results"
-        android:textColor="@color/white" />
+        android:textColor="@color/light_black_text" />
 
 </LinearLayout>

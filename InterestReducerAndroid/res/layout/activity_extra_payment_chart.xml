@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_gradient_start"
+    android:background="@drawable/green_gradient"
     android:orientation="vertical" >
 
     <TextView
@@ -12,14 +12,14 @@
         android:layout_gravity="start"
         android:text="@string/years_saved"
         android:textAppearance="?android:attr/textAppearanceMedium" 
-        android:textColor="#FFFFFF" />
+        android:textColor="@color/headline_text" />
 
     <TextView
         android:id="@+id/interestSaved"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/interest_saved"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/headline_text"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <RelativeLayout
@@ -29,14 +29,5 @@
         android:layout_marginTop="10dp" >
 
     </RelativeLayout>
-
-    <Button
-        android:id="@+id/amortizeBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="#C3C3C3"
-        android:text="@string/amortization" />
 
 </LinearLayout>
