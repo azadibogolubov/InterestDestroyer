@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -71,12 +70,6 @@ public class OptionsActivity extends Activity {
 			public void onClick(View v)
 			{
 				Toast.makeText(OptionsActivity.this, "This functionality is not yet implemented...", Toast.LENGTH_SHORT).show();
-/*				Intent emailIntent = new Intent(Intent.ACTION_SEND);
-				emailIntent.setData(Uri.parse("mailto:"));
-				emailIntent.setType("text/plain");
-				emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Interest Destroyer Amortization Results");
-				emailIntent.putExtra(Intent.EXTRA_TEXT, "");
-				startActivity(Intent.createChooser(emailIntent, "Send mail..."));*/
 			}
 		});
 		

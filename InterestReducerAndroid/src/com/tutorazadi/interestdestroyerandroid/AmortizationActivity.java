@@ -15,7 +15,6 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class AmortizationActivity extends Activity 
 {
@@ -47,11 +46,6 @@ public class AmortizationActivity extends Activity
 		extraPaymentAmount = extras.getString("EXTRA_PAYMENT_AMOUNT");
 
         listView = (ListView) findViewById(R.id.amortizationList);
-/*        Toast.makeText(this, "Min: " + minimum_payment, Toast.LENGTH_LONG).show();        	
-        
-        Toast.makeText(this, "# Months: " + extras.getDouble("TOTAL_MONTHS"), Toast.LENGTH_SHORT).show();
-        Toast.makeText(this,  "Minimum payments: " + minimum_payment[0], Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "Extra payments: " + extra_payment[0], Toast.LENGTH_SHORT).show();*/
         
         final int SIZE = (int) extras.getDouble("TOTAL_MONTHS");
         values = new String[SIZE];
