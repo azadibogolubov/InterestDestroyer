@@ -9,9 +9,9 @@
         android:id="@+id/yearsSaved"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
+        android:layout_gravity="center"
         android:text="@string/years_saved"
-        android:textAppearance="?android:attr/textAppearanceMedium" 
+        android:textAppearance="?android:attr/textAppearanceLarge" 
         android:textColor="@color/headline_text" />
 
     <TextView
@@ -20,12 +20,13 @@
         android:layout_height="wrap_content"
         android:text="@string/interest_saved"
         android:textColor="@color/headline_text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <RelativeLayout
         android:id="@+id/chartsRelativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="338dp"
+        android:layout_height="fill_parent"
         android:layout_marginTop="10dp" >
 
     </RelativeLayout>

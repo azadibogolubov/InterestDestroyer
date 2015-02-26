@@ -61,29 +61,7 @@ public class ExtraPaymentChartActivity extends Activity {
 		extraPaymentAmount = extras.getString("EXTRA_PAYMENT_AMOUNT");
 		min_principal_remaining = extras.getDoubleArray("MIN_PRINCIPAL_REMAINING");
 		extra_principal_remaining = extras.getDoubleArray("EXTRA_PRINCIPAL_REMAINING");
-		
-		Toast.makeText(this, "Time: " + timeSaved + "\nInterest" + interestSaved, Toast.LENGTH_LONG).show();
-		
-		amortizeBtn = (Button) findViewById(R.id.amortizeBtn);
-		amortizeBtn.setOnClickListener(new OnClickListener()
-		{
-			public void onClick(View v)
-			{
-				Intent intent = new Intent(ExtraPaymentChartActivity.this, AmortizationActivity.class);
-				Bundle extra = new Bundle();
-				extra.putDoubleArray("MINIMUM_PAYMENTS", minimumPayment);
-				extra.putDoubleArray("EXTRA_PAYMENTS", extraPayment);
-				extra.putString("PRINCIPAL", principal);
-				extra.putString("INTEREST_RATE", interest);
-				extra.putDouble("TIME_SAVED", timeSaved);
-				extra.putDouble("INTEREST_SAVED", interestSaved);
-				extra.putString("EXTRA_PAYMENT_AMOUNT", extraPaymentAmount);
-				extra.putDouble("TOTAL_MONTHS", totalMonths);
-				intent.putExtras(extra);
-				startActivity(intent);
-			}
-		});
-		
+						
 		int size = (int)extras.getDouble("TOTAL_MONTHS");
 		String[] mMonth = new String[size/12];
 		int[] x = new int[size];
