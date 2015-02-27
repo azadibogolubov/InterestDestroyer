@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2267FA681AA030BB00F621DB /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267FA671AA030BB00F621DB /* ResultsViewController.swift */; };
 		22F688221A9D710700BF0A48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F688211A9D710700BF0A48 /* AppDelegate.swift */; };
 		22F688251A9D710700BF0A48 /* Interest_Destroyer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22F688231A9D710700BF0A48 /* Interest_Destroyer.xcdatamodeld */; };
 		22F688271A9D710700BF0A48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F688261A9D710700BF0A48 /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2267FA671AA030BB00F621DB /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		22F6881C1A9D710700BF0A48 /* Interest Destroyer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Interest Destroyer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F688201A9D710700BF0A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22F688211A9D710700BF0A48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				22F6882D1A9D710700BF0A48 /* LaunchScreen.xib */,
 				22F688231A9D710700BF0A48 /* Interest_Destroyer.xcdatamodeld */,
 				22F6881F1A9D710700BF0A48 /* Supporting Files */,
+				2267FA671AA030BB00F621DB /* ResultsViewController.swift */,
 			);
 			path = "Interest Destroyer";
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				22F688271A9D710700BF0A48 /* ViewController.swift in Sources */,
 				22F688221A9D710700BF0A48 /* AppDelegate.swift in Sources */,
 				22F688251A9D710700BF0A48 /* Interest_Destroyer.xcdatamodeld in Sources */,
+				2267FA681AA030BB00F621DB /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +413,7 @@
 				22F688401A9D710700BF0A48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		22F688411A9D710700BF0A48 /* Build configuration list for PBXNativeTarget "Interest DestroyerTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				22F688431A9D710700BF0A48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
