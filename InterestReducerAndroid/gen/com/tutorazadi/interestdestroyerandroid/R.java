@@ -82,6 +82,7 @@ public final class R {
         public static final int activity_extra_payment_chart=0x7f030001;
         public static final int activity_main=0x7f030002;
         public static final int activity_options=0x7f030003;
+        public static final int activity_splash_screen=0x7f030004;
     }
     public static final class menu {
         public static final int amortization=0x7f090000;
@@ -92,6 +93,7 @@ public final class R {
         public static final int options=0x7f090005;
         public static final int results=0x7f090006;
         public static final int results_chart=0x7f090007;
+        public static final int splash_screen=0x7f090008;
     }
     public static final class string {
         public static final int action_settings=0x7f070002;
@@ -103,6 +105,7 @@ public final class R {
         public static final int extra_payment=0x7f070009;
         public static final int extra_payment_hint=0x7f070011;
         public static final int get_results=0x7f07000b;
+        public static final int hello_world=0x7f070021;
         public static final int interest=0x7f070008;
         public static final int interest_hint=0x7f07000f;
         public static final int interest_saved=0x7f070014;
@@ -123,6 +126,7 @@ public final class R {
         public static final int title_activity_options=0x7f070012;
         public static final int title_activity_results=0x7f070004;
         public static final int title_activity_results_chart=0x7f070006;
+        public static final int title_activity_splash_screen=0x7f070020;
         public static final int welcome=0x7f070001;
         public static final int what_next=0x7f070017;
         public static final int years_saved=0x7f070015;
