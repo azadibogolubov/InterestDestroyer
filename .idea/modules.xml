@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GoogleChartsTest/GoogleChartsTest.iml" filepath="$PROJECT_DIR$/GoogleChartsTest/GoogleChartsTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/InterestDestroyer.iml" filepath="$PROJECT_DIR$/InterestDestroyer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/InterestReducerAndroid/InterestReducerAndroid.iml" filepath="$PROJECT_DIR$/InterestReducerAndroid/InterestReducerAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Android Version/InterestDestroyerAndroid/InterestDestroyerAndroid.iml" filepath="$PROJECT_DIR$/Android Version/InterestDestroyerAndroid/InterestDestroyerAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Android Version/InterestDestroyerAndroid/bin/bin.iml" filepath="$PROJECT_DIR$/Android Version/InterestDestroyerAndroid/bin/bin.iml" />
     </modules>
   </component>
 </project>

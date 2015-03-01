@@ -2,33 +2,98 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6fc3b11b-3258-433c-ac66-6c5c00edb0a4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GoogleChartsTest/GoogleChartsTest.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/InterestDestroyer.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/InterestReducerAndroid/InterestReducerAndroid.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/android_support_v4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/libs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/libs1.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GoogleChartsTest/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GoogleChartsTest/gen/com/example/googlechartstest/BuildConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GoogleChartsTest/gen/com/example/googlechartstest/R.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GoogleChartsTest/ic_launcher-web.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GoogleChartsTest/libs/android-support-v4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GoogleChartsTest/proguard-project.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GoogleChartsTest/project.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GoogleChartsTest/res/drawable-hdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GoogleChartsTest/res/drawable-mdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GoogleChartsTest/res/drawable-xhdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GoogleChartsTest/res/drawable-xxhdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GoogleChartsTest/res/layout/activity_main.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GoogleChartsTest/res/menu/main.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GoogleChartsTest/res/values-v11/styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GoogleChartsTest/res/values-v14/styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GoogleChartsTest/res/values-w820dp/dimens.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GoogleChartsTest/res/values/dimens.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GoogleChartsTest/res/values/strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GoogleChartsTest/res/values/styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GoogleChartsTest/src/com/example/googlechartstest/MainActivity.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InterestReducerAndroid/gen/com/tutorazadi/interestdestroyerandroid/BuildConfig.java" afterPath="$PROJECT_DIR$/InterestReducerAndroid/gen/com/tutorazadi/interestdestroyerandroid/BuildConfig.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/.idea/.name" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/.idea/InterestReducerAndroid.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/.idea/compiler.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/.idea/copyright/profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/.idea/encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/.idea/scopes/scope_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/.idea/workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/AccurateWindowAndDoorAndroid.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/AndroidManifest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/InterestReducerAndroid.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/ant.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/assets/fonts/Arimo-Bold.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/assets/fonts/Arimo-BoldItalic.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/assets/fonts/Arimo-Italic.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/assets/fonts/Arimo-Regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/assets/fonts/Parisish.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/assets/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/assets/jsapi.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/build.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/gen/com/tutorazadi/interestdestroyerandroid/BuildConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/gen/com/tutorazadi/interestdestroyerandroid/Manifest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/gen/com/tutorazadi/interestdestroyerandroid/R.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/ic_launcher-web.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/libs/achartengine-1.1.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/libs/android-support-v4.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/lint.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/nbproject/build-impl.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/nbproject/genfiles.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/nbproject/private/private.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/nbproject/private/private.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/nbproject/project.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/nbproject/project.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/out/production/AccurateWindowAndDoorAndroid/AccurateWindowAndDoorAndroid.apk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/out/production/AccurateWindowAndDoorAndroid/AccurateWindowAndDoorAndroid.unaligned.apk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/out/production/AccurateWindowAndDoorAndroid/com/example/AccurateWindowAndDoorAndroid/BuildConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/out/production/AccurateWindowAndDoorAndroid/com/example/AccurateWindowAndDoorAndroid/MyActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/out/production/AccurateWindowAndDoorAndroid/com/example/AccurateWindowAndDoorAndroid/R$attr.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/out/production/AccurateWindowAndDoorAndroid/com/example/AccurateWindowAndDoorAndroid/R$drawable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/out/production/AccurateWindowAndDoorAndroid/com/example/AccurateWindowAndDoorAndroid/R$id.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/out/production/AccurateWindowAndDoorAndroid/com/example/AccurateWindowAndDoorAndroid/R$layout.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/out/production/AccurateWindowAndDoorAndroid/com/example/AccurateWindowAndDoorAndroid/R$string.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/out/production/AccurateWindowAndDoorAndroid/com/example/AccurateWindowAndDoorAndroid/R.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/proguard-project.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/project.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/anim/fade_in.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/anim/fly_in_bottom.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/anim/fly_in_diagonal_top_left.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/anim/fly_in_left.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/anim/fly_in_right.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/anim/fly_in_top.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/drawable-hdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/drawable-ldpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/drawable-mdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/drawable-xhdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/drawable-xxhdpi/ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/drawable/dollarsign.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/drawable/get_results.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/drawable/green_gradient.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/drawable/information.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/drawable/information_small.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/layout/activity_amortization.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/layout/activity_extra_payment_chart.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/layout/activity_main.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/layout/activity_options.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/layout/activity_splash_screen.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/menu/amortization.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/menu/bar_chart.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/menu/extra_payment_chart.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/menu/extra_payments_chart.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/menu/main.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/menu/options.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/menu/results.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/menu/results_chart.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/menu/splash_screen.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/values-v11/styles.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/values-v14/styles.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/values-w820dp/dimens.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/values/colors.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/values/dimens.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/values/strings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/res/values/styles.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/src/com/tutorazadi/interestdestroyerandroid/AmortizationActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/src/com/tutorazadi/interestdestroyerandroid/ExtraPaymentChartActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/src/com/tutorazadi/interestdestroyerandroid/MainActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/src/com/tutorazadi/interestdestroyerandroid/OptionsActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/InterestReducerAndroid/src/com/tutorazadi/interestdestroyerandroid/SplashScreenActivity.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="InterestDestroyer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,6 +157,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -100,7 +167,7 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="InterestReducerAndroid" />
+              <option name="myItemId" value="bin" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -118,7 +185,7 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="InterestReducerAndroid" />
+              <option name="myItemId" value="InterestDestroyerAndroid" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -142,19 +209,11 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="InterestDestroyer" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -165,7 +224,6 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="restartRequiresConfirmation" value="true" />
   </component>
   <component name="RunManager" selected="Android Application.InterestReducerAndroid">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
@@ -362,12 +420,11 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32715008" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3237774" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288364" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32715008" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -382,6 +439,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32715008" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -403,16 +461,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/InterestReducerAndroid/gen/com/tutorazadi/interestdestroyerandroid/Manifest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13274336" vertical-offset="0" max-vertical-offset="565">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
 
