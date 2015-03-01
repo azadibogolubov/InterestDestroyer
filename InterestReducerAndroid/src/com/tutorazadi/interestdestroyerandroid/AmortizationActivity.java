@@ -1,5 +1,9 @@
 package com.tutorazadi.interestdestroyerandroid;
 
+/**
+ *  Credits: Question Mark image taken from http://images.clipartpanda.com/
+ */
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -15,11 +19,15 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class AmortizationActivity extends Activity 
 {
 	Button emailResults;
 	ListView listView;
+	ImageButton informationBtn;
+	
 	public double[] minimum_payment, extra_payment;
 	public String principal, interest, extraPaymentAmount;
 	public double totalMonths, timeSaved, interestSaved;
@@ -65,7 +73,8 @@ public class AmortizationActivity extends Activity
 					+ SIZE + " months, with an extra payment of $" 
 					+ extraPaymentAmount + " per month.\n\n" + String.format("If you pay the extra payments "
 					+ "as planned, you will save %.2f years and $%.2f over the term of your mortgage.\n\n", timeSaved, interestSaved);
-			
+
+			@Override
 			public void onClick(View v)
 			{				
 				for (int i = 0; i < SIZE; i++)
@@ -78,6 +87,16 @@ public class AmortizationActivity extends Activity
 				emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Interest Destroyer Amortization Results");
 				emailIntent.putExtra(Intent.EXTRA_TEXT, bodyText);
 				startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+			}
+		});
+		
+		informationBtn = (ImageButton) findViewById(R.id.informationBtn);
+		informationBtn.setOnClickListener(new OnClickListener()
+		{
+			@Override
+			public void onClick(View v)
+			{
+				Toast.makeText(AmortizationActivity.this, "Give information about amortization here...", Toast.LENGTH_SHORT).show();
 			}
 		});
 	}
