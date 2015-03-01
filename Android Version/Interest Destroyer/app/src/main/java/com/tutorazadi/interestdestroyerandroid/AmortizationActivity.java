@@ -7,7 +7,7 @@ package com.tutorazadi.interestdestroyerandroid;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
+import android.widget.TextView;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -21,26 +21,31 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ImageButton;
 import android.widget.Toast;
+import android.graphics.Typeface;
 
 public class AmortizationActivity extends Activity 
 {
 	Button emailResults;
 	ListView listView;
 	ImageButton informationBtn;
-	
+	TextView amortizationLbl, principalVsExtraLbl;
 	public double[] minimum_payment, extra_payment;
 	public String principal, interest, extraPaymentAmount;
 	public double totalMonths, timeSaved, interestSaved;
 	
 	String[] values;
-	
+
+    Typeface arimo;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_amortization);
 
-		ActionBar bar = getActionBar();
+        arimo = Typeface.createFromAsset(this.getAssets(), "fonts/Arimo-Regular.ttf");
+
+        ActionBar bar = getActionBar();
 		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#066891")));
 
 		Bundle extras = getIntent().getExtras();
@@ -63,32 +68,6 @@ public class AmortizationActivity extends Activity
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
         listView.setAdapter(adapter); 
 
-		emailResults = (Button) findViewById(R.id.emailResults);
-		emailResults.setOnClickListener(new OnClickListener()
-		{
-			String bodyText = "Here are the amortization results for your loan "
-					+ "with a principal amount of $" + principal + " assessed "
-					+ "at an interest rate of " + interest + "% amortized over " 
-					+ SIZE + " months, with an extra payment of $" 
-					+ extraPaymentAmount + " per month.\n\n" + String.format("If you pay the extra payments "
-					+ "as planned, you will save %.2f years and $%.2f over the term of your mortgage.\n\n", timeSaved, interestSaved);
-
-			@Override
-			public void onClick(View v)
-			{				
-				for (int i = 0; i < SIZE; i++)
-				{
-					bodyText += results[i] + "\n";
-				}
-				Intent emailIntent = new Intent(Intent.ACTION_SEND);
-				emailIntent.setData(Uri.parse("mailto:"));
-				emailIntent.setType("text/plain");
-				emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Interest Destroyer Amortization Results");
-				emailIntent.putExtra(Intent.EXTRA_TEXT, bodyText);
-				startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-			}
-		});
-		
 		informationBtn = (ImageButton) findViewById(R.id.informationBtn);
 		informationBtn.setOnClickListener(new OnClickListener()
 		{
@@ -98,6 +77,12 @@ public class AmortizationActivity extends Activity
 				Toast.makeText(AmortizationActivity.this, "Give information about amortization here...", Toast.LENGTH_SHORT).show();
 			}
 		});
+
+        amortizationLbl = (TextView) findViewById(R.id.amortizationLbl);
+        amortizationLbl.setTypeface(arimo);
+
+        principalVsExtraLbl = (TextView) findViewById(R.id.principalVsExtraLbl);
+        principalVsExtraLbl.setTypeface(arimo);
 	}
 
 	@Override

@@ -1,71 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/green_gradient"
-    android:orientation="vertical" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-        
-	    <TextView
-	        android:id="@+id/amortizationTxt"
-	        android:layout_width="0dp"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="center"
-	        android:layout_weight=".95"	     
-	        android:layout_marginLeft="65dp"   
-	   	    android:layout_marginStart="65dp"
-	        android:gravity="center_vertical|center_horizontal"
-	        android:text="@string/amortization"
-	        android:textAppearance="?android:attr/textAppearanceLarge"
-	        android:textColor="@color/headline_text" />
+        android:background="@drawable/green_gradient"
+        android:orientation="vertical">
 
-	   	<ImageButton
-	   	    android:id="@+id/informationBtn"
-	   	    android:layout_width="25dp"
-	   	    android:layout_height="44dp"
-	   	    android:layout_weight="0.04"
-	   	    android:background="@android:color/transparent"
-	   	    android:layout_marginRight="10dp"
-	   	    android:layout_marginEnd="10dp"
-	   	    android:layout_marginTop="10dp"
-	   	    android:contentDescription="@string/app_name"
-	   	    android:scaleType="fitXY"
-	   	    android:src="@drawable/information_small" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-	</LinearLayout>
-	
-    <TextView
-        android:id="@+id/principalVsExtraTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_gravity="center"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="@string/principal_vs_extra"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/light_black_text" />
+            <TextView
+                android:id="@+id/amortizationLbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="65dp"
+                android:layout_marginStart="65dp"
+                android:layout_weight=".95"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/amortization"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/headline_text" />
 
-    <ListView
-        android:id="@+id/amortizationList"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.26" >
-    </ListView>
+            <ImageButton
+                android:id="@+id/informationBtn"
+                android:layout_width="25dp"
+                android:layout_height="44dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="0.04"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY"
+                android:src="@drawable/information_small" />
 
-    <Button
-        android:id="@+id/emailResults"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/email_results"
-        android:textColor="@color/light_black_text" />
+        </LinearLayout>
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/principalVsExtraLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/principal_vs_extra"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/light_black_text" />
+
+        <ListView
+            android:id="@+id/amortizationList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</ScrollView>

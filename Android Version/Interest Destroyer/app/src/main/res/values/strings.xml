@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Interest Destroyer</string>
+    <string name="app_name">Intere$t De$troyer</string>
     <string name="welcome">Welcome to Interest Destroyer</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">Gathering Information</string>
@@ -34,6 +34,4 @@
     <string name="email_results">EMAIL Results</string>
     <string name="principal_vs_extra">Principal amounts: minimum vs. extra payment</string>
     <string name="title_activity_splash_screen">SplashScreenActivity</string>
-    <string name="hello_world">Hello world!</string>
-
 </resources>

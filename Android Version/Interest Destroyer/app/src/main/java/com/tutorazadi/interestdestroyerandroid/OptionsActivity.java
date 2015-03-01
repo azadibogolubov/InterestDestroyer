@@ -4,7 +4,9 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,9 +19,12 @@ import android.widget.Toast;
 
 public class OptionsActivity extends Activity {
 
-	Button amortizeBtn, emailAmortizeBtn, graphicalResultsBtn, graphicalBuyDownBtn, shareOnFacebookBtn;
-	
-	@Override
+	Button amortizeBtn, emailAmortizeBtn, graphicalResultsBtn, graphicalBuyDownBtn, shareOnFacebookBtn, emailResults;
+    public static double[] extraPayment, minimumPayment, min_principal_remaining, extra_principal_remaining;
+    public double timeSaved, interestSaved;
+    public String principal, extraPaymentAmount, interest;
+
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_options);
@@ -28,7 +33,19 @@ public class OptionsActivity extends Activity {
 		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#066891")));
 		
 		final Bundle extra = getIntent().getExtras();
-		
+        final int SIZE = extra.getInt("TOTAL_MONTHS");
+
+        minimumPayment = extra.getDoubleArray("MINIMUM_PAYMENTS");
+        extraPayment = extra.getDoubleArray("EXTRA_PAYMENTS");
+        principal = extra.getString("PRINCIPAL");
+        interestSaved = extra.getDouble("INTEREST_SAVED");
+        timeSaved = extra.getDouble("TIME_SAVED");
+        interest = extra.getString("INTEREST_RATE");
+        extraPaymentAmount = extra.getString("EXTRA_PAYMENT_AMOUNT");
+        min_principal_remaining = extra.getDoubleArray("MIN_PRINCIPAL_REMAINING");
+        extra_principal_remaining = extra.getDoubleArray("EXTRA_PRINCIPAL_REMAINING");
+
+
 		amortizeBtn = (Button) findViewById(R.id.amortizeBtn);
 		emailAmortizeBtn = (Button) findViewById(R.id.emailAmortizeBtn);
 		graphicalResultsBtn = (Button) findViewById(R.id.graphicalResultsBtn);
@@ -61,7 +78,6 @@ public class OptionsActivity extends Activity {
 		{
 			public void onClick(View v)
 			{
-				Toast.makeText(OptionsActivity.this, "This functionality is not yet implemented...", Toast.LENGTH_SHORT).show();
 			}
 		});
 		

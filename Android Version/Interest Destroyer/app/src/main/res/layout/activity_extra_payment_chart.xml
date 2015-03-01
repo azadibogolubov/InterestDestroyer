@@ -1,34 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/green_gradient"
-    android:orientation="vertical" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/yearsSaved"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/years_saved"
-        android:textAppearance="?android:attr/textAppearanceLarge" 
-        android:textColor="@color/headline_text" />
-
-    <TextView
-        android:id="@+id/interestSaved"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/interest_saved"
-        android:textColor="@color/headline_text"
-        android:layout_gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <RelativeLayout
-        android:id="@+id/chartsRelativeLayout"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginTop="10dp" >
+        android:layout_height="wrap_content"
+        android:background="@drawable/green_gradient"
+        android:orientation="vertical">
 
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/yearsSaved"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/years_saved"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/headline_text" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/interestSaved"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/interest_saved"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/headline_text" />
+
+        <RelativeLayout
+            android:id="@+id/chartsRelativeLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="10dp">
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>

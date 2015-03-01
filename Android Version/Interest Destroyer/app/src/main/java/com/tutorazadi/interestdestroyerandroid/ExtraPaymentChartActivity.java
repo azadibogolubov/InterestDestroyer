@@ -38,8 +38,8 @@ public class ExtraPaymentChartActivity extends Activity {
 	GraphicalView mChartView = null;
 	public static NumberFormat n = NumberFormat.getCurrencyInstance(Locale.US);
 	public static DecimalFormat df = new DecimalFormat("#.##");
+    public TextView interestSavedLbl, yearsSavedLbl;
 	public static double[] extraPayment, minimumPayment, min_principal_remaining, extra_principal_remaining;
-	public Button amortizeBtn;
 	public double timeSaved, interestSaved, totalMonths;
 	public String principal, extraPaymentAmount, interest;
 	

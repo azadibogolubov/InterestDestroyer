@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.os.Handler;
 
 public class SplashScreenActivity extends Activity {
 
@@ -12,11 +13,16 @@ public class SplashScreenActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash_screen);
-		try { Thread.sleep(2000); }
-		catch (InterruptedException e) { }
-		Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
-		startActivity(intent);
-	}
+        new Handler().postDelayed(new Runnable(){
+            @Override
+            public void run() {
+                /* Create an Intent that will start the Menu-Activity. */
+                Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        }, 3000);
+    }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
