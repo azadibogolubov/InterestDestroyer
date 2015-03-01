@@ -8,8 +8,8 @@ Current features:
 - See a chart of how interest point buy downs affect overall interest charges assessed over the life of a loan.
 - Share results to Facebook.
 - This app uses the following two Apache 2.0 licensed libraries:
-* AChartEngine (achartengine.org)
-* Arimo Font (https://www.google.com/fonts/specimen/Arimo)
+1. AChartEngine (achartengine.org)
+2. Arimo Font (https://www.google.com/fonts/specimen/Arimo)
 - Additionally, this app uses the following SIL Open License Font: 
-* Parisish (http://www.fontspace.com/george-williams/parisish)
+1. Parisish (http://www.fontspace.com/george-williams/parisish)
 - License information can be found in the license files at the root folder of this repository.
