@@ -1,6 +1,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="fill_parent"
     android:fillViewport="true">
 
     <LinearLayout xmlns:tools="http://schemas.android.com/tools"
@@ -61,12 +61,20 @@
             android:textColor="@color/light_black_text" />
 
         <Button
+            android:id="@+id/aboutBtn"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/about"
+        />
+        <Button
             android:id="@+id/graphicalBuyDownBtn"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/see_buy_down_effect"
-            android:textColor="@color/light_black_text" />
+            android:textColor="@color/light_black_text"
+            android:visibility="invisible" />
 
         <Button
             android:id="@+id/shareOnFacebookBtn"
@@ -74,6 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/share_on_facebook"
-            android:textColor="@color/light_black_text" />
+            android:textColor="@color/light_black_text"
+            android:visibility="invisible" />
     </LinearLayout>
 </ScrollView>

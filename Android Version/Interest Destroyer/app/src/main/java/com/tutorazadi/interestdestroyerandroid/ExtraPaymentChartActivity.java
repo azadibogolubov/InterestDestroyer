@@ -19,6 +19,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -42,7 +43,9 @@ public class ExtraPaymentChartActivity extends Activity {
 	public static double[] extraPayment, minimumPayment, min_principal_remaining, extra_principal_remaining;
 	public double timeSaved, interestSaved, totalMonths;
 	public String principal, extraPaymentAmount, interest;
-	
+
+    public Typeface arimoItalic;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -52,16 +55,20 @@ public class ExtraPaymentChartActivity extends Activity {
 		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#066891")));
 		
 		Bundle extras = getIntent().getExtras();
+
+        arimoItalic = Typeface.createFromAsset(this.getAssets(), "fonts/Arimo-Italic.ttf");
+
 		minimumPayment = extras.getDoubleArray("MINIMUM_PAYMENTS");
 		extraPayment = extras.getDoubleArray("EXTRA_PAYMENTS");
+        min_principal_remaining = extras.getDoubleArray("MIN_PRINCIPAL_REMAINING");
+        extra_principal_remaining = extras.getDoubleArray("EXTRA_PRINCIPAL_REMAINING");
+
 		principal = extras.getString("PRINCIPAL");
 		interestSaved = extras.getDouble("INTEREST_SAVED");
 		timeSaved = extras.getDouble("TIME_SAVED");
 		interest = extras.getString("INTEREST_RATE");
 		extraPaymentAmount = extras.getString("EXTRA_PAYMENT_AMOUNT");
-		min_principal_remaining = extras.getDoubleArray("MIN_PRINCIPAL_REMAINING");
-		extra_principal_remaining = extras.getDoubleArray("EXTRA_PRINCIPAL_REMAINING");
-						
+
 		int size = (int)extras.getDouble("TOTAL_MONTHS");
 		String[] mMonth = new String[size/12];
 		int[] x = new int[size];
@@ -73,9 +80,14 @@ public class ExtraPaymentChartActivity extends Activity {
 			b++;
 		}
 
-		TextView yearsSavedLbl;
-        TextView interestSavedLbl;
-        
+		yearsSavedLbl = (TextView) findViewById(R.id.yearsSavedLbl);
+        yearsSavedLbl.setTypeface(arimoItalic);
+        yearsSavedLbl.setText(yearsSavedLbl.getText() + String.valueOf(df.format(extras.getDouble("TIME_SAVED"))));
+
+        interestSavedLbl = (TextView) findViewById(R.id.interestSavedLbl);
+        interestSavedLbl.setTypeface(arimoItalic);
+        interestSavedLbl.setText(interestSavedLbl.getText() + String.valueOf(n.format(extras.getDouble("INTEREST_SAVED"))));
+
         DisplayMetrics metrics = this.getResources().getDisplayMetrics();
         float val = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 12, metrics);
         
@@ -135,11 +147,6 @@ public class ExtraPaymentChartActivity extends Activity {
         multiRenderer.addSeriesRenderer(baseRenderer);
         multiRenderer.addSeriesRenderer(extraPaymentRenderer);
         
-        yearsSavedLbl = (TextView)findViewById(R.id.yearsSaved);
-        interestSavedLbl = (TextView)findViewById(R.id.interestSaved);
-
-        yearsSavedLbl.setText(yearsSavedLbl.getText() + String.valueOf(df.format(extras.getDouble("TIME_SAVED"))));
-        interestSavedLbl.setText(interestSavedLbl.getText() + String.valueOf(n.format(extras.getDouble("INTEREST_SAVED"))));
         mChartView = ChartFactory.getBarChartView(this, dataset, multiRenderer, BarChart.Type.DEFAULT);
 		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
 		mChartView.setLayoutParams(params);

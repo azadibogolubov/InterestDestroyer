@@ -2,12 +2,12 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/green_gradient"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/green_gradient"
         android:orientation="vertical">
 
         <LinearLayout
@@ -23,23 +23,11 @@
                 android:layout_marginLeft="65dp"
                 android:layout_marginStart="65dp"
                 android:layout_weight=".95"
+                android:textStyle="bold"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/amortization"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/headline_text" />
-
-            <ImageButton
-                android:id="@+id/informationBtn"
-                android:layout_width="25dp"
-                android:layout_height="44dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="0.04"
-                android:background="@android:color/transparent"
-                android:contentDescription="@string/app_name"
-                android:scaleType="fitXY"
-                android:src="@drawable/information_small" />
 
         </LinearLayout>
 
@@ -51,6 +39,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
+            android:textStyle="bold"
             android:gravity="center_horizontal|center_vertical"
             android:text="@string/principal_vs_extra"
             android:textAppearance="?android:attr/textAppearanceMedium"

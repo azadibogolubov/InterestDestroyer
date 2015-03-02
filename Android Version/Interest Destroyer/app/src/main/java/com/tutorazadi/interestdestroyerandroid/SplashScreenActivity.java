@@ -2,12 +2,18 @@ package com.tutorazadi.interestdestroyerandroid;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.os.Handler;
+import android.widget.TextView;
+
 
 public class SplashScreenActivity extends Activity {
+
+    Typeface parisish;
+    TextView interestTxt, destroyerTxt;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +28,14 @@ public class SplashScreenActivity extends Activity {
                 finish();
             }
         }, 3000);
+
+        parisish = Typeface.createFromAsset(this.getAssets(), "fonts/Parisish.ttf");
+
+        interestTxt = (TextView) findViewById(R.id.interestTxt);
+        interestTxt.setTypeface(parisish);
+
+        destroyerTxt = (TextView) findViewById(R.id.destroyerTxt);
+        destroyerTxt.setTypeface(parisish);
     }
 
 	@Override

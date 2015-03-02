@@ -11,7 +11,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/yearsSaved"
+            android:id="@+id/yearsSavedLbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -20,7 +20,7 @@
             android:textColor="@color/headline_text" />
 
         <TextView
-            android:id="@+id/interestSaved"
+            android:id="@+id/interestSavedLbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

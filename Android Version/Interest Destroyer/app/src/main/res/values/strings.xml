@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Intere$t De$troyer</string>
+    <string name="app_name">Interest Destroyer</string>
+    <string name="interest_logo">Intere$t</string>
+    <string name="destroyer_logo">De$troyer</string>
     <string name="welcome">Welcome to Interest Destroyer</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">Gathering Information</string>
     <string name="title_activity_results">Results</string>
-    <string name="title_activity_amortization">Amortization</string>
-    <string name="title_activity_results_chart">Charted Results</string>
+    <string name="title_activity_amortization">Amortization Details</string>
+    <string name="title_activity_results_chart">Chart of Results</string>
     <string name="principal">Principal:</string>
     <string name="interest">Interest Rate:</string>
     <string name="extra_payment">Extra Payment:</string>
@@ -19,7 +21,7 @@
     <string name="interest_hint">5.25</string>
     <string name="months_hint">360</string>
     <string name="extra_payment_hint">100</string>
-    <string name="title_activity_options">OptionsActivity</string>
+    <string name="title_activity_options">Choose an Option</string>
     <string name="content_desc">Content Description</string>
     <string name="interest_saved">Interest Saved:</string>
     <string name="years_saved">Years Saved:</string>
@@ -32,6 +34,18 @@
     <string name="see_buy_down_effect">See graphical effect of buy down points.</string>
     <string name="share_on_facebook">Share on Facebook.</string>
     <string name="email_results">EMAIL Results</string>
-    <string name="principal_vs_extra">Principal amounts: minimum vs. extra payment</string>
-    <string name="title_activity_splash_screen">SplashScreenActivity</string>
+    <string name="principal_vs_extra">Minimum payment vs. extra payment amount applied to principal</string>
+    <string name="title_activity_splash_screen">Splash Screen</string>
+    <string name="about">About Interest Destroyer</string>
+    <string name="title_activity_about">About Interest Destroyer</string>
+    <string name="software_designer">Creator: Azadi Bogolubov</string>
+    <string name="creator_website">Website: http://www.tutorazadi.com</string>
+    <string name="software_designer_company">Tutor Azadi</string>
+    <string name="graphic_designer">Graphics Designer: Shane Tebeck</string>
+    <string name="graphic_designer_company">The Escape Artists</string>
+    <string name="fonts">Fonts:</string>
+    <string name="arimo">Arimo: www.google.com/fonts/specimen/Arimo</string>
+    <string name="parisish">Parisish: www.fontspace.com/george-williams/parisish</string>
+    <string name="charting_engine">Charting Engine:</string>
+    <string name="achartengine">AChartEngine: www.achartengine.org</string>
 </resources>

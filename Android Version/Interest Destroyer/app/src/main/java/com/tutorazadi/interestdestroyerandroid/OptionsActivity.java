@@ -15,14 +15,20 @@ import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class OptionsActivity extends Activity {
 
-	Button amortizeBtn, emailAmortizeBtn, graphicalResultsBtn, graphicalBuyDownBtn, shareOnFacebookBtn, emailResults;
+	Button amortizeBtn, emailAmortizeBtn, graphicalResultsBtn, aboutBtn, graphicalBuyDownBtn, shareOnFacebookBtn;
     public static double[] extraPayment, minimumPayment, min_principal_remaining, extra_principal_remaining;
     public double timeSaved, interestSaved;
     public String principal, extraPaymentAmount, interest;
+    public Typeface arimo;
+
+    Animation fly_in_bottom, fly_in_top, fly_in_left, fly_in_right, fly_in_diagonal_top_left;
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,81 +41,123 @@ public class OptionsActivity extends Activity {
 		final Bundle extra = getIntent().getExtras();
         final int SIZE = extra.getInt("TOTAL_MONTHS");
 
+        arimo = Typeface.createFromAsset(this.getAssets(), "fonts/Arimo-Regular.ttf");
+
+        fly_in_bottom = AnimationUtils.loadAnimation(this, R.anim.fly_in_bottom);
+        fly_in_top = AnimationUtils.loadAnimation(this, R.anim.fly_in_top);
+        fly_in_left = AnimationUtils.loadAnimation(this, R.anim.fly_in_left);
+        fly_in_right = AnimationUtils.loadAnimation(this, R.anim.fly_in_right);
+        fly_in_diagonal_top_left = AnimationUtils.loadAnimation(this, R.anim.fly_in_diagonal_top_left);
+
         minimumPayment = extra.getDoubleArray("MINIMUM_PAYMENTS");
         extraPayment = extra.getDoubleArray("EXTRA_PAYMENTS");
+
+        min_principal_remaining = extra.getDoubleArray("MIN_PRINCIPAL_REMAINING");
+        extra_principal_remaining = extra.getDoubleArray("EXTRA_PRINCIPAL_REMAINING");
+
         principal = extra.getString("PRINCIPAL");
         interestSaved = extra.getDouble("INTEREST_SAVED");
         timeSaved = extra.getDouble("TIME_SAVED");
         interest = extra.getString("INTEREST_RATE");
         extraPaymentAmount = extra.getString("EXTRA_PAYMENT_AMOUNT");
-        min_principal_remaining = extra.getDoubleArray("MIN_PRINCIPAL_REMAINING");
-        extra_principal_remaining = extra.getDoubleArray("EXTRA_PRINCIPAL_REMAINING");
-
 
 		amortizeBtn = (Button) findViewById(R.id.amortizeBtn);
-		emailAmortizeBtn = (Button) findViewById(R.id.emailAmortizeBtn);
-		graphicalResultsBtn = (Button) findViewById(R.id.graphicalResultsBtn);
-		graphicalBuyDownBtn = (Button) findViewById(R.id.graphicalBuyDownBtn);
-		shareOnFacebookBtn = (Button) findViewById(R.id.shareOnFacebookBtn);
-		
-		Animation fly_in_bottom = AnimationUtils.loadAnimation(this, R.anim.fly_in_bottom);
-		Animation fly_in_top = AnimationUtils.loadAnimation(this, R.anim.fly_in_top);
-		Animation fly_in_left = AnimationUtils.loadAnimation(this, R.anim.fly_in_left);
-		Animation fly_in_right = AnimationUtils.loadAnimation(this, R.anim.fly_in_right);
-		Animation fly_in_diagonal_top_left = AnimationUtils.loadAnimation(this, R.anim.fly_in_diagonal_top_left);
-		
-		amortizeBtn.startAnimation(fly_in_bottom);
-		emailAmortizeBtn.startAnimation(fly_in_top);
-		graphicalResultsBtn.startAnimation(fly_in_left);
-		graphicalBuyDownBtn.startAnimation(fly_in_right);
-		shareOnFacebookBtn.startAnimation(fly_in_diagonal_top_left);
-		
-		amortizeBtn.setOnClickListener(new OnClickListener()
-		{
-			public void onClick(View v)
-			{
-				Intent goToAmortization = new Intent(OptionsActivity.this, AmortizationActivity.class);
-				goToAmortization.putExtras(extra);
-				startActivity(goToAmortization);
-			}
-		});
-		
-		emailAmortizeBtn.setOnClickListener(new OnClickListener()
-		{
-			public void onClick(View v)
-			{
-			}
-		});
-		
-		graphicalResultsBtn.setOnClickListener(new OnClickListener()
-		{
-			public void onClick(View v)
-			{
-				Intent goToChartActivity = new Intent(OptionsActivity.this, ExtraPaymentChartActivity.class);
-				goToChartActivity.putExtras(extra);
-				startActivity(goToChartActivity);
-			}
-		});
-		
-		graphicalBuyDownBtn.setOnClickListener(new OnClickListener()
-		{
-			public void onClick(View v)
-			{
-				// Create new activity which is similar to ExtraPaymentActivity but instead shows effect of 1 and 2
-				// interest points bought down in comparison to regular amount.
-				Toast.makeText(OptionsActivity.this, "This functionality is not yet implemented...", Toast.LENGTH_SHORT).show();
-			}
-		});
-		
-		shareOnFacebookBtn.setOnClickListener(new OnClickListener()
-		{
-			public void onClick(View v)
-			{
-				// Add Facebook sharing logic.
-				Toast.makeText(OptionsActivity.this, "This functionality is not yet implemented...", Toast.LENGTH_SHORT).show();
-			}
-		});
+        amortizeBtn.setTypeface(arimo);
+        amortizeBtn.startAnimation(fly_in_bottom);
+        amortizeBtn.setOnClickListener(new OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                Intent goToAmortization = new Intent(OptionsActivity.this, AmortizationActivity.class);
+                goToAmortization.putExtras(extra);
+                startActivity(goToAmortization);
+            }
+        });
 
+        emailAmortizeBtn = (Button) findViewById(R.id.emailAmortizeBtn);
+		emailAmortizeBtn.setTypeface(arimo);
+        emailAmortizeBtn.startAnimation(fly_in_top);
+        emailAmortizeBtn.setOnClickListener(new OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                Bundle extras = getIntent().getExtras();
+                double[] minimum_payment = extras.getDoubleArray("MIN_PRINCIPAL_PAID");
+                double[] extra_payment = extras.getDoubleArray("EXTRA_PRINCIPAL_PAID");
+                principal = extras.getString("PRINCIPAL");
+                interest = extras.getString("INTEREST_RATE");
+                timeSaved = extras.getDouble("TIME_SAVED");
+                interestSaved = extras.getDouble("INTEREST_SAVED");
+                extraPaymentAmount = extras.getString("EXTRA_PAYMENT_AMOUNT");
+
+                final int SIZE = (int) extras.getDouble("TOTAL_MONTHS");
+                String[] values = new String[SIZE];
+                ArrayList<AmortizationItem> items = new ArrayList<AmortizationItem>();
+                String message = "";
+
+                for (int i = 0; i < SIZE; i++) {
+                    values[i] = String.format("Month #:" + (i + 1) + "\n" + "Minimum payment: $%.2f", minimum_payment[i]) + "\n" + String.format("Extra payment: $%.2f", extra_payment[i]);
+                    message += values[i] + "\n\n";
+                }
+
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/html");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Interest Destroyer Amortization Results");
+                intent.putExtra(Intent.EXTRA_TEXT, message);
+
+                startActivity(Intent.createChooser(intent, "Send Email"));
+            }
+        });
+
+        graphicalResultsBtn = (Button) findViewById(R.id.graphicalResultsBtn);
+        graphicalResultsBtn.setTypeface(arimo);
+        graphicalResultsBtn.startAnimation(fly_in_left);
+        graphicalResultsBtn.setOnClickListener(new OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                Intent goToChartActivity = new Intent(OptionsActivity.this, ExtraPaymentChartActivity.class);
+                goToChartActivity.putExtras(extra);
+                startActivity(goToChartActivity);
+            }
+        });
+
+        aboutBtn = (Button) findViewById(R.id.aboutBtn);
+        aboutBtn.setTypeface(arimo);
+        aboutBtn.startAnimation(fly_in_right);
+        aboutBtn.setOnClickListener(new OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                Intent goToAboutActivity = new Intent(OptionsActivity.this, AboutActivity.class);
+                startActivity(goToAboutActivity);
+            }
+        });
+
+/*		graphicalBuyDownBtn = (Button) findViewById(R.id.graphicalBuyDownBtn);
+		graphicalBuyDownBtn.setTypeface(arimo);
+        graphicalBuyDownBtn.startAnimation(fly_in_right);
+        graphicalBuyDownBtn.setOnClickListener(new OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                // Create new activity which is similar to ExtraPaymentActivity but instead shows effect of 1 and 2
+                // interest points bought down in comparison to regular amount.
+                Toast.makeText(OptionsActivity.this, "This functionality is not yet implemented...", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        shareOnFacebookBtn = (Button) findViewById(R.id.shareOnFacebookBtn);
+		shareOnFacebookBtn.setTypeface(arimo);
+        shareOnFacebookBtn.startAnimation(fly_in_diagonal_top_left);
+        shareOnFacebookBtn.setOnClickListener(new OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                // Add Facebook sharing logic.
+                Toast.makeText(OptionsActivity.this, "This functionality is not yet implemented...", Toast.LENGTH_SHORT).show();
+            }
+        });*/
 	}
 
 	@Override

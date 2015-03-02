@@ -6,22 +6,20 @@ package com.tutorazadi.interestdestroyerandroid;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.content.Intent;
 import android.widget.TextView;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import android.graphics.Typeface;
+import java.util.ArrayList;
 
 public class AmortizationActivity extends Activity 
 {
@@ -61,22 +59,23 @@ public class AmortizationActivity extends Activity
         
         final int SIZE = (int) extras.getDouble("TOTAL_MONTHS");
         values = new String[SIZE];
+		String[] month = new String[SIZE];
+        String[] minPayment = new String[SIZE];
+        String[] extraPayment = new String[SIZE];
+        ArrayList<AmortizationItem> items = new ArrayList<AmortizationItem>();
+
         for (int i = 0; i < SIZE; i++)
-        	values[i] = String.format("Month #:" + (i + 1) + "\n" + "Minimum payment: $%.2f", minimum_payment[i]) + "\n" + String.format("Extra payment: $%.2f", extra_payment[i]);
-		final String[] results = values;
+        {
+            values[i] = String.format("Month #:" + (i + 1) + "\n" + "Minimum payment: $%.2f", minimum_payment[i]) + "\n" + String.format("Extra payment: $%.2f", extra_payment[i]);
+            String[] temp = values[i].split("\n");
+            month[i] = temp[0];
+            minPayment[i] = temp[1];
+            extraPayment[i] = temp[2];
+            items.add(new AmortizationItem(month[i], minPayment[i], extraPayment[i]));
+        }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
-        listView.setAdapter(adapter); 
-
-		informationBtn = (ImageButton) findViewById(R.id.informationBtn);
-		informationBtn.setOnClickListener(new OnClickListener()
-		{
-			@Override
-			public void onClick(View v)
-			{
-				Toast.makeText(AmortizationActivity.this, "Give information about amortization here...", Toast.LENGTH_SHORT).show();
-			}
-		});
+        AmortizationItemAdapter adapter = new AmortizationItemAdapter(this, R.layout.amortization_list_item, items);
+        listView.setAdapter(adapter);
 
         amortizationLbl = (TextView) findViewById(R.id.amortizationLbl);
         amortizationLbl.setTypeface(arimo);

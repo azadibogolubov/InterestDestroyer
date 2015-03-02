@@ -11,5 +11,6 @@
 	<color name="green_gradient_start">#5E9C56</color>
 	<color name="green_gradient_end">#8DF082</color>
 	<color name="action_bar_blue">#46A0C6</color>
-	
-</resources> 
+	<color name="black">#000000</color>
+    <color name="blue">#0000FF</color>
+</resources>

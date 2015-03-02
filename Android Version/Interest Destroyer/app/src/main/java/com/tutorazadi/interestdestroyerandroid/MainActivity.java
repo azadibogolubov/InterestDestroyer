@@ -8,6 +8,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.InputType;
@@ -49,7 +50,9 @@ public class MainActivity extends Activity {
 	TextView welcomeLbl, principalLbl, interestRateLbl, numMonthsLbl, extraPaymentLbl;
 	EditText principalTxt, interestTxt, numMonthsTxt, extraPaymentTxt;
 	LinearLayout mainLayout;
-	
+
+    public Typeface arimo;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -59,28 +62,45 @@ public class MainActivity extends Activity {
 		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#066891")));
 		
 		Animation fade_in = AnimationUtils.loadAnimation(this, R.anim.fade_in);
-		
-		welcomeLbl = (TextView) findViewById(R.id.welcomeLbl);
+
+        arimo = Typeface.createFromAsset(this.getAssets(), "fonts/Arimo-Regular.ttf");
+
+        welcomeLbl = (TextView) findViewById(R.id.welcomeLbl);
+        welcomeLbl.setTypeface(arimo);
+
 		principalLbl = (TextView) findViewById(R.id.principalLbl);
+        principalLbl.setTypeface(arimo);
+
 		interestRateLbl = (TextView) findViewById(R.id.interestRateLbl);
-		numMonthsLbl = (TextView) findViewById(R.id.numMonthsLbl);
-		extraPaymentLbl = (TextView) findViewById(R.id.extraPaymentLbl);
-		principalTxt = (EditText)findViewById(R.id.principalTxt);
+		interestRateLbl.setTypeface(arimo);
+
+        numMonthsLbl = (TextView) findViewById(R.id.numMonthsLbl);
+		numMonthsLbl.setTypeface(arimo);
+
+        extraPaymentLbl = (TextView) findViewById(R.id.extraPaymentLbl);
+		extraPaymentLbl.setTypeface(arimo);
+
+        principalTxt = (EditText)findViewById(R.id.principalTxt);
+        principalTxt.setTypeface(arimo);
+        principalTxt.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+
 		numMonthsTxt = (EditText)findViewById(R.id.numMonthsTxt);
-		interestTxt = (EditText)findViewById(R.id.interestTxt);
-		extraPaymentTxt = (EditText)findViewById(R.id.extraPaymentTxt);
+		numMonthsTxt.setTypeface(arimo);
+        numMonthsTxt.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+
+        interestTxt = (EditText)findViewById(R.id.interestTxt);
+		interestTxt.setTypeface(arimo);
+        interestTxt.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+
+        extraPaymentTxt = (EditText)findViewById(R.id.extraPaymentTxt);
+        extraPaymentTxt.setTypeface(arimo);
+        extraPaymentTxt.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 
 		mainLayout = (LinearLayout) findViewById(R.id.mainLayout);
 		mainLayout.startAnimation(fade_in);
 		
 		getInfo = (ImageView) findViewById(R.id.getInfo);
-		
-		principalTxt.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-		numMonthsTxt.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-		interestTxt.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-		extraPaymentTxt.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-		
-		getInfo.setOnClickListener(new View.OnClickListener() 
+		getInfo.setOnClickListener(new View.OnClickListener()
 		{
             public void onClick(View v) 
             {

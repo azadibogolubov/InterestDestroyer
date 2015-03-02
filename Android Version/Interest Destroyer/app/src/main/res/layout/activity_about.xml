@@ -1,0 +1,139 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/green_gradient" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:orientation="vertical"
+        tools:context="com.tutorazadi.interestdestroyerandroid.AboutActivity" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="36sp"
+            android:text="@string/about"
+            android:textStyle="italic"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/aboutLbl" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/software_designer"
+            android:layout_below="@id/aboutLbl"
+            android:textStyle="italic"
+            android:id="@+id/softwareDesignerLbl"
+            android:paddingRight="5dp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/software_designer_company"
+            android:paddingTop="5dp"
+            android:id="@+id/softwareDesignerCompanyLbl"
+            android:layout_below="@id/softwareDesignerLbl"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/creator_website"
+            android:id="@+id/softwareDesignerWebsiteLbl"
+            android:paddingTop="5dp"
+            android:paddingBottom="10dp"
+            android:layout_below="@id/softwareDesignerCompanyLbl"
+            android:linksClickable="true"
+            android:textColorLink="@color/blue"
+            android:autoLink="web" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/graphic_designer"
+            android:id="@+id/graphicsDesignerLbl"
+            android:paddingTop="5dp"
+            android:textStyle="italic"
+            android:layout_below="@id/softwareDesignerWebsiteLbl"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/graphic_designer_company"
+            android:id="@+id/graphicsDesignerCompanyLbl"
+            android:paddingTop="5dp"
+            android:paddingBottom="10dp"
+            android:layout_below="@id/graphicsDesignerLbl"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fonts"
+            android:id="@+id/fontsLbl"
+            android:paddingTop="5dp"
+            android:textStyle="italic"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@id/graphicsDesignerCompanyLbl"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/arimo"
+            android:id="@+id/arimoLbl"
+            android:paddingTop="5dp"
+            android:layout_below="@id/fontsLbl"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:linksClickable="true"
+            android:autoLink="web"
+            android:textColorLink="@color/blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/parisish"
+            android:id="@+id/parisishLbl"
+            android:paddingTop="5dp"
+            android:paddingBottom="10dp"
+            android:layout_below="@id/arimoLbl"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:linksClickable="true"
+            android:autoLink="web"
+            android:textColorLink="@color/blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/charting_engine"
+            android:id="@+id/chartingEngineLbl"
+            android:paddingTop="5dp"
+            android:textStyle="italic"
+            android:layout_below="@id/parisishLbl"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/achartengine"
+            android:id="@+id/aChartEngineLbl"
+            android:paddingTop="5dp"
+            android:layout_below="@id/chartingEngineLbl"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:linksClickable="true"
+            android:autoLink="web"
+            android:layout_marginLeft="-2dp"
+            android:textColorLink="@color/blue" />
+
+    </RelativeLayout>
+</ScrollView>
