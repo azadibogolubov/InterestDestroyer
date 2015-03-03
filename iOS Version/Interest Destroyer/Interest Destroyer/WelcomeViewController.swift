@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class WelcomeViewController: UIViewController {
+    
     @IBOutlet weak var getMyResultsBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -25,7 +25,4 @@ class ViewController: UIViewController {
         var resultsViewController: ResultsViewController = segue.destinationViewController as ResultsViewController
         resultsViewController.segueString = "Successful data sent to results."
     }
-
-
 }
-

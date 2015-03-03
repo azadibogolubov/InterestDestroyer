@@ -13,4 +13,5 @@
 	<color name="action_bar_blue">#46A0C6</color>
 	<color name="black">#000000</color>
     <color name="blue">#0000FF</color>
+    <color name="gray">#C2C2C2</color>
 </resources>
