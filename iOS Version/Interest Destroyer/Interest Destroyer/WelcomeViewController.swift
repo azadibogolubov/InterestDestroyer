@@ -9,12 +9,17 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-    
+    @IBOutlet weak var principalTxt: UITextField!
+    @IBOutlet weak var interestTxt: UITextField!
+    @IBOutlet weak var numMonthsTxt: UITextField!
+    @IBOutlet weak var extraPaymentTxt: UITextField!
     @IBOutlet weak var getMyResultsBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -23,6 +28,19 @@ class WelcomeViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var resultsViewController: ResultsViewController = segue.destinationViewController as ResultsViewController
-        resultsViewController.segueString = "Successful data sent to results."
+        var principal = principalTxt.text.toInt()
+        var interest = (interestTxt.text as NSString).floatValue
+        var numMonths = numMonthsTxt.text.toInt()
+        var extraPayment = extraPaymentTxt.text.toInt()
+
+        var principalString = "Principal: $\(principal!)"
+        var interestString = "Interest: \(interest)%"
+        var numMonthsString = "Number of Months: \(numMonths!)"
+        var extraPaymentString = "Extra Payment: $\(extraPayment!)"
+
+        resultsViewController.principalString = principalString
+        resultsViewController.interestString = interestString
+        resultsViewController.numMonthsString = numMonthsString
+        resultsViewController.extraPaymentString = extraPaymentString
     }
 }

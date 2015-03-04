@@ -10,12 +10,22 @@ import UIKit
 
 class ResultsViewController: UIViewController {
 
-    @IBOutlet weak var resultLabel: UILabel!
-    var segueString: String = ""
+    @IBOutlet weak var principalLabel: UILabel!
+    @IBOutlet weak var interestLabel: UILabel!
+    @IBOutlet weak var numMonthsLabel: UILabel!
+    @IBOutlet weak var extraPaymentsLabel: UILabel!
+    
+    var principalString: String = ""
+    var interestString: String = ""
+    var numMonthsString: String = ""
+    var extraPaymentString: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        resultLabel.text = segueString
+        principalLabel.text = principalString
+        interestLabel.text = interestString
+        numMonthsLabel.text = numMonthsString
+        extraPaymentsLabel.text = extraPaymentString
     }
 
     override func didReceiveMemoryWarning() {
