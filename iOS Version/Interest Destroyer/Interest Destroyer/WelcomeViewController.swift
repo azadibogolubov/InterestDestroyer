@@ -37,10 +37,16 @@ class WelcomeViewController: UIViewController {
         var interestString = "Interest: \(interest)%"
         var numMonthsString = "Number of Months: \(numMonths!)"
         var extraPaymentString = "Extra Payment: $\(extraPayment!)"
-
+        
         resultsViewController.principalString = principalString
         resultsViewController.interestString = interestString
         resultsViewController.numMonthsString = numMonthsString
         resultsViewController.extraPaymentString = extraPaymentString
+        
+    }
+    
+    func amortize(principal: NSDecimalNumber, rate: NSDecimalNumber, time: NSDecimalNumber)  {
+        var result: Double = Double(rate) / Double(1200.00)
+        // principal * rate * Math.pow((1 + rate), time))/(Math.pow((1+rate),time)-1
     }
 }
