@@ -45,8 +45,17 @@ class WelcomeViewController: UIViewController {
         
     }
     
-    func amortize(principal: NSDecimalNumber, rate: NSDecimalNumber, time: NSDecimalNumber)  {
-        var result: Double = Double(rate) / Double(1200.00)
-        // principal * rate * Math.pow((1 + rate), time))/(Math.pow((1+rate),time)-1
+    func amortize(principal: Float, rate: Float, time: Float)
+    {
+        let reducedRate = rate / 1200
+        var result = Double(principal) * Double(reducedRate)
+        result = result * (pow(Double((1.0+reducedRate)), Double(time)))
+        result = Double(result / Double(pow(Double(1.0+reducedRate),Double(time))-1))
+        result = result / Double(1.0)
+        println("Result is \(result)")
     }
+    
+    let a: Double = 100000.0
+    let b: Double = 5.25
+    let c: Double = 360
 }
