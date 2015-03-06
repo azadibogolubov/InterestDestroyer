@@ -60,8 +60,8 @@ public class Driver
                 }
                 scanner.close();*/
 
-                principal = 150000;
-                rate = 4.25;
+                principal = 100000;
+                rate = 5.25;
                 time = 360;
 
                 /*System.out.println("Principal: " + n.format(principal));
@@ -85,8 +85,8 @@ public class Driver
                 }
                 System.out.println("Total interest paid: " + n.format(total_interest));
 
-                principal = 200000;
-                rate = 4.25;
+                principal = 100000;
+                rate = 5.25;
                 time = 360;
                 extra_payment_amount = 100;
                 total_interest = compound_interest = principal_paid = simple_interest = 0;
