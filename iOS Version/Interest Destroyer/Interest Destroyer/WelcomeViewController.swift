@@ -28,15 +28,29 @@ class WelcomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
+        if identifier == "getResults" {
+            
+            if (principalTxt.text.isEmpty || interestTxt.text.isEmpty || numMonthsTxt.text.isEmpty || extraPaymentTxt.text.isEmpty) {
+                
+                let alert = UIAlertView()
+                alert.title = "Fields required"
+                alert.message = "Please fill in all fields."
+                alert.addButtonWithTitle("Ok")
+                alert.show()
+                return false
+            }
+        }
+        return true
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "getResults")
+        {
         var resultsViewController: ResultsViewController = segue.destinationViewController as ResultsViewController
-        //var principal = principalTxt.text.toInt()
-        //var interest = (interestTxt.text as NSString).floatValue
         var numMonths = numMonthsTxt.text.toInt()
         var extraPayment = extraPaymentTxt.text.toInt()
-
-        //var principalString = "Principal: $\(principal!)"
-        //var interestString = "Interest: \(interest)%"
+        
         var numMonthsString = "Number of Months: \(numMonths!)"
         var extraPaymentString = "Extra Payment: $\(extraPayment!)"
         
@@ -51,12 +65,11 @@ class WelcomeViewController: UIViewController {
         var simple_interest = 0.0
         var remainingPrincipal = principal
         
-        //resultsViewController.principalString = principalString
-        //resultsViewController.interestString = interestString
         resultsViewController.numMonthsString = numMonthsString
         resultsViewController.extraPaymentString = extraPaymentString
         
-        println(String(format: "Monthly payment amount: $%.2f", amortize(principal,rate,time)))
+        println(String(format: "Monthly payment amount: $%.2f", amortize(principal,rate: rate,time: time)))
+
         // Make a for loop to get principal payments.
         for var i = 0; i < time; i++
         {
@@ -66,13 +79,13 @@ class WelcomeViewController: UIViewController {
             }
             
             total_interest += Double(compound_interest);
-            principal_paid = (amortize(principal,rate,time) + extra_payment_amount) - Double(compound_interest)
+            principal_paid = (amortize(principal,rate: rate,time: time) + extra_payment_amount) - Double(compound_interest)
             remainingPrincipal -= Float(principal_paid)
         }
-        println(String(format: "Total interest paid: $%.2f", total_interest))}
+        println(String(format: "Total interest paid: $%.2f", total_interest))
+        }
     }
-    
-    
+
     func amortize(principal: Float, rate: Float, time: Int) -> Double
     {
         let reducedRate = rate / 1200
@@ -82,5 +95,5 @@ class WelcomeViewController: UIViewController {
         result = result / Double(1.0)
         return result
     }
-    
-    
+}
+
