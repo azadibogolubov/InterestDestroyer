@@ -148,15 +148,18 @@
 
         </RelativeLayout>
 
-
-        <ImageView
-            android:id="@+id/getInfo"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="25dp"
-            android:contentDescription="@string/content_desc"
-            android:src="@drawable/get_results" />
-
+            android:paddingBottom="50dp">
+            <ImageView
+                android:id="@+id/getInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:contentDescription="@string/content_desc"
+                android:src="@drawable/get_results" />
+        </RelativeLayout>
     </LinearLayout>
 </ScrollView>
