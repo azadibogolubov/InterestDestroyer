@@ -75,9 +75,12 @@ public class ExtraPaymentChartActivity extends Activity {
 		int b = 0;
 		for (int i = 0; i < size; i+=12)
 		{
-			mMonth[b] = String.valueOf(b+1);
-			x[b] = (b+1);
-			b++;
+            try {
+                mMonth[b] = String.valueOf(b + 1);
+                x[b] = (b + 1);
+                b++;
+            }
+            catch (ArrayIndexOutOfBoundsException e)  { break ;}
 		}
 
 		yearsSavedLbl = (TextView) findViewById(R.id.yearsSavedLbl);

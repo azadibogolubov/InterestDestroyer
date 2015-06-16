@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.os.Handler;
 import android.widget.TextView;
 
-
 public class SplashScreenActivity extends Activity {
 
     Typeface parisish;
