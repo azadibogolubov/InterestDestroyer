@@ -77,7 +77,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ActionBar bar = getActionBar();
+        /*ActionBar bar = getActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#066891")));
 
         Animation fade_in = AnimationUtils.loadAnimation(this, R.anim.fade_in);
@@ -148,7 +148,7 @@ public class MainActivity extends Activity {
                 }
                 calculate(v);
             }
-        });
+        });*/
     }
 
     @Override

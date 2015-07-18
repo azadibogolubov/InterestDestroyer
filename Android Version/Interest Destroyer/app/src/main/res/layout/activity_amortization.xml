@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:padding="20dp"
     android:background="@drawable/green_gradient"
     android:fillViewport="true">
 
@@ -20,8 +21,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="65dp"
-                android:layout_marginStart="65dp"
                 android:layout_weight=".95"
                 android:textStyle="bold"
                 android:gravity="center_vertical|center_horizontal"
@@ -39,6 +38,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
             android:textStyle="bold"
             android:gravity="center_horizontal|center_vertical"
             android:text="@string/principal_vs_extra"
@@ -47,7 +47,8 @@
 
         <ListView
             android:id="@+id/amortizationList"
-            android:layout_width="match_parent"
+            android:layout_width="600dp"
+            android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content" />
     </LinearLayout>
 </ScrollView>
