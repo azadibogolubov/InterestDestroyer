@@ -14,6 +14,6 @@ Current features:
     - 1. Parisish (http://www.fontspace.com/george-williams/parisish)
 - License information can be found in the license files at the root folder of this repository.
 
-![Phone Main Screen](https://www.github.com/azadibogolubov/InterestDestroyer/blob/master/Images/phoneScreen.png) 
+![Phone Main Screen](https://github.com/azadibogolubov/InterestDestroyer/blob/master/Images/phoneScreen.png) 
 
 ![Tablet Main Screen](https://github.com/azadibogolubov/InterestDestroyer/blob/master/Images/tabletScreen.png)
