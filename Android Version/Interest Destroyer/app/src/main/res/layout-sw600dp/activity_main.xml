@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:textSize="36sp"
-        android:text="Please choose an option:"
+        android:text="@string/please_choose_UI"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -31,9 +31,9 @@
         android:paddingTop="50dp"
         android:paddingBottom="50dp"
         android:layout_below="@id/chooseTxt"
-        android:text="@string/amortizationUI"
+        android:text="@string/amortization_UI"
         android:onClick="amortize"
-        android:background="@drawable/circle_button" />
+        android:background="@drawable/circle_button_tablet" />
 
     <Button
         android:id="@+id/graphical"
@@ -54,7 +54,7 @@
         android:layout_alignTop="@id/amortize"
         android:text="@string/see_graphical_results"
         android:onClick="showGraphicalResults"
-        android:background="@drawable/circle_button" />
+        android:background="@drawable/circle_button_tablet" />
 
     <Button
         android:id="@+id/email"
@@ -72,7 +72,7 @@
         android:layout_below="@id/amortize"
         android:text="@string/email_results_UI"
         android:onClick="sendResults"
-        android:background="@drawable/circle_button" />
+        android:background="@drawable/circle_button_tablet" />
 
     <Button
         android:id="@+id/extra"
@@ -94,5 +94,5 @@
         android:layout_below="@id/amortize"
         android:text="@string/savings_UI"
         android:onClick="extraPayment"
-        android:background="@drawable/circle_button" />
+        android:background="@drawable/circle_button_tablet" />
 </RelativeLayout>

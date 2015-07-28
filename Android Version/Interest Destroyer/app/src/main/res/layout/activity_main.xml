@@ -1,165 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
     android:background="@drawable/green_gradient"
-    android:fillViewport="true">
+    android:paddingTop="50dp"
+    android:paddingBottom="50dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/mainLayout"
-        android:layout_width="fill_parent"
+    <TextView
+        android:id="@+id/chooseTxt"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/green_gradient"
-        android:orientation="vertical">
+        android:textSize="24sp"
+        android:text="@string/please_choose_UI"
+        android:layout_centerHorizontal="true" />
 
-        <TextView
-            android:id="@+id/welcomeLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:text="@string/welcome"
-            android:textSize="36sp"
-            android:textColor="@color/headline_text"
-            android:textStyle="bold" />
+    <Button
+        android:id="@+id/amortize"
+        android:layout_width="250dp"
+        android:layout_height="75dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/chooseTxt"
+        android:text="@string/amortization_UI"
+        android:textColor="@color/black"
+        android:onClick="amortize"
+        android:background="@drawable/rounded_button_phone" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/graphical"
+        android:layout_width="250dp"
+        android:layout_height="75dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_below="@id/amortize"
+        android:text="@string/see_graphical_results"
+        android:onClick="showGraphicalResults"
+        android:background="@drawable/rounded_button_phone" />
 
-            <TextView
-                android:id="@+id/principalLbl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/principal"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/light_black_text" />
+    <Button
+        android:id="@+id/email"
+        android:layout_width="250dp"
+        android:layout_height="75dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_below="@id/graphical"
+        android:text="@string/email_results_UI"
+        android:onClick="sendResults"
+        android:background="@drawable/rounded_button_phone" />
 
-            <EditText
-                android:id="@+id/principalTxt"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:hint="@string/principal_hint"
-                android:textColor="@color/light_black_text"
-                android:textColorHint="@color/gray">
-
-
-                <requestFocus />
-            </EditText>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/interestRateLbl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/interest"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/light_black_text" />
-
-            <EditText
-                android:id="@+id/interestTxt"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:hint="@string/interest_hint"
-                android:textColor="@color/light_black_text"
-                android:textColorHint="@color/gray" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/numMonthsLbl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/num_months"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/light_black_text" />
-
-            <EditText
-                android:id="@+id/numMonthsTxt"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:ems="10"
-                android:hint="@string/months_hint"
-                android:textColor="@color/light_black_text"
-                android:textColorHint="@color/gray" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/extraPaymentLbl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/extra_payment"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/light_black_text" />
-
-            <EditText
-                android:id="@+id/extraPaymentTxt"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:hint="@string/extra_payment_hint"
-                android:textColor="@color/light_black_text"
-                android:textColorHint="@color/gray" />
-        </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="50dp">
-            <ImageView
-                android:id="@+id/getInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="25dp"
-                android:contentDescription="@string/content_desc"
-                android:src="@drawable/get_results" />
-        </RelativeLayout>
-    </LinearLayout>
-</ScrollView>
+    <Button
+        android:id="@+id/extra"
+        android:layout_width="250dp"
+        android:layout_height="75dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/email"
+        android:text="@string/savings_UI"
+        android:onClick="extraPayment"
+        android:background="@drawable/rounded_button_phone" />
+</RelativeLayout>
