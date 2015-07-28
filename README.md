@@ -13,3 +13,5 @@ Current features:
 - Additionally, this app uses the following SIL Open License Font: 
     - 1. Parisish (http://www.fontspace.com/george-williams/parisish)
 - License information can be found in the license files at the root folder of this repository.
+
+(phone.png) (tablet.png)
