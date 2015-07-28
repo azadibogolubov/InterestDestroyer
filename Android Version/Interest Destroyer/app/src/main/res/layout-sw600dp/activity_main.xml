@@ -31,7 +31,8 @@
         android:paddingTop="50dp"
         android:paddingBottom="50dp"
         android:layout_below="@id/chooseTxt"
-        android:text="Amortization"
+        android:text="@string/amortizationUI"
+        android:onClick="amortize"
         android:background="@drawable/circle_button" />
 
     <Button
@@ -51,7 +52,8 @@
         android:paddingTop="50dp"
         android:paddingBottom="50dp"
         android:layout_alignTop="@id/amortize"
-        android:text="Graphical Results"
+        android:text="@string/see_graphical_results"
+        android:onClick="showGraphicalResults"
         android:background="@drawable/circle_button" />
 
     <Button
@@ -67,8 +69,9 @@
         android:paddingEnd="10dp"
         android:paddingTop="50dp"
         android:paddingBottom="50dp"
-        android:text="Send Results via EMAIL"
         android:layout_below="@id/amortize"
+        android:text="@string/email_results_UI"
+        android:onClick="sendResults"
         android:background="@drawable/circle_button" />
 
     <Button
@@ -88,7 +91,8 @@
         android:paddingTop="50dp"
         android:paddingBottom="50dp"
         android:layout_alignTop="@id/email"
-        android:text="How much can I save by paying extra?"
         android:layout_below="@id/amortize"
+        android:text="@string/savings_UI"
+        android:onClick="extraPayment"
         android:background="@drawable/circle_button" />
 </RelativeLayout>

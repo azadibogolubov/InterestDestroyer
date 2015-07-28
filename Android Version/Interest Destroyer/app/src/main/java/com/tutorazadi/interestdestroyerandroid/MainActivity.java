@@ -36,6 +36,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -68,6 +69,8 @@ public class MainActivity extends Activity {
     ImageView getInfo;
     TextView welcomeLbl, principalLbl, interestRateLbl, numMonthsLbl, extraPaymentLbl;
     EditText principalTxt, interestTxt, numMonthsTxt, extraPaymentTxt;
+    Button amortizeBtn, graphicalBtn, emailBtn, extraBtn;
+
     LinearLayout mainLayout;
 
     public Typeface arimo;
@@ -246,5 +249,25 @@ public class MainActivity extends Activity {
     public static double amortize(double principal, double rate, double time) {
         rate /= 1200;
         return (principal * rate * Math.pow((1 + rate), time)) / (Math.pow((1 + rate), time) - 1);
+    }
+
+    public void amortize(View v)
+    {
+
+    }
+
+    public void showGraphicalResults(View v)
+    {
+
+    }
+
+    public void sendResults(View v)
+    {
+
+    }
+
+    public void extraPayment(View v)
+    {
+
     }
 }

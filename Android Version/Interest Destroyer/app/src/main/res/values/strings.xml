@@ -28,12 +28,15 @@
     <string name="results_ready">Your results are ready!</string>
     <string name="what_next">What would you like to do now?</string>
     <string name="amortization">Amortization:</string>
+    <string name="amortization_UI">Amortization</string>
     <string name="see_graphical_results">See graphical results</string>
     <string name="see_amortization">See amortization schedule</string>
     <string name="email_amortization">E-MAIL Amortization Schedule</string>
     <string name="see_buy_down_effect">See graphical effect of buy down points.</string>
     <string name="share_on_facebook">Share on Facebook.</string>
     <string name="email_results">EMAIL Results</string>
+    <string name="email_results_UI">Send Results via EMAIL</string>
+    <string name="savings_UI">How much can I save by paying extra?</string>
     <string name="principal_vs_extra">Minimum payment vs. extra payment amount applied to principal</string>
     <string name="title_activity_splash_screen">Splash Screen</string>
     <string name="about">About Interest Destroyer</string>
