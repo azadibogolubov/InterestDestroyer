@@ -79,7 +79,7 @@ public class InfoGatheringActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*ActionBar bar = getActionBar();
+        ActionBar bar = getActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#066891")));
 
         Animation fade_in = AnimationUtils.loadAnimation(this, R.anim.fade_in);
@@ -132,13 +132,13 @@ public class InfoGatheringActivity extends Activity {
 
                 try {
                     if (principalTxt.getText().length() < 4) {
-                        Toast.makeText(MainActivity.this, "Minimum amount for principal must be greater than $1000.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(InfoGatheringActivity.this, "Minimum amount for principal must be greater than $1000.", Toast.LENGTH_LONG).show();
                         return;
                     } else if (numMonthsTxt.getText().length() < 1) {
-                        Toast.makeText(MainActivity.this, "Minimum number of months must be greater than 0.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(InfoGatheringActivity.this, "Minimum number of months must be greater than 0.", Toast.LENGTH_LONG).show();
                         return;
                     } else if (interestTxt.getText().length() < 1) {
-                        Toast.makeText(MainActivity.this, "Minimum interest rate must be greater than 0%.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(InfoGatheringActivity.this, "Minimum interest rate must be greater than 0%.", Toast.LENGTH_LONG).show();
                         return;
                     }
                     principal_original = principal = Double.parseDouble(principalTxt.getText().toString());
@@ -146,11 +146,11 @@ public class InfoGatheringActivity extends Activity {
                     rate = Double.parseDouble(interestTxt.getText().toString());
                     extra_payment = Double.parseDouble(extraPaymentTxt.getText().toString());
                 } catch (NumberFormatException e) {
-                    Toast.makeText(MainActivity.this, "You have entered invalid data.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(InfoGatheringActivity.this, "You have entered invalid data.", Toast.LENGTH_LONG).show();
                 }
                 calculate(v);
             }
-        });*/
+        });
     }
 
     @Override
@@ -240,9 +240,34 @@ public class InfoGatheringActivity extends Activity {
         extra.putDoubleArray("MIN_PRINCIPAL_REMAINING", min_principal_remaining);
         extra.putDoubleArray("EXTRA_PRINCIPAL_REMAINING", extra_principal_remaining);
 
-        Intent goToOptions = new Intent(this, OptionsActivity.class);
-        goToOptions.putExtras(extra);
-        startActivity(goToOptions);
+        Intent intent = new Intent();
+        String actionToPerform = getIntent().getStringExtra("ACTION");
+        switch (actionToPerform)
+        {
+            case "amortize": {
+                intent = new Intent(InfoGatheringActivity.this, AmortizationActivity.class);
+                break;
+            }
+            case "graphical":
+                intent = new Intent(InfoGatheringActivity.this, ExtraPaymentChartActivity.class);
+                break;
+            // TODO: Migrate email activity to here.
+            case "email":
+                String message = "";
+
+                intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/html");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Interest Destroyer Amortization Results");
+                intent.putExtra(Intent.EXTRA_TEXT, message);
+
+                startActivity(Intent.createChooser(intent, "Send Email"));
+                break;
+            case "extra":
+                intent = new Intent(InfoGatheringActivity.this, ExtraSavingsActivity.class);
+                break;
+        }
+        intent.putExtras(extra);
+        startActivity(intent);
     }
 
     public static double amortize(double principal, double rate, double time) {

@@ -70,6 +70,10 @@
             android:name=".InfoGatheringActivity"
             android:label="@string/title_activity_info_gathering" >
         </activity>
+        <activity
+            android:name=".ExtraSavingsActivity"
+            android:label="@string/title_activity_extra_savings" >
+        </activity>
     </application>
 
 </manifest>
