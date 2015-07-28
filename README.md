@@ -14,5 +14,5 @@ Current features:
     - 1. Parisish (http://www.fontspace.com/george-williams/parisish)
 - License information can be found in the license files at the root folder of this repository.
 
-![Phone Main Screen](phone.png) 
-![Tablet Main Screen](tablet.png)
+![Phone Main Screen](/Images/phone.png) 
+![Tablet Main Screen](/Images/tablet.png)
