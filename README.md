@@ -15,7 +15,9 @@ Current features:
 - License information can be found in the license files at the root folder of this repository.
 
 Phone version:
+
 ![Phone Main Screen](https://github.com/azadibogolubov/InterestDestroyer/blob/master/Images/phoneScreen.png) 
 
 Tablet version:
+
 ![Tablet Main Screen](https://github.com/azadibogolubov/InterestDestroyer/blob/master/Images/tabletScreen.png)
