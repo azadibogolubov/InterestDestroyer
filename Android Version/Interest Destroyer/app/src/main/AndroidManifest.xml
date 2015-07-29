@@ -28,31 +28,25 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="stateHidden" >
-
-            <!-- android:screenOrientation="landscape" -->
         </activity>
         <activity
             android:name=".ExtraPaymentChartActivity"
             android:label="@string/app_name"
-            android:screenOrientation="landscape"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".AmortizationActivity"
             android:label="@string/app_name"
-            android:screenOrientation="landscape"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".OptionsActivity"
             android:label="@string/title_activity_options"
-            android:screenOrientation="landscape"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".SplashScreenActivity"
             android:label="@string/app_name"
-            android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar" >
             <intent-filter android:label="@string/app_name" >
                 <action android:name="android.intent.action.MAIN" />
@@ -63,7 +57,6 @@
         <activity
             android:name=".AboutActivity"
             android:label="@string/title_activity_about"
-            android:screenOrientation="landscape"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity

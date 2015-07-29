@@ -65,6 +65,7 @@ public class InfoGatheringActivity extends Activity {
     public static double[] min_interest_paid, extra_interest_paid, min_principal_paid, extra_principal_paid;
     public static NumberFormat n = NumberFormat.getCurrencyInstance(Locale.US);
     public static DecimalFormat df = new DecimalFormat("#.##");
+    private Animation fade_in;
 
     ImageView getInfo;
     TextView welcomeLbl, principalLbl, interestRateLbl, numMonthsLbl, extraPaymentLbl;
@@ -77,12 +78,14 @@ public class InfoGatheringActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_info_gathering);
 
-        ActionBar bar = getActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#066891")));
+        initializeControls();
+    }
 
-        Animation fade_in = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+    public void initializeControls()
+    {
+        fade_in = AnimationUtils.loadAnimation(this, R.anim.fade_in);
 
         arimo = Typeface.createFromAsset(this.getAssets(), "fonts/Arimo-Regular.ttf");
 

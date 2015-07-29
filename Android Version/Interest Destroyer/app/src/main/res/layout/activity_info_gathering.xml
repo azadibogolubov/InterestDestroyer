@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:text="@string/welcome"
+            android:text="@string/info_gathering"
             android:textSize="36sp"
             android:textColor="@color/headline_text"
             android:textStyle="bold" />
