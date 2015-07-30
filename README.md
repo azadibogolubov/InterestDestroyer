@@ -2,6 +2,10 @@
 
 Android App to help consumers find ways to minimize interest charges.
 
+Features in progress:
+- New facelift for phone.
+- Separate UI for tablet to optimize screen real estate.
+
 Current features:
 - See a chart of interest and time savings.
 - Display an amortization schedule on screen, as well as the ability to EMAIL amortization schedule.
