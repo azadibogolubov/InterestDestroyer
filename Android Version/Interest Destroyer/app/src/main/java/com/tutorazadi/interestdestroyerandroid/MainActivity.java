@@ -71,6 +71,21 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+
+
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
     public void amortize(View v)
     {
         intent.putExtra("ACTION", "amortize");
