@@ -16,7 +16,27 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var extraPaymentTxt: UITextField!
     @IBOutlet weak var getMyResultsBtn: UIButton!
     
-
+    // Variables
+    var rate: Double
+    var principal: Double
+    var principal_original: Double
+    var time: Double
+    var payment_amount: Double
+    var extra_payment: Double
+    var simple_interest: Double
+    var compound_interest: Double
+    var original_interest: Double
+    var net_interest: Double
+    var interestSaved: Double
+    var principal_paid: Double
+    var payoff_years: Int
+    var payoff_months: Int
+    
+    Double[] extra_payments, minimum_payments, min_principal_remaining, extra_principal_remaining;
+    Double interest_paid = original_interest = 0.00f;
+    Double timeSaved;
+    Double[] min_interest_paid, extra_interest_paid, min_principal_paid, extra_principal_paid;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -30,16 +50,6 @@ class WelcomeViewController: UIViewController {
     
     override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
         if identifier == "getResults" {
-            
-            if (principalTxt.text.isEmpty || interestTxt.text.isEmpty || numMonthsTxt.text.isEmpty || extraPaymentTxt.text.isEmpty) {
-                
-                let alert = UIAlertView()
-                alert.title = "Fields required"
-                alert.message = "Please fill in all fields."
-                alert.addButtonWithTitle("Ok")
-                alert.show()
-                return false
-            }
         }
         return true
     }
@@ -47,53 +57,8 @@ class WelcomeViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "getResults")
         {
-        var resultsViewController: ResultsViewController = segue.destinationViewController as ResultsViewController
-        var numMonths = numMonthsTxt.text.toInt()
-        var extraPayment = extraPaymentTxt.text.toInt()
-        
-        var numMonthsString = "Number of Months: \(numMonths!)"
-        var extraPaymentString = "Extra Payment: $\(extraPayment!)"
-        
-        let principal: Float = 100000
-        let rate: Float = 5.25
-        let time: Int = 360
-        
-        var extra_payment_amount = 100.0;
-        var total_interest = 0.0
-        var compound_interest: Float = 0.0
-        var principal_paid = 0.0
-        var simple_interest = 0.0
-        var remainingPrincipal = principal
-        
-        resultsViewController.numMonthsString = numMonthsString
-        resultsViewController.extraPaymentString = extraPaymentString
-        
-        println(String(format: "Monthly payment amount: $%.2f", amortize(principal,rate: rate,time: time)))
-
-        // Make a for loop to get principal payments.
-        for var i = 0; i < time; i++
-        {
-            compound_interest = (remainingPrincipal * (1 + (rate / 1200)) - remainingPrincipal)
-            if compound_interest <= 0 {
-                break;
-            }
-            
-            total_interest += Double(compound_interest);
-            principal_paid = (amortize(principal,rate: rate,time: time) + extra_payment_amount) - Double(compound_interest)
-            remainingPrincipal -= Float(principal_paid)
+        var resultsViewController: ResultsViewController = segue.destinationViewController as! ResultsViewController
         }
-        println(String(format: "Total interest paid: $%.2f", total_interest))
-        }
-    }
-
-    func amortize(principal: Float, rate: Float, time: Int) -> Double
-    {
-        let reducedRate = rate / 1200
-        var result = Double(principal) * Double(reducedRate)
-        result = result * (pow(Double((1.0+reducedRate)), Double(time)))
-        result = Double(result / Double(pow(Double(1.0+reducedRate),Double(time))-1))
-        result = result / Double(1.0)
-        return result
     }
 }
 
