@@ -17,25 +17,35 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var getMyResultsBtn: UIButton!
     
     // Variables
-    var rate: Double
-    var principal: Double
-    var principal_original: Double
-    var time: Double
-    var payment_amount: Double
-    var extra_payment: Double
-    var simple_interest: Double
-    var compound_interest: Double
-    var original_interest: Double
-    var net_interest: Double
-    var interestSaved: Double
-    var principal_paid: Double
-    var payoff_years: Int
-    var payoff_months: Int
+    // Ints
+    var payoff_years: Int = 0
+    var payoff_months: Int = 0
     
-    Double[] extra_payments, minimum_payments, min_principal_remaining, extra_principal_remaining;
-    Double interest_paid = original_interest = 0.00f;
-    Double timeSaved;
-    Double[] min_interest_paid, extra_interest_paid, min_principal_paid, extra_principal_paid;
+    // Doubles
+    var rate: Double = 0.0
+    var principal: Double = 0.0
+    var principal_original: Double = 0.0
+    var time: Double = 0.0
+    var payment_amount: Double = 0.0
+    var extra_payment: Double = 0.0
+    var simple_interest: Double = 0.0
+    var compound_interest: Double = 0.0
+    var original_interest: Double = 0.0
+    var net_interest: Double = 0.0
+    var interestSaved: Double = 0.0
+    var principal_paid: Double = 0.0
+    var interest_paid: Double = 0.0
+    var timeSaved: Double = 0.0
+
+    // Double arrays
+    var extra_payments: [Double] = []
+    var minimum_payments: [Double] = []
+    var min_principal_remaining: [Double] = []
+    var extra_principal_remaining: [Double] = []
+    var min_interest_paid: [Double] = []
+    var extra_interest_paid: [Double] = []
+    var min_principal_paid: [Double] = []
+    var extra_principal_paid: [Double] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
