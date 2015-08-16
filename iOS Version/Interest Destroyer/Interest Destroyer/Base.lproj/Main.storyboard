@@ -120,6 +120,7 @@
                             <constraint firstItem="gLx-II-3Hb" firstAttribute="centerX" secondItem="TQz-rY-tKw" secondAttribute="centerX" id="EXC-Be-GQd"/>
                             <constraint firstItem="qvZ-dN-Mje" firstAttribute="top" secondItem="gLx-II-3Hb" secondAttribute="bottom" constant="79" id="ElP-xm-3ra"/>
                             <constraint firstItem="LBa-d5-VkM" firstAttribute="top" secondItem="r1P-s1-Rsp" secondAttribute="bottom" constant="15" id="H29-NE-kYQ"/>
+                            <constraint firstItem="S75-0s-krG" firstAttribute="top" secondItem="LBa-d5-VkM" secondAttribute="bottom" constant="150" id="MC2-Ol-8Yh"/>
                             <constraint firstItem="LBa-d5-VkM" firstAttribute="leading" secondItem="r1P-s1-Rsp" secondAttribute="leading" id="QBo-Tx-20P"/>
                             <constraint firstItem="r1P-s1-Rsp" firstAttribute="leading" secondItem="hjU-Ra-8HB" secondAttribute="leading" id="RCa-oW-cE7"/>
                             <constraint firstItem="r1P-s1-Rsp" firstAttribute="leading" secondItem="DP8-Jk-cN8" secondAttribute="trailing" constant="8" symbolic="YES" id="Sz5-Rz-TL6"/>
@@ -139,6 +140,7 @@
                             <constraint firstItem="gLx-II-3Hb" firstAttribute="top" secondItem="TQz-rY-tKw" secondAttribute="bottom" constant="8" symbolic="YES" id="saS-fk-4BF"/>
                             <constraint firstItem="gLx-II-3Hb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="54" id="u97-68-Rff"/>
                             <constraint firstItem="FWy-WP-F7W" firstAttribute="top" secondItem="gLx-II-3Hb" secondAttribute="bottom" constant="83" id="v8d-5V-M84"/>
+                            <constraint firstAttribute="centerX" secondItem="S75-0s-krG" secondAttribute="centerX" constant="-0.5" id="vLP-te-U8W"/>
                             <constraint firstItem="gLx-II-3Hb" firstAttribute="centerX" secondItem="S75-0s-krG" secondAttribute="centerX" id="wUs-hW-pFt"/>
                         </constraints>
                         <variation key="default">
@@ -184,6 +186,8 @@
                                 <exclude reference="VgB-Rh-Bbi"/>
                                 <exclude reference="exr-th-H3e"/>
                                 <exclude reference="rMw-aJ-PBd"/>
+                                <exclude reference="MC2-Ol-8Yh"/>
+                                <exclude reference="vLP-te-U8W"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -229,6 +233,8 @@
                                 <include reference="VgB-Rh-Bbi"/>
                                 <include reference="exr-th-H3e"/>
                                 <include reference="rMw-aJ-PBd"/>
+                                <include reference="MC2-Ol-8Yh"/>
+                                <include reference="vLP-te-U8W"/>
                             </mask>
                         </variation>
                     </view>
