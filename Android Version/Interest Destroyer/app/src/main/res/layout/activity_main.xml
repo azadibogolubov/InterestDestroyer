@@ -1,69 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:background="@drawable/green_gradient"
-    android:paddingTop="50dp"
-    android:paddingBottom="50dp"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/green_gradient">
 
-    <TextView
-        android:id="@+id/chooseTxt"
+    <RelativeLayout
+        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:text="@string/please_choose_UI"
-        android:layout_centerHorizontal="true" />
+        android:orientation="horizontal"
+        android:paddingBottom="50dp"
+        android:paddingTop="50dp">
 
-    <Button
-        android:id="@+id/amortize"
-        android:layout_width="250dp"
-        android:layout_height="75dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_below="@id/chooseTxt"
-        android:text="@string/amortization_UI"
-        android:textColor="@color/black"
-        android:onClick="amortize"
-        android:background="@drawable/rounded_button_phone" />
+        <TextView
+            android:id="@+id/chooseTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/please_choose_UI"
+            android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/graphical"
-        android:layout_width="250dp"
-        android:layout_height="75dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:layout_below="@id/amortize"
-        android:text="@string/see_graphical_results"
-        android:onClick="showGraphicalResults"
-        android:background="@drawable/rounded_button_phone" />
+        <Button
+            android:id="@+id/amortize"
+            android:layout_width="250dp"
+            android:layout_height="75dp"
+            android:layout_below="@id/chooseTxt"
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rounded_button_phone"
+            android:onClick="amortize"
+            android:text="@string/amortization_UI"
+            android:textColor="@color/black" />
 
-    <Button
-        android:id="@+id/email"
-        android:layout_width="250dp"
-        android:layout_height="75dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_below="@id/graphical"
-        android:text="@string/email_results_UI"
-        android:onClick="sendResults"
-        android:background="@drawable/rounded_button_phone" />
+        <Button
+            android:id="@+id/graphical"
+            android:layout_width="250dp"
+            android:layout_height="75dp"
+            android:layout_below="@id/amortize"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_button_phone"
+            android:onClick="showGraphicalResults"
+            android:text="@string/see_graphical_results" />
 
-    <Button
-        android:id="@+id/extra"
-        android:layout_width="250dp"
-        android:layout_height="75dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="15dp"
-        android:layout_below="@id/email"
-        android:text="@string/savings_UI"
-        android:onClick="extraPayment"
-        android:background="@drawable/rounded_button_phone" />
-</RelativeLayout>
+        <Button
+            android:id="@+id/email"
+            android:layout_width="250dp"
+            android:layout_height="75dp"
+            android:layout_below="@id/graphical"
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp"
+            android:background="@drawable/rounded_button_phone"
+            android:onClick="sendResults"
+            android:text="@string/email_results_UI" />
+
+        <Button
+            android:id="@+id/extra"
+            android:layout_width="250dp"
+            android:layout_height="75dp"
+            android:layout_below="@id/email"
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_button_phone"
+            android:onClick="extraPayment"
+            android:text="@string/savings_UI"
+            android:visibility="gone" />
+    </RelativeLayout>
+</ScrollView>

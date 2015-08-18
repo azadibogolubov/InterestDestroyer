@@ -49,7 +49,7 @@
                 android:layout_marginRight="10dp"
                 android:hint="@string/principal_hint"
                 android:textColor="@color/light_black_text"
-                android:textColorHint="@color/gray">
+                android:textColorHint="@color/light_black_text">
 
 
                 <requestFocus />
@@ -81,7 +81,7 @@
                 android:layout_marginRight="10dp"
                 android:hint="@string/interest_hint"
                 android:textColor="@color/light_black_text"
-                android:textColorHint="@color/gray" />
+                android:textColorHint="@color/light_black_text" />
         </LinearLayout>
 
         <LinearLayout
@@ -111,7 +111,7 @@
                 android:ems="10"
                 android:hint="@string/months_hint"
                 android:textColor="@color/light_black_text"
-                android:textColorHint="@color/gray" />
+                android:textColorHint="@color/light_black_text" />
         </LinearLayout>
 
         <LinearLayout
@@ -139,7 +139,7 @@
                 android:layout_marginRight="10dp"
                 android:hint="@string/extra_payment_hint"
                 android:textColor="@color/light_black_text"
-                android:textColorHint="@color/gray" />
+                android:textColorHint="@color/light_black_text" />
         </LinearLayout>
 
         <RelativeLayout

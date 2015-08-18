@@ -37,6 +37,8 @@
         <activity
             android:name=".AmortizationActivity"
             android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|keyboardHidden"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
