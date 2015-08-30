@@ -54,7 +54,6 @@
     <string name="achartengine">AChartEngine: www.achartengine.org</string>
     <string name="title_activity_info_gathering">Information Gathering</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_extra_savings">ExtraSavingsActivity</string>
-    <string name="title_activity_skins">SkinsActivity</string>
+    <string name="title_activity_extra_savings">See your Extra Savings</string>
+    <string name="title_activity_skins">Choose a Skin</string>
 </resources>
