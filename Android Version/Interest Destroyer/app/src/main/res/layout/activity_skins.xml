@@ -15,7 +15,8 @@
         android:text="Please choose a skin from the list below."
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceMedium"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textStyle="bold|italic"
         android:layout_marginBottom="10dp"
         android:layout_centerHorizontal="true" />
 

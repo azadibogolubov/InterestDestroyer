@@ -6,16 +6,16 @@ package com.tutorazadi.interestdestroyerandroid;
 public class Skin {
 
     private String name;
-    private String backgroundColor;
+    private int backgroundColor;
     private String titleColor;
-    private String buttonColor;
+    private int buttonColor;
 
     public Skin()
     {
         // Set to defaults...
     }
 
-    public Skin(String name, String backgroundColor, String titleColor, String buttonColor)
+    public Skin(String name, int backgroundColor, String titleColor, int buttonColor)
     {
         this.name = name;
         this.backgroundColor = backgroundColor;
@@ -32,11 +32,11 @@ public class Skin {
     }
 
 
-    public String getBackgroundColor() {
+    public int getBackgroundColor() {
         return backgroundColor;
     }
 
-    public void setBackgroundColor(String backgroundColor) {
+    public void setBackgroundColor(int backgroundColor) {
         this.backgroundColor = backgroundColor;
     }
 
@@ -48,11 +48,11 @@ public class Skin {
         this.titleColor = titleColor;
     }
 
-    public String getButtonColor() {
+    public int getButtonColor() {
         return buttonColor;
     }
 
-    public void setButtonColor(String buttonColor) {
+    public void setButtonColor(int buttonColor) {
         this.buttonColor = buttonColor;
     }
 }

@@ -28,7 +28,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginStart="50dp"
             android:layout_marginTop="30dp"
-            android:background="@drawable/rounded_button_phone"
+            android:background="@drawable/rounded_green_button_phone"
             android:onClick="amortize"
             android:text="@string/amortization_UI"
             android:textColor="@color/black" />
@@ -44,7 +44,7 @@
             android:layout_marginRight="50dp"
             android:layout_marginStart="50dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/rounded_button_phone"
+            android:background="@drawable/rounded_green_button_phone"
             android:onClick="showGraphicalResults"
             android:text="@string/see_graphical_results" />
 
@@ -55,7 +55,7 @@
             android:layout_below="@id/graphical"
             android:layout_marginLeft="50dp"
             android:layout_marginStart="50dp"
-            android:background="@drawable/rounded_button_phone"
+            android:background="@drawable/rounded_green_button_phone"
             android:onClick="sendResults"
             android:text="@string/email_results_UI" />
 
@@ -67,7 +67,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginStart="50dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/rounded_button_phone"
+            android:background="@drawable/rounded_green_button_phone"
             android:onClick="extraPayment"
             android:text="@string/savings_UI"
             android:visibility="gone" />
@@ -81,7 +81,7 @@
             android:layout_marginStart="50dp"
             android:layout_marginTop="15dp"
             android:text="Customize Interest Destroyer"
-            android:background="@drawable/rounded_button_phone"
+            android:background="@drawable/rounded_green_button_phone"
             android:onClick="customize"/>
     </RelativeLayout>
 </ScrollView>

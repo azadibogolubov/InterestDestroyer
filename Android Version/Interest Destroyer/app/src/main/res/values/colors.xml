@@ -11,13 +11,16 @@
 	<color name="light_black_text">#444444</color>
 	<color name="green_gradient_start">#5E9C56</color>
 	<color name="green_gradient_end">#8DF082</color>
-	<color name="blue_gradient_start">#A1FCFD</color>
-	<color name="blue_gradient_end">#3DFDFF</color>
-	<color name="orange_gradient_start">#5E9C56</color>
-	<color name="orange_gradient_end">#8DF082</color>
+	<color name="blue_gradient_start">#3DFDFF</color>
+	<color name="blue_gradient_end">#A1FCFD</color>
+	<color name="orange_gradient_start">#ff9649</color>
+	<color name="orange_gradient_end">#ffa25d</color>
 	<color name="action_bar_blue">#46A0C6</color>
 	<color name="black">#000000</color>
     <color name="blue">#0000FF</color>
     <color name="gray">#C2C2C2</color>
 	<color name="action_bar">#066891</color>
+	<color name="blue_button">#00a2ff</color>
+	<color name="yellow_button">#f1ff01</color>
+	<color name="green_button">#64C750</color>
 </resources>

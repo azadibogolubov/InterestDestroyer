@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -19,30 +22,43 @@ public class SkinsAdapter extends ArrayAdapter<Skin> {
     public SkinsAdapter(Context context, int resource, ArrayList<Skin> skins) {
         super(context, resource, skins);
         this.skins = skins;
-        holder = new ViewHolder();
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View v = convertView;
-        if (v == null) {
+        View view = convertView;
+        if (view == null) {
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = inflater.inflate(R.layout.item_skin, null);
+            view = inflater.inflate(R.layout.item_skin, null);
         }
 
-        holder.name = skins.get(position).getName();
-        holder.backgroundColor = skins.get(position).getBackgroundColor();
-        holder.titleColor = skins.get(position).getTitleColor();
-        holder.buttonColor = skins.get(position).getButtonColor();
+        holder = new ViewHolder(view);
+        holder.skinName.setText(skins.get(position).getName());
 
-        return v;
+        holder.mainLayout.setBackground(getContext().getResources().getDrawable(skins.get(position).getBackgroundColor()));
+
+        holder.button1.setBackground(getContext().getResources().getDrawable(skins.get(position).getButtonColor()));
+        holder.button2.setBackground(getContext().getResources().getDrawable(skins.get(position).getButtonColor()));
+        holder.button3.setBackground(getContext().getResources().getDrawable(skins.get(position).getButtonColor()));
+        holder.button4.setBackground(getContext().getResources().getDrawable(skins.get(position).getButtonColor()));
+
+        return view;
     }
 
-    private class ViewHolder
+    private static class ViewHolder
     {
-        String name;
-        String backgroundColor;
-        String titleColor;
-        String buttonColor;
+        TextView skinName;
+        Button button1, button2, button3, button4;
+        RelativeLayout mainLayout;
+
+        ViewHolder(View view)
+        {
+            skinName = (TextView) view.findViewById(R.id.skinName);
+            button1 = (Button) view.findViewById(R.id.button1);
+            button2 = (Button) view.findViewById(R.id.button2);
+            button3 = (Button) view.findViewById(R.id.button3);
+            button4 = (Button) view.findViewById(R.id.button4);
+            mainLayout = (RelativeLayout) view.findViewById(R.id.mainLayout);
+        }
     }
 }

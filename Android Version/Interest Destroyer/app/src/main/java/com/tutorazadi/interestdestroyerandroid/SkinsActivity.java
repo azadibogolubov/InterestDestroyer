@@ -45,9 +45,9 @@ public class SkinsActivity extends Activity {
     public void initializeControls()
     {
         ArrayList<Skin> skins = new ArrayList<>();
-        skins.add(new Skin("blue", "", "", ""));
-        skins.add(new Skin("blue", "", "", ""));
-        skins.add(new Skin("blue", "", "", ""));
+        skins.add(new Skin("Skin 1: Feeling Blue", R.drawable.light_blue_gradient_outlined, "", R.drawable.rounded_yellow_button_phone));
+        skins.add(new Skin("Skin 2: The Sun is Shining", R.drawable.orange_gradient_outlined, "", R.drawable.rounded_blue_button_phone));
+        skins.add(new Skin("Skin 3: In the Green", R.drawable.green_gradient_outlined, "", R.drawable.rounded_green_button_phone));
 
         skinsAdapter = new SkinsAdapter(this, R.layout.item_skin, skins);
 
