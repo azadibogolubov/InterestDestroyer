@@ -109,4 +109,10 @@ public class MainActivity extends Activity {
         intent.putExtra("ACTION", "extra");
         startActivity(intent);
     }
+
+    public void customize(View v)
+    {
+        Intent customizeIntent = new Intent(MainActivity.this, SkinsActivity.class);
+        startActivity(customizeIntent);
+    }
 }

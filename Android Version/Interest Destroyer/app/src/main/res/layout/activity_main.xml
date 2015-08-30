@@ -71,5 +71,17 @@
             android:onClick="extraPayment"
             android:text="@string/savings_UI"
             android:visibility="gone" />
+
+        <Button
+            android:id="@+id/customize"
+            android:layout_width="250dp"
+            android:layout_height="75dp"
+            android:layout_below="@id/email"
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="15dp"
+            android:text="Customize Interest Destroyer"
+            android:background="@drawable/rounded_button_phone"
+            android:onClick="customize"/>
     </RelativeLayout>
 </ScrollView>

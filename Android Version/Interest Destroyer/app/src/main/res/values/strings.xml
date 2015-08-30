@@ -56,4 +56,5 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_extra_savings">ExtraSavingsActivity</string>
+    <string name="title_activity_skins">SkinsActivity</string>
 </resources>

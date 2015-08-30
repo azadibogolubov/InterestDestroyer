@@ -11,6 +11,10 @@
 	<color name="light_black_text">#444444</color>
 	<color name="green_gradient_start">#5E9C56</color>
 	<color name="green_gradient_end">#8DF082</color>
+	<color name="blue_gradient_start">#A1FCFD</color>
+	<color name="blue_gradient_end">#3DFDFF</color>
+	<color name="orange_gradient_start">#5E9C56</color>
+	<color name="orange_gradient_end">#8DF082</color>
 	<color name="action_bar_blue">#46A0C6</color>
 	<color name="black">#000000</color>
     <color name="blue">#0000FF</color>

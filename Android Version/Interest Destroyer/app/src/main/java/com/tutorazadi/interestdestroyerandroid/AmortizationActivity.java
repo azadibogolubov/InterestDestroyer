@@ -31,12 +31,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ImageButton;
-import android.widget.Toast;
 import android.graphics.Typeface;
 import java.util.ArrayList;
 
@@ -93,7 +90,7 @@ public class AmortizationActivity extends Activity
             items.add(new AmortizationItem(month[i], minPayment[i], extraPayment[i]));
         }
 
-        AmortizationItemAdapter adapter = new AmortizationItemAdapter(this, R.layout.amortization_list_item, items);
+        AmortizationItemAdapter adapter = new AmortizationItemAdapter(this, R.layout.item_amortization_list, items);
         listView.setAdapter(adapter);
 
         amortizationLbl = (TextView) findViewById(R.id.amortizationLbl);

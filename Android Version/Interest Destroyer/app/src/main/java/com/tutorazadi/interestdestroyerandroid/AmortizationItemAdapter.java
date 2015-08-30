@@ -31,11 +31,16 @@ import android.widget.TextView;
 public class AmortizationItemAdapter extends ArrayAdapter<AmortizationItem> {
     private ArrayList<AmortizationItem> objects;
     private Typeface arimoItalic;
+    private ViewHolder holder;
+    TextView monthLbl;
+    TextView minimumPaymentLbl;
+    TextView extraPaymentLbl;
 
     public AmortizationItemAdapter(Context context, int textViewResourceId, ArrayList<AmortizationItem> objects) {
         super(context, textViewResourceId, objects);
         arimoItalic = Typeface.createFromAsset(context.getAssets(), "fonts/Arimo-Italic.ttf");
         this.objects = objects;
+        holder = new ViewHolder();
     }
 
     public View getView(int position, View convertView, ViewGroup parent){
@@ -43,23 +48,39 @@ public class AmortizationItemAdapter extends ArrayAdapter<AmortizationItem> {
 
         if (v == null) {
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = inflater.inflate(R.layout.amortization_list_item, null);
+            v = inflater.inflate(R.layout.item_amortization_list, null);
         }
 
-        AmortizationItem i = objects.get(position);
-        TextView monthLbl = (TextView) v.findViewById(R.id.monthLbl);
-        TextView minimumPaymentLbl = (TextView) v.findViewById(R.id.minimumPaymentLbl);
-        TextView extraPaymentLbl = (TextView) v.findViewById(R.id.extraPaymentLbl);
+        initializeControls(v);
 
-        monthLbl.setText(i.getMonth());
+        AmortizationItem currentItem = objects.get(position);
+        holder.month = currentItem.getMonth();
+        holder.minimumPayment = currentItem.getMinPayment();
+        holder.extraPayment = currentItem.getExtraPayment();
+
+
+        monthLbl.setText(currentItem.getMonth());
         monthLbl.setTypeface(arimoItalic);
 
-        minimumPaymentLbl.setText(i.getMinPayment());
+        minimumPaymentLbl.setText(currentItem.getMinPayment());
         minimumPaymentLbl.setTypeface(arimoItalic);
 
-        extraPaymentLbl.setText(i.getExtraPayment());
+        extraPaymentLbl.setText(currentItem.getExtraPayment());
         extraPaymentLbl.setTypeface(arimoItalic);
 
         return v;
+    }
+
+    public void initializeControls(View v)
+    {
+        monthLbl = (TextView) v.findViewById(R.id.monthLbl);
+        minimumPaymentLbl = (TextView) v.findViewById(R.id.minimumPaymentLbl);
+        extraPaymentLbl = (TextView) v.findViewById(R.id.extraPaymentLbl);
+
+    }
+    private class ViewHolder {
+        String month;
+        String minimumPayment;
+        String extraPayment;
     }
 }
