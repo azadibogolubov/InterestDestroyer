@@ -252,7 +252,7 @@ public class InfoGatheringActivity extends Activity {
                 break;
             }
             case "graphical":
-                intent = new Intent(InfoGatheringActivity.this, ExtraPaymentChartActivity.class);
+                intent = new Intent(InfoGatheringActivity.this, NewExtraPaymentChartActivity.class);
                 break;
             // TODO: Migrate email activity to here.
             case "email":

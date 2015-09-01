@@ -73,6 +73,10 @@
             android:name=".SkinsActivity"
             android:label="@string/title_activity_skins" >
         </activity>
+        <activity
+            android:name=".NewExtraPaymentChartActivity"
+            android:label="@string/title_activity_new_extra_payment_chart" >
+        </activity>
     </application>
 
 </manifest>

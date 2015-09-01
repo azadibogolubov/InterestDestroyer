@@ -26,13 +26,13 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-import org.achartengine.ChartFactory;
+/*import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
 import org.achartengine.chart.BarChart;
 import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
-import org.achartengine.renderer.XYSeriesRenderer;
+import org.achartengine.renderer.XYSeriesRenderer;*/
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -55,7 +55,7 @@ import android.widget.Toast;
 
 public class ExtraPaymentChartActivity extends Activity {
 
-	GraphicalView mChartView = null;
+	/*GraphicalView mChartView = null;
 	public static NumberFormat n = NumberFormat.getCurrencyInstance(Locale.US);
 	public static DecimalFormat df = new DecimalFormat("#.##");
     public TextView interestSavedLbl, yearsSavedLbl;
@@ -200,5 +200,5 @@ public class ExtraPaymentChartActivity extends Activity {
 	        finish();
 	    }
 	    return super.onKeyDown(keyCode, event);
-	}
+	}*/
 }
