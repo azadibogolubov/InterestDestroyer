@@ -17,7 +17,10 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 
 public class NewExtraPaymentChartActivity extends Activity {
@@ -27,11 +30,58 @@ public class NewExtraPaymentChartActivity extends Activity {
     private Typeface mTf;
     BarChart chart;
 
+    private static NumberFormat n = NumberFormat.getCurrencyInstance(Locale.US);
+    private static DecimalFormat df = new DecimalFormat("#.##");
+    private TextView interestSavedLbl, yearsSavedLbl;
+    private static double[]  min_principal_remaining, extra_principal_remaining;
+    private static double extraPayment, minimumPayment;
+    private double timeSaved, interestSaved, totalMonths;
+    private String principal, extraPaymentAmount, interest;
+    private Typeface arimoItalic;
+    private int size;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_extra_payment_chart);
-        // in this example, a LineChart is initialized from xml
+
+        Bundle extras = getIntent().getExtras();
+
+        arimoItalic = Typeface.createFromAsset(this.getAssets(), "fonts/Arimo-Italic.ttf");
+
+        minimumPayment = extras.getDouble("MINIMUM_PAYMENTS");
+        extraPayment = extras.getDouble("EXTRA_PAYMENTS");
+        min_principal_remaining = extras.getDoubleArray("MIN_PRINCIPAL_REMAINING");
+        extra_principal_remaining = extras.getDoubleArray("EXTRA_PRINCIPAL_REMAINING");
+
+        principal = extras.getString("PRINCIPAL");
+        interestSaved = extras.getDouble("INTEREST_SAVED");
+        timeSaved = extras.getDouble("TIME_SAVED");
+        interest = extras.getString("INTEREST_RATE");
+        extraPaymentAmount = extras.getString("EXTRA_PAYMENT_AMOUNT");
+
+        size = (int)extras.getDouble("TOTAL_MONTHS");
+        String[] mMonth = new String[size/12];
+        int[] x = new int[size];
+        int b = 0;
+        for (int i = 0; i < size; i += 12)
+        {
+            try {
+                mMonth[b] = String.valueOf(b + 1);
+                x[b] = (b + 1);
+                b++;
+            }
+            catch (ArrayIndexOutOfBoundsException e)  { break ;}
+        }
+
+        yearsSavedLbl = (TextView) findViewById(R.id.yearsSavedLbl);
+        yearsSavedLbl.setTypeface(arimoItalic);
+        yearsSavedLbl.setText(yearsSavedLbl.getText() + String.valueOf(df.format(extras.getDouble("TIME_SAVED"))));
+
+        interestSavedLbl = (TextView) findViewById(R.id.interestSavedLbl);
+        interestSavedLbl.setTypeface(arimoItalic);
+        interestSavedLbl.setText(interestSavedLbl.getText() + String.valueOf(n.format(extras.getDouble("INTEREST_SAVED"))));
+
         chart = (BarChart) findViewById(R.id.chart);
 
         //chart.setOnChartValueSelectedListener(this);
@@ -83,7 +133,7 @@ public class NewExtraPaymentChartActivity extends Activity {
         l.setTextSize(11f);
         l.setXEntrySpace(4f);
 
-        setData(30, 50);
+        setData(size, 50);
 
         // setting data
         //mSeekBarY.setProgress(50);
@@ -120,31 +170,28 @@ public class NewExtraPaymentChartActivity extends Activity {
     private void setData(int count, float range) {
 
         ArrayList<String> xVals = new ArrayList<>();
-        for (int i = 1; i <= 30; i++)
-            xVals.add(String.valueOf(i));
-
-        ArrayList<BarEntry> yVals1 = new ArrayList<>();
-
-        int currentVal = 100;
-        for (int i = 0; i < count; i++) {
-            yVals1.add(new BarEntry(currentVal, i));
-            currentVal -= 1;
+        int counter = 0;
+        for (int i = 0; i < count; i+=12) {
+            xVals.add(String.valueOf(counter));
+            counter++;
         }
 
+        ArrayList<BarEntry> yVals1 = new ArrayList<>();
         ArrayList<BarEntry> yVals2 = new ArrayList<>();
+        counter = 0;
 
-        int currentVal2 = 100;
-        for (int i = 0; i < count; i++) {
-            yVals2.add(new BarEntry(currentVal2, i));
-            currentVal2 -= 3;
+        for (int i = 0; i < count; i+=12) {
+            yVals1.add(new BarEntry((float) min_principal_remaining[i], counter));
+            yVals2.add(new BarEntry((float) extra_principal_remaining[i], counter));
+            counter++;
         }
 
         BarDataSet set1 = new BarDataSet(yVals1, "Extra Year Number");
-        set1.setBarSpacePercent(35f);
+        set1.setBarSpacePercent(5f);
         set1.setColor(getResources().getColor(R.color.green_button));
 
         BarDataSet set2 = new BarDataSet(yVals2, "Minimum Year Number");
-        set2.setBarSpacePercent(35f);
+        set2.setBarSpacePercent(5f);
         set2.setColor(getResources().getColor(R.color.blue_button));
 
         ArrayList<BarDataSet> dataSets = new ArrayList<>();
@@ -152,9 +199,10 @@ public class NewExtraPaymentChartActivity extends Activity {
         dataSets.add(set2);
 
         BarData data = new BarData(xVals, dataSets);
+
         // data.setValueFormatter(new MyValueFormatter());
-        data.setValueTextSize(10f);
-        data.setValueTypeface(mTf);
+        //data.setValueTextSize(10f);
+        //data.setValueTypeface(mTf);
 
         chart.setData(data);
     }

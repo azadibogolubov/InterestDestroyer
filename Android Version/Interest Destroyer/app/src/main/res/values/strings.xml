@@ -56,7 +56,7 @@
 
     <string name="title_activity_extra_savings">See your Extra Savings</string>
     <string name="title_activity_skins">Choose a Skin</string>
-    <string name="title_activity_new_extra_payment_chart">NewExtraPaymentChartActivity</string>
+    <string name="title_activity_new_extra_payment_chart">Extra Payment Chart</string>
 
     <string name="hello_world">Hello world!</string>
 </resources>

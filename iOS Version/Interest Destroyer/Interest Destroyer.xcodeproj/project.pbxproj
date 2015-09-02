@@ -14,6 +14,7 @@
 		226E72F41AA550DD00B71D60 /* EmailResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226E72F31AA550DD00B71D60 /* EmailResultsViewController.swift */; };
 		226E72F61AA556EE00B71D60 /* GreenGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226E72F51AA556EE00B71D60 /* GreenGradientView.swift */; };
 		228FE7C31B93D0EC00F8C779 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228FE7C21B93D0EC00F8C779 /* MainViewController.swift */; };
+		228FE7C51B9565BF00F8C779 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228FE7C41B9565BF00F8C779 /* InformationViewController.swift */; };
 		22F688221A9D710700BF0A48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F688211A9D710700BF0A48 /* AppDelegate.swift */; };
 		22F688251A9D710700BF0A48 /* Interest_Destroyer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22F688231A9D710700BF0A48 /* Interest_Destroyer.xcdatamodeld */; };
 		22F688271A9D710700BF0A48 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F688261A9D710700BF0A48 /* WelcomeViewController.swift */; };
@@ -41,6 +42,7 @@
 		226E72F31AA550DD00B71D60 /* EmailResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailResultsViewController.swift; sourceTree = "<group>"; };
 		226E72F51AA556EE00B71D60 /* GreenGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenGradientView.swift; sourceTree = "<group>"; };
 		228FE7C21B93D0EC00F8C779 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		228FE7C41B9565BF00F8C779 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		22F6881C1A9D710700BF0A48 /* Interest Destroyer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Interest Destroyer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F688201A9D710700BF0A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22F688211A9D710700BF0A48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 		22F688131A9D710700BF0A48 = {
 			isa = PBXGroup;
 			children = (
+				228FE7C41B9565BF00F8C779 /* InformationViewController.swift */,
 				22F6881E1A9D710700BF0A48 /* Interest Destroyer */,
 				22F688371A9D710700BF0A48 /* Interest DestroyerTests */,
 				22F6881D1A9D710700BF0A48 /* Products */,
@@ -237,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				226E72F41AA550DD00B71D60 /* EmailResultsViewController.swift in Sources */,
+				228FE7C51B9565BF00F8C779 /* InformationViewController.swift in Sources */,
 				22F688271A9D710700BF0A48 /* WelcomeViewController.swift in Sources */,
 				22F688221A9D710700BF0A48 /* AppDelegate.swift in Sources */,
 				22F688251A9D710700BF0A48 /* Interest_Destroyer.xcdatamodeld in Sources */,

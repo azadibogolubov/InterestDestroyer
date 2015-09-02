@@ -9,10 +9,17 @@
                 tools:context="com.tutorazadi.interestdestroyerandroid.NewExtraPaymentChartActivity">
 
     <TextView
+        android:id="@+id/instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pinch horizontally and vertically to adjust chart."/>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Years Saved: "
-        android:id="@+id/yearsSavedLbl"/>
+        android:id="@+id/yearsSavedLbl"
+        android:layout_below="@id/instructions"/>
 
     <TextView
         android:layout_width="wrap_content"
