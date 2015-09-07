@@ -10,10 +10,19 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    var principal: Int? = 0
+    var interest: Float? = 0.0
+    var monthsRemaining: Int? = 0
+    var extraPayment: Int? = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // Begin tests
+        assert(principal != 0, "Principal failed")
+        assert(interest != 0, "Interest failed")
+        assert(monthsRemaining != 0, "Months remaining failed")
+        assert(extraPayment != 0, "Extra payment failed")
+        // End tests
     }
 
     override func didReceiveMemoryWarning() {

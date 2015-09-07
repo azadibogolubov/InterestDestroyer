@@ -75,7 +75,7 @@
 		226E72F31AA550DD00B71D60 /* EmailResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailResultsViewController.swift; sourceTree = "<group>"; };
 		226E72F51AA556EE00B71D60 /* GreenGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenGradientView.swift; sourceTree = "<group>"; };
 		228FE7C21B93D0EC00F8C779 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		228FE7C41B9565BF00F8C779 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
+		228FE7C41B9565BF00F8C779 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformationViewController.swift; path = ../InformationViewController.swift; sourceTree = "<group>"; };
 		22F6881C1A9D710700BF0A48 /* Interest Destroyer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Interest Destroyer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F688201A9D710700BF0A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22F688211A9D710700BF0A48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				2246396D1B9D28A400FC62E1 /* Charts.xcodeproj */,
-				228FE7C41B9565BF00F8C779 /* InformationViewController.swift */,
 				22F6881E1A9D710700BF0A48 /* Interest Destroyer */,
 				22F688371A9D710700BF0A48 /* Interest DestroyerTests */,
 				22F6881D1A9D710700BF0A48 /* Products */,
@@ -139,6 +138,7 @@
 		22F6881E1A9D710700BF0A48 /* Interest Destroyer */ = {
 			isa = PBXGroup;
 			children = (
+				228FE7C41B9565BF00F8C779 /* InformationViewController.swift */,
 				22F688211A9D710700BF0A48 /* AppDelegate.swift */,
 				22F688261A9D710700BF0A48 /* WelcomeViewController.swift */,
 				22F688281A9D710700BF0A48 /* Main.storyboard */,

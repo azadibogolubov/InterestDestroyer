@@ -10,6 +10,11 @@ import UIKit
 
 class InformationViewController: UIViewController {
 
+    @IBOutlet weak var principalTxt: UITextField!
+    @IBOutlet weak var interestTxt: UITextField!
+    @IBOutlet weak var monthsRemainingTxt: UITextField!
+    @IBOutlet weak var extraPaymentTxt: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,14 +27,14 @@ class InformationViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let vc = segue.destinationViewController as? MainViewController
+        if (segue.identifier == "sendGatheredInfoSegue")
+        {
+            vc!.principal = principalTxt.text.toInt()
+            vc!.interest = (interestTxt.text as NSString).floatValue
+            vc!.monthsRemaining = monthsRemainingTxt.text.toInt()
+            vc!.extraPayment = extraPaymentTxt.text.toInt()
+        }
     }
-    */
-
 }

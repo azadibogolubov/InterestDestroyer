@@ -16,7 +16,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Ex5-Qn-4cn" kind="relationship" relationship="rootViewController" id="BKZ-rC-iRJ"/>
+                        <segue destination="KnK-Dr-Fqt" kind="relationship" relationship="rootViewController" id="ULT-Zg-ObW"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P9X-m5-iJK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -49,9 +49,6 @@
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="93" y="175" width="215" height="30"/>
                                 </variation>
-                                <connections>
-                                    <segue destination="KnK-Dr-Fqt" kind="custom" identifier="amortizationSegue" id="JjK-K7-35g"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6X1-Cn-qbu">
                                 <rect key="frame" x="193" y="200" width="215" height="30"/>
@@ -68,7 +65,7 @@
                                     <rect key="frame" x="93" y="225" width="215" height="30"/>
                                 </variation>
                                 <connections>
-                                    <segue destination="KnK-Dr-Fqt" kind="custom" identifier="graphicalResultsSegue" id="3az-7Z-6Pg"/>
+                                    <segue destination="cpy-Qg-Hsd" kind="custom" identifier="getGraphicalResultsSegue" id="Pz8-6d-6Ez"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Icd-LA-fNr">
@@ -85,9 +82,6 @@
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="93" y="275" width="215" height="30"/>
                                 </variation>
-                                <connections>
-                                    <segue destination="KnK-Dr-Fqt" kind="custom" identifier="emailResultsSegue" id="uzF-gZ-pfr"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spY-fs-gJE">
                                 <rect key="frame" x="193" y="300" width="215" height="30"/>
@@ -103,9 +97,6 @@
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="93" y="325" width="215" height="30"/>
                                 </variation>
-                                <connections>
-                                    <segue destination="KnK-Dr-Fqt" kind="custom" identifier="customizeSegue" id="MXH-hR-ns5"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please choose an option:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ES2-S4-SRn">
                                 <rect key="frame" x="85" y="100" width="430" height="21"/>
@@ -139,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPJ-PL-luf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="727" y="-389"/>
+            <point key="canvasLocation" x="1303" y="-389"/>
         </scene>
         <!--Information View Controller-->
         <scene sceneID="ldV-Ve-9RP">
@@ -210,7 +201,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cpy-Qg-Hsd" kind="show" id="cIf-KC-Bzh"/>
+                                    <segue destination="Ex5-Qn-4cn" kind="custom" identifier="sendGatheredInfoSegue" id="6vl-bY-MpK"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please Enter Financial Data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwh-9L-Ox5">
@@ -248,10 +239,17 @@
                             <constraint firstItem="4Xh-Gr-qpT" firstAttribute="trailing" secondItem="dTU-Az-DnL" secondAttribute="trailing" id="w5c-h9-BSf"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="AT8-c9-aEm"/>
+                    <connections>
+                        <outlet property="extraPaymentTxt" destination="QJk-VJ-lan" id="yLv-G0-JRB"/>
+                        <outlet property="interestTxt" destination="dTU-Az-DnL" id="f5c-eP-pTI"/>
+                        <outlet property="monthsRemainingTxt" destination="XWK-Me-JkG" id="EZw-Wn-APR"/>
+                        <outlet property="principalTxt" destination="4Xh-Gr-qpT" id="wi0-YY-XQK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPo-Ff-tr6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1413" y="-389"/>
+            <point key="canvasLocation" x="651" y="-388"/>
         </scene>
         <!--Graphical Results View Controller-->
         <scene sceneID="Za9-e5-h1Q">
@@ -312,7 +310,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fI-lw-cK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2133" y="-389"/>
+            <point key="canvasLocation" x="2103" y="-369"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="I1W-HW-3eT">
@@ -341,7 +339,4 @@
             <point key="canvasLocation" x="2801" y="-389"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="JjK-K7-35g"/>
-    </inferredMetricsTieBreakers>
 </document>
