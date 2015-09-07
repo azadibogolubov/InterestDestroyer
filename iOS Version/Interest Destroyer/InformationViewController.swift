@@ -29,12 +29,12 @@ class InformationViewController: UIViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let vc = segue.destinationViewController as? MainViewController
-        if (segue.identifier == "sendGatheredInfoSegue")
+        if segue.identifier == "sendGatheredInfoSegue"
         {
-            vc!.principal = principalTxt.text.toInt()
-            vc!.interest = (interestTxt.text as NSString).floatValue
-            vc!.monthsRemaining = monthsRemainingTxt.text.toInt()
-            vc!.extraPayment = extraPaymentTxt.text.toInt()
+            vc!.principal = (principalTxt.text as NSString).doubleValue
+            vc!.rate = (interestTxt.text as NSString).doubleValue
+            vc!.time = monthsRemainingTxt.text.toInt()!
+            vc!.extra_payment = (extraPaymentTxt.text as NSString).doubleValue
         }
     }
 }
