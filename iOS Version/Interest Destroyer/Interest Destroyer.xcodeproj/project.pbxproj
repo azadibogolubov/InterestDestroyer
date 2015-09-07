@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		224639651B9D278900FC62E1 /* GraphicalResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224639641B9D278900FC62E1 /* GraphicalResultsViewController.swift */; };
+		224639731B9D28C200FC62E1 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224639721B9D28A400FC62E1 /* Charts.framework */; };
+		224639741B9D28C200FC62E1 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 224639721B9D28A400FC62E1 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2267FA681AA030BB00F621DB /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267FA671AA030BB00F621DB /* ResultsViewController.swift */; };
 		226E72EE1AA5508000B71D60 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226E72ED1AA5508000B71D60 /* AboutViewController.swift */; };
 		226E72F01AA550A200B71D60 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226E72EF1AA550A200B71D60 /* GraphViewController.swift */; };
@@ -25,6 +28,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		224639711B9D28A400FC62E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2246396D1B9D28A400FC62E1 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = Charts;
+		};
+		224639751B9D28C200FC62E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2246396D1B9D28A400FC62E1 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = Charts;
+		};
 		22F688351A9D710700BF0A48 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 22F688141A9D710700BF0A48 /* Project object */;
@@ -34,7 +51,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2246396C1B9D286300FC62E1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				224639741B9D28C200FC62E1 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		224639641B9D278900FC62E1 /* GraphicalResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicalResultsViewController.swift; sourceTree = "<group>"; };
+		2246396D1B9D28A400FC62E1 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		2267FA671AA030BB00F621DB /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		226E72ED1AA5508000B71D60 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		226E72EF1AA550A200B71D60 /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				224639731B9D28C200FC62E1 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,9 +108,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2246396E1B9D28A400FC62E1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				224639721B9D28A400FC62E1 /* Charts.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		22F688131A9D710700BF0A48 = {
 			isa = PBXGroup;
 			children = (
+				2246396D1B9D28A400FC62E1 /* Charts.xcodeproj */,
 				228FE7C41B9565BF00F8C779 /* InformationViewController.swift */,
 				22F6881E1A9D710700BF0A48 /* Interest Destroyer */,
 				22F688371A9D710700BF0A48 /* Interest DestroyerTests */,
@@ -110,6 +153,7 @@
 				226E72F31AA550DD00B71D60 /* EmailResultsViewController.swift */,
 				226E72F51AA556EE00B71D60 /* GreenGradientView.swift */,
 				228FE7C21B93D0EC00F8C779 /* MainViewController.swift */,
+				224639641B9D278900FC62E1 /* GraphicalResultsViewController.swift */,
 			);
 			path = "Interest Destroyer";
 			sourceTree = "<group>";
@@ -149,10 +193,12 @@
 				22F688181A9D710700BF0A48 /* Sources */,
 				22F688191A9D710700BF0A48 /* Frameworks */,
 				22F6881A1A9D710700BF0A48 /* Resources */,
+				2246396C1B9D286300FC62E1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				224639761B9D28C200FC62E1 /* PBXTargetDependency */,
 			);
 			name = "Interest Destroyer";
 			productName = "Interest Destroyer";
@@ -206,6 +252,12 @@
 			mainGroup = 22F688131A9D710700BF0A48;
 			productRefGroup = 22F6881D1A9D710700BF0A48 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2246396E1B9D28A400FC62E1 /* Products */;
+					ProjectRef = 2246396D1B9D28A400FC62E1 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				22F6881B1A9D710700BF0A48 /* Interest Destroyer */,
@@ -213,6 +265,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		224639721B9D28A400FC62E1 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 224639711B9D28A400FC62E1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		22F6881A1A9D710700BF0A48 /* Resources */ = {
@@ -242,6 +304,7 @@
 				226E72F41AA550DD00B71D60 /* EmailResultsViewController.swift in Sources */,
 				228FE7C51B9565BF00F8C779 /* InformationViewController.swift in Sources */,
 				22F688271A9D710700BF0A48 /* WelcomeViewController.swift in Sources */,
+				224639651B9D278900FC62E1 /* GraphicalResultsViewController.swift in Sources */,
 				22F688221A9D710700BF0A48 /* AppDelegate.swift in Sources */,
 				22F688251A9D710700BF0A48 /* Interest_Destroyer.xcdatamodeld in Sources */,
 				226E72F61AA556EE00B71D60 /* GreenGradientView.swift in Sources */,
@@ -264,6 +327,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		224639761B9D28C200FC62E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = 224639751B9D28C200FC62E1 /* PBXContainerItemProxy */;
+		};
 		22F688361A9D710700BF0A48 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 22F6881B1A9D710700BF0A48 /* Interest Destroyer */;
@@ -372,6 +440,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Charts/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = "Interest Destroyer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -383,6 +455,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Charts/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = "Interest Destroyer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
