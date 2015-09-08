@@ -11,8 +11,21 @@ import Charts
 
 class GraphicalResultsViewController: UIViewController {
     
-    @IBOutlet weak var barChartView: BarChartView!
+    @IBOu	tlet weak var barChartView: BarChartView!
     var columns: [String]!
+    var timeSaved: Double = 0.0
+    var interestSaved: Double = 0.0
+    var time: Int = 0
+    var extra_payment: Double = 0.0
+    var payment_amount: Double = 0.0
+    var principal: Double = 0.0
+    var rate: Double = 0.0
+    var min_principal_paid: [Double] = []
+    var extra_principal_paid: [Double] = []
+    var min_interest_paid: [Double] = []
+    var extra_interest_paid: [Double] = []
+    var min_principal_remaining: [Double] = []
+    var extra_principal_remaining: [Double] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

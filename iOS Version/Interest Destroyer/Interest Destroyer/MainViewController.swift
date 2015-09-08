@@ -60,23 +60,20 @@ class MainViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "getGraphicalResultsSegue")
         {
-            var resultsViewController: ResultsViewController = segue.destinationViewController as! ResultsViewController
-            /*
-            TODO: Convert this intent logic from Java to Swift for segue.
-            extra.putDouble("TIME_SAVED", timeSaved);
-            extra.putDouble("INTEREST_SAVED", interestSaved);
-            extra.putDouble("TOTAL_MONTHS", time);
-            extra.putDouble("EXTRA_PAYMENTS", extra_payment);
-            extra.putDouble("MINIMUM_PAYMENTS", payment_amount);
-            extra.putString("PRINCIPAL", principalTxt.getText().toString());
-            extra.putString("INTEREST_RATE", interestTxt.getText().toString());
-            extra.putString("EXTRA_PAYMENT_AMOUNT", extraPaymentTxt.getText().toString());
-            extra.putDoubleArray("MIN_PRINCIPAL_PAID", min_principal_paid);
-            extra.putDoubleArray("EXTRA_PRINCIPAL_PAID", extra_principal_paid);
-            extra.putDoubleArray("MIN_INTEREST_PAID", min_interest_paid);
-            extra.putDoubleArray("EXTRA_INTEREST_PAID", extra_interest_paid);
-            extra.putDoubleArray("MIN_PRINCIPAL_REMAINING", min_principal_remaining);
-            extra.putDoubleArray("EXTRA_PRINCIPAL_REMAINING", extra_principal_remaining);*/
+            let vc = segue.destinationViewController as! GraphicalResultsViewController
+            vc.timeSaved = timeSaved
+            vc.interestSaved = interestSaved
+            vc.time = time
+            vc.extra_payment = extra_payment
+            vc.payment_amount = payment_amount
+            vc.principal = principal
+            vc.rate = rate
+            vc.min_principal_paid = min_principal_paid
+            vc.extra_principal_paid = extra_principal_paid
+            vc.min_interest_paid = min_interest_paid
+            vc.extra_interest_paid = extra_interest_paid
+            vc.min_principal_remaining = min_principal_remaining
+            vc.extra_principal_remaining = extra_principal_remaining
         }
     }
     
@@ -91,10 +88,10 @@ class MainViewController: UIViewController {
         
         principal_original = principal
         
-        for var i = 0; i < time; i++ {
+ /*       for var i = 0; i < time; i++ {
             minimum_payments[i] = 0.00;
             extra_payments[i] = 0.00;
-        }
+        }*/
         
         payment_amount = amortize(principal, rate: rate, time: time);
         for var i = 0; i < time; i++ {
