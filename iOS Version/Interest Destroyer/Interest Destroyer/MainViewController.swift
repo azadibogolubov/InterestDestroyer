@@ -50,26 +50,28 @@ class MainViewController: UIViewController {
     var min_principal_paid: [Double] = []
     var extra_principal_paid: [Double] = []
     
-/*    override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
-        if identifier == "getGraphicalResultsSegue" {
-        }
-        return true
-    }*/
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "getGraphicalResultsSegue")
         {
             performCalculations()
-            println("Extra payments count: \(extra_payments.count)")
-            println("Min payments count: \(minimum_payments.count)")
-            println("Min principal remaining count: \(min_principal_remaining.count)") // GOOD
-            println("Extra principal remaining count: \(extra_principal_remaining.count)")
-            println("min interest paid count: \(min_interest_paid.count)") // GOOD
-            println("extra interest paid count: \(extra_interest_paid.count)")
-            println("Min principal paid count: \(min_principal_paid.count)") // GOOD
-            println("Extra principal paid count: \(extra_principal_paid.count)")
-
             let vc = segue.destinationViewController as! GraphicalResultsViewController
+            vc.timeSaved = timeSaved
+            vc.interestSaved = interestSaved
+            vc.time = time
+            vc.extra_payment = extra_payment
+            vc.payment_amount = monthly_payment
+            vc.principal = principal
+            vc.rate = rate
+            vc.min_principal_paid = min_principal_paid
+            vc.extra_principal_paid = extra_principal_paid
+            vc.min_interest_paid = min_interest_paid
+            vc.extra_interest_paid = extra_interest_paid
+            vc.min_principal_remaining = min_principal_remaining
+            vc.extra_principal_remaining = extra_principal_remaining
+        }
+        else if segue.identifier == "amortizationSegue" {
+            performCalculations()
+            let vc = segue.destinationViewController as! AmortizationViewController
             vc.timeSaved = timeSaved
             vc.interestSaved = interestSaved
             vc.time = time

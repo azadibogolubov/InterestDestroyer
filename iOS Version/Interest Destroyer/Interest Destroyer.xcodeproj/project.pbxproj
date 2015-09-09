@@ -10,9 +10,9 @@
 		224639651B9D278900FC62E1 /* GraphicalResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224639641B9D278900FC62E1 /* GraphicalResultsViewController.swift */; };
 		224639731B9D28C200FC62E1 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224639721B9D28A400FC62E1 /* Charts.framework */; };
 		224639741B9D28C200FC62E1 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 224639721B9D28A400FC62E1 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		224639801BA00ABB00FC62E1 /* AmortizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246397F1BA00ABB00FC62E1 /* AmortizationViewController.swift */; };
 		2267FA681AA030BB00F621DB /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267FA671AA030BB00F621DB /* ResultsViewController.swift */; };
 		226E72EE1AA5508000B71D60 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226E72ED1AA5508000B71D60 /* AboutViewController.swift */; };
-		226E72F21AA550BD00B71D60 /* AmortizationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226E72F11AA550BD00B71D60 /* AmortizationTableViewController.swift */; };
 		226E72F41AA550DD00B71D60 /* EmailResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226E72F31AA550DD00B71D60 /* EmailResultsViewController.swift */; };
 		226E72F61AA556EE00B71D60 /* GreenGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226E72F51AA556EE00B71D60 /* GreenGradientView.swift */; };
 		228FE7C31B93D0EC00F8C779 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228FE7C21B93D0EC00F8C779 /* MainViewController.swift */; };
@@ -67,9 +67,9 @@
 /* Begin PBXFileReference section */
 		224639641B9D278900FC62E1 /* GraphicalResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicalResultsViewController.swift; sourceTree = "<group>"; };
 		2246396D1B9D28A400FC62E1 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
+		2246397F1BA00ABB00FC62E1 /* AmortizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmortizationViewController.swift; sourceTree = "<group>"; };
 		2267FA671AA030BB00F621DB /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		226E72ED1AA5508000B71D60 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		226E72F11AA550BD00B71D60 /* AmortizationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmortizationTableViewController.swift; sourceTree = "<group>"; };
 		226E72F31AA550DD00B71D60 /* EmailResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailResultsViewController.swift; sourceTree = "<group>"; };
 		226E72F51AA556EE00B71D60 /* GreenGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenGradientView.swift; sourceTree = "<group>"; };
 		228FE7C21B93D0EC00F8C779 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -146,11 +146,11 @@
 				22F6881F1A9D710700BF0A48 /* Supporting Files */,
 				2267FA671AA030BB00F621DB /* ResultsViewController.swift */,
 				226E72ED1AA5508000B71D60 /* AboutViewController.swift */,
-				226E72F11AA550BD00B71D60 /* AmortizationTableViewController.swift */,
 				226E72F31AA550DD00B71D60 /* EmailResultsViewController.swift */,
 				226E72F51AA556EE00B71D60 /* GreenGradientView.swift */,
 				228FE7C21B93D0EC00F8C779 /* MainViewController.swift */,
 				224639641B9D278900FC62E1 /* GraphicalResultsViewController.swift */,
+				2246397F1BA00ABB00FC62E1 /* AmortizationViewController.swift */,
 			);
 			path = "Interest Destroyer";
 			sourceTree = "<group>";
@@ -304,8 +304,8 @@
 				224639651B9D278900FC62E1 /* GraphicalResultsViewController.swift in Sources */,
 				22F688221A9D710700BF0A48 /* AppDelegate.swift in Sources */,
 				22F688251A9D710700BF0A48 /* Interest_Destroyer.xcdatamodeld in Sources */,
+				224639801BA00ABB00FC62E1 /* AmortizationViewController.swift in Sources */,
 				226E72F61AA556EE00B71D60 /* GreenGradientView.swift in Sources */,
-				226E72F21AA550BD00B71D60 /* AmortizationTableViewController.swift in Sources */,
 				226E72EE1AA5508000B71D60 /* AboutViewController.swift in Sources */,
 				2267FA681AA030BB00F621DB /* ResultsViewController.swift in Sources */,
 				228FE7C31B93D0EC00F8C779 /* MainViewController.swift in Sources */,
