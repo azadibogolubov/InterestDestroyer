@@ -11,8 +11,11 @@ import Charts
 
 class GraphicalResultsViewController: UIViewController {
     
-    @IBOu	tlet weak var barChartView: BarChartView!
-    var columns: [String]!
+    @IBOutlet weak var barChartView: BarChartView!
+    @IBOutlet weak var yearsSavedLbl: UILabel!
+    @IBOutlet weak var interestSavedLbl: UILabel!
+    
+    var columns: [String] = []
     var timeSaved: Double = 0.0
     var interestSaved: Double = 0.0
     var time: Int = 0
@@ -29,9 +32,13 @@ class GraphicalResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        columns = [ "", "", "", "" ]
-        let values = [ 500.0, 400.0, 300.0, 200.0 ]
-        let eValues = [ 300.0, 200.0, 100.0, 0.0 ]
+        for var i = 0; i < time; i++ {
+            columns.append("")
+        }
+        let values = min_principal_remaining
+        let eValues = extra_principal_remaining
+        yearsSavedLbl.text = "Years saved: \(timeSaved)"
+        interestSavedLbl.text = "Interest Saved: $\(Int(interestSaved))"
         setChart(columns, values: values, eValues: eValues)
     }
     

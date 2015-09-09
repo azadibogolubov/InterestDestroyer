@@ -29,7 +29,7 @@ class MainViewController: UIViewController {
     var rate: Double = 0.0
     var principal: Double = 0.0
     var principal_original: Double = 0.0
-    var payment_amount: Double = 0.0
+    var monthly_payment: Double = 0.0
     var extra_payment: Double = 0.0
     var simple_interest: Double = 0.0
     var compound_interest: Double = 0.0
@@ -50,22 +50,31 @@ class MainViewController: UIViewController {
     var min_principal_paid: [Double] = []
     var extra_principal_paid: [Double] = []
     
-    override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
+/*    override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
         if identifier == "getGraphicalResultsSegue" {
-            performCalculations()
         }
         return true
-    }
+    }*/
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "getGraphicalResultsSegue")
         {
+            performCalculations()
+            println("Extra payments count: \(extra_payments.count)")
+            println("Min payments count: \(minimum_payments.count)")
+            println("Min principal remaining count: \(min_principal_remaining.count)") // GOOD
+            println("Extra principal remaining count: \(extra_principal_remaining.count)")
+            println("min interest paid count: \(min_interest_paid.count)") // GOOD
+            println("extra interest paid count: \(extra_interest_paid.count)")
+            println("Min principal paid count: \(min_principal_paid.count)") // GOOD
+            println("Extra principal paid count: \(extra_principal_paid.count)")
+
             let vc = segue.destinationViewController as! GraphicalResultsViewController
             vc.timeSaved = timeSaved
             vc.interestSaved = interestSaved
             vc.time = time
             vc.extra_payment = extra_payment
-            vc.payment_amount = payment_amount
+            vc.payment_amount = monthly_payment
             vc.principal = principal
             vc.rate = rate
             vc.min_principal_paid = min_principal_paid
@@ -79,57 +88,48 @@ class MainViewController: UIViewController {
     
     func performCalculations()
     {
-        principal = principal_original;
-        simple_interest = principal * (rate / 100) * (Double(time) / 12);
-        interest_paid = 0.00;
-        net_interest = 0.00;
-        principal_paid = 0.00;
-        payment_amount = amortize(principal, rate: rate, time: time);
+        simple_interest = principal * (rate / 100) * (Double(time) / 12)
+        interest_paid = 0.00
+        net_interest = 0.00
+        principal_paid = 0.00
+        monthly_payment = amortize(principal, rate: rate, time: time)
         
         principal_original = principal
         
- /*       for var i = 0; i < time; i++ {
-            minimum_payments[i] = 0.00;
-            extra_payments[i] = 0.00;
-        }*/
-        
-        payment_amount = amortize(principal, rate: rate, time: time);
         for var i = 0; i < time; i++ {
             compound_interest = principal * (1.0 + (rate / 1200)) - principal
             if compound_interest <= 0 {
                 break
             }
             interest_paid += compound_interest;
-            min_interest_paid[i] = compound_interest;
-            principal_paid = payment_amount - compound_interest;
-            min_principal_paid[i] = principal_paid;
-            min_principal_remaining[i] = principal;
-            principal -= principal_paid;
+            min_interest_paid.append(compound_interest)
+            principal_paid = monthly_payment - compound_interest
+            min_principal_paid.append(principal_paid)
+            min_principal_remaining.append(principal)
+            principal -= principal_paid
         }
         
-        original_interest = interest_paid;
-        
-        principal_original = principal
-        
+        original_interest = interest_paid
+            
         interest_paid = 0
         compound_interest = 0
         principal_paid = 0
         simple_interest = 0
         
-        payment_amount = amortize(principal, rate: rate, time: time)
-        println("Monthly payment amount: \(payment_amount)")
+        println("Monthly payment amount: \(monthly_payment)")
+        principal = principal_original
         for var i = 0; i < time; i++ {
             compound_interest = principal * (1 + (rate / 1200)) - principal
             if (compound_interest <= 0) {
-                payoff_months = i;
+                payoff_months = i
                 break;
             }
-            interest_paid += compound_interest;
-            extra_interest_paid[i] = interest_paid - extra_payment;
-            principal_paid = (payment_amount + extra_payment) - compound_interest;
-            extra_principal_paid[i] = principal_paid;
-            extra_principal_remaining[i] = principal;
-            principal -= principal_paid;
+            interest_paid += compound_interest
+            extra_interest_paid.append(interest_paid - extra_payment)
+            principal_paid = (monthly_payment + extra_payment) - compound_interest
+            extra_principal_paid.append(principal_paid)
+            extra_principal_remaining.append(principal)
+            principal -= principal_paid
         }
         timeSaved = Double((time - payoff_months) / 12);
         interestSaved = original_interest - interest_paid;
@@ -147,6 +147,7 @@ class MainViewController: UIViewController {
     
     func amortize(principal: Double, var rate: Double, time: Int) -> Double {
         rate = Double(rate / 1200.0)
-        return (principal * rate * pow((1.0 + rate), Double(time))) / (pow((1.0 + rate), Double(time)) - 1.0);
+        monthly_payment = (principal * rate * pow((1.0 + rate), Double(time))) / (pow((1.0 + rate), Double(time)) - 1.0)
+        return monthly_payment
     }
 }

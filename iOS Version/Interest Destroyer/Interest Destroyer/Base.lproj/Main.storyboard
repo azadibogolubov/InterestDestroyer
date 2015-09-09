@@ -306,6 +306,8 @@
                     </view>
                     <connections>
                         <outlet property="barChartView" destination="uI9-bq-AYa" id="QGO-fV-XOa"/>
+                        <outlet property="interestSavedLbl" destination="Mew-F1-dR4" id="8B5-2X-FYZ"/>
+                        <outlet property="yearsSavedLbl" destination="ub5-YZ-DvI" id="kTy-16-bsD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fI-lw-cK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
