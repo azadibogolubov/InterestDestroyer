@@ -8,8 +8,10 @@
 
 import UIKit
 
-class AmortizationViewController: UIViewController {
+class AmortizationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     var columns: [String] = []
     var timeSaved: Double = 0.0
     var interestSaved: Double = 0.0
@@ -24,11 +26,12 @@ class AmortizationViewController: UIViewController {
     var extra_interest_paid: [Double] = []
     var min_principal_remaining: [Double] = []
     var extra_principal_remaining: [Double] = []
-
+    let textCellIdentifier = "cell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,4 +50,30 @@ class AmortizationViewController: UIViewController {
     }
     */
 
+    
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return min_principal_paid.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        
+        let row = indexPath.row
+        var currentValue = String("Minimum payment: $\(min_principal_paid[row])")
+        cell.textLabel?.text = currentValue
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let row = indexPath.row
+        println(min_principal_paid[row])
+    }
 }
