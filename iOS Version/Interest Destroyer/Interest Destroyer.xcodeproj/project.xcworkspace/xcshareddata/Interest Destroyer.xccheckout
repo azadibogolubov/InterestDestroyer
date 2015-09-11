@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>C705EAE0-05EA-4155-AE35-88B8126C8B33</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Interest Destroyer</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>1DFCF11B04A529D7AD243ABB0D2D3FD1C7BE6DB6</key>
 		<string>https://github.com/tutorazadi/InterestDestroyer.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>iOS Version/Interest Destroyer/Interest Destroyer.xcodeproj/project.xcworkspace</string>
+	<string>iOS Version/Interest Destroyer/Interest Destroyer.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>1DFCF11B04A529D7AD243ABB0D2D3FD1C7BE6DB6</key>
