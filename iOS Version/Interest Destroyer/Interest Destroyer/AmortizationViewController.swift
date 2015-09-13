@@ -61,13 +61,23 @@ class AmortizationViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as! UITableViewCell
-        
-        let row = indexPath.row
-        var currentValue = String("Minimum payment: $\(min_principal_paid[row])")
-        cell.textLabel?.text = currentValue
-        
-        return cell
+        var tableCell: AmortizationTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("customCell") as! AmortizationTableViewCell
+        var monthNum = indexPath.row + 1
+        var currRow = indexPath.row
+        tableCell.monthLbl.text = "Month #: \(monthNum)"
+        println("mpp count: \(min_principal_paid.count)")
+        println("epp count: \(extra_principal_paid.count)")
+       if (currRow <= min_principal_paid.count) {
+            tableCell.minimumPaymentLbl.text = "Min payment: $\(min_principal_paid[currRow])"
+        }
+        if (currRow < extra_principal_paid.count) {
+            tableCell.extraPaymentLbl.text = "Extra payment: $\(extra_principal_paid[currRow])"
+        }
+        else
+        {
+            tableCell.extraPaymentLbl.text = "Extra payment: $0.00"
+        }
+        return tableCell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

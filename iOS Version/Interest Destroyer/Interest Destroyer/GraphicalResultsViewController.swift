@@ -72,6 +72,7 @@ class GraphicalResultsViewController: UIViewController {
         chartData.addDataSet(chartDataSet2)
         
         barChartView.data = chartData
+        barChartView.fitScreen()
     }
 }
 

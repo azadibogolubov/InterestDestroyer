@@ -71,36 +71,6 @@
                                     <segue destination="cpy-Qg-Hsd" kind="custom" identifier="getGraphicalResultsSegue" id="Pz8-6d-6Ez"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Icd-LA-fNr">
-                                <rect key="frame" x="193" y="250" width="215" height="30"/>
-                                <color key="backgroundColor" red="0.3921568627" green="0.78039215689999997" blue="0.31372549020000001" alpha="1" colorSpace="deviceRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="215" id="9nh-Ah-PYf"/>
-                                    <constraint firstAttribute="height" constant="30" id="XpV-U9-5vb"/>
-                                </constraints>
-                                <state key="normal" title="Send results via EMAIL">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="93" y="275" width="215" height="30"/>
-                                </variation>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spY-fs-gJE">
-                                <rect key="frame" x="193" y="300" width="215" height="30"/>
-                                <color key="backgroundColor" red="0.3921568627" green="0.78039215689999997" blue="0.31372549020000001" alpha="1" colorSpace="deviceRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="215" id="PNX-pi-WSG"/>
-                                    <constraint firstAttribute="height" constant="30" id="yx5-rn-VbL"/>
-                                </constraints>
-                                <state key="normal" title="Customize Interest Destroyer">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="93" y="325" width="215" height="30"/>
-                                </variation>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please choose an option:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ES2-S4-SRn">
                                 <rect key="frame" x="85" y="100" width="430" height="21"/>
                                 <constraints>
@@ -119,12 +89,8 @@
                             <constraint firstItem="KNW-pf-ZqS" firstAttribute="top" secondItem="ES2-S4-SRn" secondAttribute="bottom" constant="29" id="BNm-1E-6Bq"/>
                             <constraint firstAttribute="centerX" secondItem="6X1-Cn-qbu" secondAttribute="centerX" constant="-0.5" id="TRQ-lh-gR4"/>
                             <constraint firstItem="ES2-S4-SRn" firstAttribute="top" secondItem="SN2-vg-EOL" secondAttribute="bottom" constant="36" id="UrJ-7P-dDc"/>
-                            <constraint firstItem="Icd-LA-fNr" firstAttribute="top" secondItem="6X1-Cn-qbu" secondAttribute="bottom" constant="20" id="X7G-3X-9D1"/>
-                            <constraint firstItem="spY-fs-gJE" firstAttribute="top" secondItem="Icd-LA-fNr" secondAttribute="bottom" constant="20" id="hoA-DR-uc5"/>
-                            <constraint firstAttribute="centerX" secondItem="Icd-LA-fNr" secondAttribute="centerX" constant="-0.5" id="iaa-NN-NDN"/>
                             <constraint firstItem="6X1-Cn-qbu" firstAttribute="top" secondItem="KNW-pf-ZqS" secondAttribute="bottom" constant="20" id="jpg-AQ-7TB"/>
                             <constraint firstAttribute="centerX" secondItem="KNW-pf-ZqS" secondAttribute="centerX" constant="-0.5" id="uYc-NR-Pws"/>
-                            <constraint firstAttribute="centerX" secondItem="spY-fs-gJE" secondAttribute="centerX" constant="-0.5" id="uu7-nn-KUh"/>
                             <constraint firstAttribute="centerX" secondItem="ES2-S4-SRn" secondAttribute="centerX" id="yD7-sa-go3"/>
                         </constraints>
                     </view>
@@ -266,6 +232,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uI9-bq-AYa" customClass="BarChartView" customModule="Charts">
                                 <rect key="frame" x="16" y="156" width="568" height="424"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="568" id="4S6-Wn-aKI"/>
                                     <constraint firstAttribute="height" constant="424" id="DoX-72-8U4"/>
@@ -339,31 +306,40 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.3921568627" green="0.78039215689999997" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="obL-Wd-d34" customClass="AmortizationTableViewCell" customModule="Interest_Destroyer" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" id="obL-Wd-d34" customClass="AmortizationTableViewCell" customModule="Interest_Destroyer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="obL-Wd-d34" id="B2T-IA-XYB">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Minimum Payment:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfS-Y3-ysf">
-                                                    <rect key="frame" x="24" y="50" width="148" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Minimum Payment:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfS-Y3-ysf">
+                                                    <rect key="frame" x="24" y="50" width="568" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Extra Payment:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnr-rC-5jU">
-                                                    <rect key="frame" x="55" y="80" width="117" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Month #:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QT-GK-9yV">
+                                                    <rect key="frame" x="24" y="21" width="568" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Month #:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QT-GK-9yV">
-                                                    <rect key="frame" x="103" y="20" width="69" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Extra Payment:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnr-rC-5jU">
+                                                    <rect key="frame" x="24" y="79" width="568" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xnr-rC-5jU" firstAttribute="top" secondItem="rfS-Y3-ysf" secondAttribute="bottom" constant="8" id="32a-Eg-Of7"/>
+                                                <constraint firstItem="rfS-Y3-ysf" firstAttribute="leading" secondItem="B2T-IA-XYB" secondAttribute="leadingMargin" constant="16" id="5kh-PD-JwI"/>
+                                                <constraint firstItem="rfS-Y3-ysf" firstAttribute="top" secondItem="3QT-GK-9yV" secondAttribute="bottom" constant="8" id="9az-hl-4SE"/>
+                                                <constraint firstItem="xnr-rC-5jU" firstAttribute="leading" secondItem="rfS-Y3-ysf" secondAttribute="leading" id="HJd-hP-Y0s"/>
+                                                <constraint firstItem="3QT-GK-9yV" firstAttribute="leading" secondItem="rfS-Y3-ysf" secondAttribute="leading" id="J4L-Kn-hDp"/>
+                                                <constraint firstItem="xnr-rC-5jU" firstAttribute="leading" secondItem="B2T-IA-XYB" secondAttribute="leadingMargin" constant="16" id="Xyk-Y3-fZA"/>
+                                                <constraint firstItem="3QT-GK-9yV" firstAttribute="leading" secondItem="B2T-IA-XYB" secondAttribute="leadingMargin" constant="16" id="aD3-bA-1OX"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="extraPaymentLbl" destination="xnr-rC-5jU" id="GvB-k6-KIN"/>
