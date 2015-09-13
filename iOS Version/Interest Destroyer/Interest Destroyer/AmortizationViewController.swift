@@ -65,13 +65,15 @@ class AmortizationViewController: UIViewController, UITableViewDelegate, UITable
         var monthNum = indexPath.row + 1
         var currRow = indexPath.row
         tableCell.monthLbl.text = "Month #: \(monthNum)"
-        println("mpp count: \(min_principal_paid.count)")
-        println("epp count: \(extra_principal_paid.count)")
+        //println("mpp count: \(min_principal_paid.count)")
+        //println("epp count: \(extra_principal_paid.count)")
+        let formattedMinPrincipal = String(format:"%.2f", min_principal_paid[currRow])
+        let formattedExtraPrincipal = String(format:"%.2f", extra_principal_paid[currRow])
        if (currRow <= min_principal_paid.count) {
-            tableCell.minimumPaymentLbl.text = "Min payment: $\(min_principal_paid[currRow])"
+        tableCell.minimumPaymentLbl.text = "Minimum payment: $\(formattedMinPrincipal)"
         }
         if (currRow < extra_principal_paid.count) {
-            tableCell.extraPaymentLbl.text = "Extra payment: $\(extra_principal_paid[currRow])"
+            tableCell.extraPaymentLbl.text = "Extra payment: $\(formattedExtraPrincipal)"
         }
         else
         {
