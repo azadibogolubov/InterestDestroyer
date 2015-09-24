@@ -118,7 +118,7 @@ class MainViewController: UIViewController {
         principal_paid = 0
         simple_interest = 0
         
-        println("Monthly payment amount: \(monthly_payment)")
+        print("Monthly payment amount: \(monthly_payment)")
         principal = principal_original
         for var i = 0; i < time; i++ {
             compound_interest = principal * (1 + (rate / 1200)) - principal
@@ -137,14 +137,14 @@ class MainViewController: UIViewController {
         interestSaved = original_interest - interest_paid;
     }
     
-    func stringToDouble(#stringToConvert: UITextField!) -> Double
+    func stringToDouble(stringToConvert stringToConvert: UITextField!) -> Double
     {
-        return Double(stringToConvert.text.toInt()!)
+        return Double(stringToConvert.text!)!
     }
     
-    func stringToInt(#stringToConvert: UITextField!) -> Int
+    func stringToInt(stringToConvert stringToConvert: UITextField!) -> Int
     {
-        return stringToConvert.text.toInt()!
+        return Int(stringToConvert.text!)!
     }
     
     func amortize(principal: Double, var rate: Double, time: Int) -> Double {

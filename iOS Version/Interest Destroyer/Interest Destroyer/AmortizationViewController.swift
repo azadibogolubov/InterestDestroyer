@@ -86,6 +86,6 @@ class AmortizationViewController: UIViewController, UITableViewDelegate, UITable
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         let row = indexPath.row
-        println(min_principal_paid[row])
+        print(min_principal_paid[row])
     }
 }

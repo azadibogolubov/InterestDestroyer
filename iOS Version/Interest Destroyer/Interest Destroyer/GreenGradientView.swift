@@ -51,7 +51,7 @@ class GreenGradientView: UIView {
             gradient,
             startPoint,
             endPoint,
-            0)
+            CGGradientDrawingOptions(rawValue: 0))
         CGContextRestoreGState(context);
     }
 }

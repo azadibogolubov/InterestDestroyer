@@ -58,7 +58,7 @@ class WelcomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
         if identifier == "getResults" {
             performCalculations()
         }
@@ -68,7 +68,7 @@ class WelcomeViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "getResults")
         {
-            var resultsViewController: ResultsViewController = segue.destinationViewController as! ResultsViewController
+            //var resultsViewController: ResultsViewController = segue.destinationViewController as! ResultsViewController
             /*
             TODO: Convert this intent logic from Java to Swift for segue.
             extra.putDouble("TIME_SAVED", timeSaved);
@@ -97,14 +97,14 @@ class WelcomeViewController: UIViewController {
         principal_paid = 0.00;
         payment_amount = amortize(principal, rate: rate, time: time);
         
-        if count(principalTxt.text) < 4 {
-            println("Minimum amount for principal must be greater than $1000.")
+        if principalTxt.text?.characters.count < 4 {
+            print("Minimum amount for principal must be greater than $1000.")
         }
-        else if count(numMonthsTxt.text) < 1 {
-            println("Minimum number of months must be greater than 0.")
+        else if numMonthsTxt.text?.characters.count < 1 {
+            print("Minimum number of months must be greater than 0.")
         }
-        else if count(interestTxt.text) < 1 {
-            println("Minimum interest rate must be greater than 0%.")
+        else if interestTxt.text?.characters.count < 1 {
+            print("Minimum interest rate must be greater than 0%.")
             return;
         }
         
@@ -147,7 +147,7 @@ class WelcomeViewController: UIViewController {
         simple_interest = 0
         
         payment_amount = amortize(principal, rate: rate, time: time)
-        println("Monthly payment amount: \(payment_amount)")
+        print("Monthly payment amount: \(payment_amount)")
         for var i = 0; i < time; i++ {
             compound_interest = principal * (1 + (rate / 1200)) - principal
             if (compound_interest <= 0) {
@@ -165,14 +165,14 @@ class WelcomeViewController: UIViewController {
         interestSaved = original_interest - interest_paid;
     }
     
-    func stringToDouble(#stringToConvert: UITextField!) -> Double
+    func stringToDouble(stringToConvert stringToConvert: UITextField!) -> Double
     {
-        return Double(stringToConvert.text.toInt()!)
+        return Double(stringToConvert.text!)!
     }
     
-    func stringToInt(#stringToConvert: UITextField!) -> Int
+    func stringToInt(stringToConvert stringToConvert: UITextField!) -> Int
     {
-        return stringToConvert.text.toInt()!
+        return Int(stringToConvert.text!)!
     }
     
     func amortize(principal: Double, var rate: Double, time: Int) -> Double {

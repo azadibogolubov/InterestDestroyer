@@ -31,10 +31,10 @@ class InformationViewController: UIViewController {
         let vc = segue.destinationViewController as? MainViewController
         if segue.identifier == "sendGatheredInfoSegue"
         {
-            vc!.principal = (principalTxt.text as NSString).doubleValue
-            vc!.rate = (interestTxt.text as NSString).doubleValue
-            vc!.time = monthsRemainingTxt.text.toInt()!
-            vc!.extra_payment = (extraPaymentTxt.text as NSString).doubleValue
+            vc!.principal = NSString(string: principalTxt.text!).doubleValue
+            vc!.rate = NSString(string: interestTxt.text!).doubleValue
+            vc!.time = Int(monthsRemainingTxt.text!)!
+            vc!.extra_payment = NSString(string: extraPaymentTxt.text!).doubleValue
         }
     }
 }
