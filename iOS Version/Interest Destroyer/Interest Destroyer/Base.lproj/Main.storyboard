@@ -36,7 +36,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNW-pf-ZqS">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNW-pf-ZqS">
                                 <rect key="frame" x="193" y="150" width="215" height="30"/>
                                 <color key="backgroundColor" red="0.39215686274509803" green="0.7803921568627451" blue="0.31372549019607843" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
@@ -54,7 +54,7 @@
                                     <segue destination="aUD-WC-hFH" kind="show" identifier="amortizationSegue" id="aAK-6z-LSq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6X1-Cn-qbu">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6X1-Cn-qbu">
                                 <rect key="frame" x="193" y="200" width="215" height="30"/>
                                 <color key="backgroundColor" red="0.3921568627" green="0.78039215689999997" blue="0.31372549020000001" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
@@ -72,7 +72,7 @@
                                     <segue destination="cpy-Qg-Hsd" kind="show" identifier="getGraphicalResultsSegue" id="Pz8-6d-6Ez"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please choose an option:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ES2-S4-SRn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please choose an option:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ES2-S4-SRn">
                                 <rect key="frame" x="85" y="100" width="430" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="8SG-g5-Sdy"/>
@@ -170,13 +170,19 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Ex5-Qn-4cn" kind="show" identifier="sendGatheredInfoSegue" id="6vl-bY-MpK"/>
+                                    <segue destination="Ex5-Qn-4cn" kind="custom" identifier="sendGatheredInfoSegue" id="6vl-bY-MpK"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please Enter Financial Data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwh-9L-Ox5">
                                 <rect key="frame" x="139" y="28" width="323" height="21"/>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fields cannot be empty." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKh-3x-VQH">
+                                <rect key="frame" x="209" y="289" width="182" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -193,6 +199,7 @@
                             <constraint firstItem="4Xh-Gr-qpT" firstAttribute="leading" secondItem="dTU-Az-DnL" secondAttribute="leading" id="RaF-Fe-XvS"/>
                             <constraint firstItem="xf9-ZO-8dR" firstAttribute="top" secondItem="QJk-VJ-lan" secondAttribute="bottom" constant="60" id="SD1-Pb-L0o"/>
                             <constraint firstItem="Fc5-30-PZz" firstAttribute="trailing" secondItem="qef-n4-WHB" secondAttribute="trailing" id="T8s-AY-maG"/>
+                            <constraint firstItem="SKh-3x-VQH" firstAttribute="centerY" secondItem="bet-XW-Lhj" secondAttribute="centerY" id="YBQ-Uv-1Kj"/>
                             <constraint firstItem="QJk-VJ-lan" firstAttribute="top" secondItem="XWK-Me-JkG" secondAttribute="bottom" constant="20" id="ZPg-ey-p9i"/>
                             <constraint firstItem="I6W-Bh-NGl" firstAttribute="top" secondItem="VD8-RK-z6H" secondAttribute="bottom" constant="75" id="ZYy-V6-kFZ"/>
                             <constraint firstItem="4Xh-Gr-qpT" firstAttribute="centerY" secondItem="I6W-Bh-NGl" secondAttribute="centerY" id="a1b-E4-L7d"/>
@@ -202,6 +209,7 @@
                             <constraint firstItem="XWK-Me-JkG" firstAttribute="leading" secondItem="cg2-fP-ICG" secondAttribute="trailing" constant="8" id="gWx-nF-QI8"/>
                             <constraint firstItem="XWK-Me-JkG" firstAttribute="top" secondItem="dTU-Az-DnL" secondAttribute="bottom" constant="20" id="kXy-jt-WSw"/>
                             <constraint firstItem="Fc5-30-PZz" firstAttribute="trailing" secondItem="cg2-fP-ICG" secondAttribute="trailing" id="n9p-27-vKw"/>
+                            <constraint firstItem="SKh-3x-VQH" firstAttribute="centerX" secondItem="bet-XW-Lhj" secondAttribute="centerX" id="nNm-0S-pVW"/>
                             <constraint firstAttribute="centerX" secondItem="XWK-Me-JkG" secondAttribute="centerX" constant="-95.5" id="sFZ-yW-682"/>
                             <constraint firstAttribute="centerX" secondItem="dTU-Az-DnL" secondAttribute="centerX" constant="-95.5" id="tKk-v9-9Jp"/>
                             <constraint firstItem="4Xh-Gr-qpT" firstAttribute="trailing" secondItem="dTU-Az-DnL" secondAttribute="trailing" id="w5c-h9-BSf"/>
@@ -209,6 +217,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="AT8-c9-aEm"/>
                     <connections>
+                        <outlet property="emptyLabel" destination="SKh-3x-VQH" id="lEp-rb-R3c"/>
                         <outlet property="extraPaymentTxt" destination="QJk-VJ-lan" id="yLv-G0-JRB"/>
                         <outlet property="interestTxt" destination="dTU-Az-DnL" id="f5c-eP-pTI"/>
                         <outlet property="monthsRemainingTxt" destination="XWK-Me-JkG" id="EZw-Wn-APR"/>
@@ -300,7 +309,7 @@
                                 <color key="sectionIndexBackgroundColor" red="0.3921568627" green="0.78039215689999997" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="114" id="ETh-GQ-zPK">
-                                        <rect key="frame" x="0.0" y="86" width="600" height="114"/>
+                                        <rect key="frame" x="0.0" y="22" width="600" height="114"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ETh-GQ-zPK" id="89v-Jp-BIx">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="113"/>
@@ -309,7 +318,7 @@
                                         <color key="backgroundColor" red="0.3921568627" green="0.78039215689999997" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" id="obL-Wd-d34" customClass="AmortizationTableViewCell" customModule="Interest_Destroyer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="200" width="600" height="114"/>
+                                        <rect key="frame" x="0.0" y="136" width="600" height="114"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="obL-Wd-d34" id="B2T-IA-XYB">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="113"/>

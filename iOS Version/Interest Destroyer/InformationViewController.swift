@@ -15,6 +15,9 @@ class InformationViewController: UIViewController {
     @IBOutlet weak var monthsRemainingTxt: UITextField!
     @IBOutlet weak var extraPaymentTxt: UITextField!
 
+
+    @IBOutlet weak var emptyLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,12 +32,18 @@ class InformationViewController: UIViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let vc = segue.destinationViewController as? MainViewController
-        if segue.identifier == "sendGatheredInfoSegue"
-        {
-            vc!.principal = NSString(string: principalTxt.text!).doubleValue
-            vc!.rate = NSString(string: interestTxt.text!).doubleValue
-            vc!.time = Int(monthsRemainingTxt.text!)!
-            vc!.extra_payment = NSString(string: extraPaymentTxt.text!).doubleValue
+        if principalTxt.text == "" || interestTxt.text == "" || monthsRemainingTxt == "" || extraPaymentTxt == "" {
+            emptyLabel.hidden = false
+            return
+        }
+        else {
+            if segue.identifier == "sendGatheredInfoSegue"
+            {
+                vc!.principal = NSString(string: principalTxt.text!).doubleValue
+                vc!.rate = NSString(string: interestTxt.text!).doubleValue
+                vc!.time = Int(monthsRemainingTxt.text!)!
+                vc!.extra_payment = NSString(string: extraPaymentTxt.text!).doubleValue
+            }
         }
     }
 }
