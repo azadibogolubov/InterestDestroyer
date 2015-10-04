@@ -15,7 +15,6 @@ class InformationViewController: UIViewController {
     @IBOutlet weak var monthsRemainingTxt: UITextField!
     @IBOutlet weak var extraPaymentTxt: UITextField!
 
-
     @IBOutlet weak var emptyLabel: UILabel!
     
     override func viewDidLoad() {
@@ -29,21 +28,21 @@ class InformationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func resultsBtnClick(sender: AnyObject) {
+
+        if principalTxt.text == "" || interestTxt.text == "" || monthsRemainingTxt == "" || extraPaymentTxt == "" {
+            emptyLabel.hidden = false
+        }
+        else {
+            self.performSegueWithIdentifier("sendGatheredInfoSegue", sender: nil)
+        }
+    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let vc = segue.destinationViewController as? MainViewController
-        if principalTxt.text == "" || interestTxt.text == "" || monthsRemainingTxt == "" || extraPaymentTxt == "" {
-            emptyLabel.hidden = false
-            return
-        }
-        else {
-            if segue.identifier == "sendGatheredInfoSegue"
-            {
-                vc!.principal = NSString(string: principalTxt.text!).doubleValue
-                vc!.rate = NSString(string: interestTxt.text!).doubleValue
-                vc!.time = Int(monthsRemainingTxt.text!)!
-                vc!.extra_payment = NSString(string: extraPaymentTxt.text!).doubleValue
-            }
-        }
+            vc!.principal = NSString(string: principalTxt.text!).doubleValue
+            vc!.rate = NSString(string: interestTxt.text!).doubleValue
+            vc!.time = Int(monthsRemainingTxt.text!)!
+            vc!.extra_payment = NSString(string: extraPaymentTxt.text!).doubleValue
     }
 }
