@@ -36,7 +36,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNW-pf-ZqS">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNW-pf-ZqS">
                                 <rect key="frame" x="193" y="150" width="215" height="30"/>
                                 <color key="backgroundColor" red="0.39215686274509803" green="0.7803921568627451" blue="0.31372549019607843" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
@@ -54,7 +54,7 @@
                                     <segue destination="aUD-WC-hFH" kind="show" identifier="amortizationSegue" id="aAK-6z-LSq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6X1-Cn-qbu">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6X1-Cn-qbu">
                                 <rect key="frame" x="193" y="200" width="215" height="30"/>
                                 <color key="backgroundColor" red="0.3921568627" green="0.78039215689999997" blue="0.31372549020000001" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
@@ -72,7 +72,7 @@
                                     <segue destination="cpy-Qg-Hsd" kind="show" identifier="getGraphicalResultsSegue" id="Pz8-6d-6Ez"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please choose an option:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ES2-S4-SRn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please choose an option:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ES2-S4-SRn">
                                 <rect key="frame" x="85" y="100" width="430" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="8SG-g5-Sdy"/>

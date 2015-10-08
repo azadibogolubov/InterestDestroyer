@@ -68,23 +68,6 @@ class WelcomeViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "getResults")
         {
-            //var resultsViewController: ResultsViewController = segue.destinationViewController as! ResultsViewController
-            /*
-            TODO: Convert this intent logic from Java to Swift for segue.
-            extra.putDouble("TIME_SAVED", timeSaved);
-            extra.putDouble("INTEREST_SAVED", interestSaved);
-            extra.putDouble("TOTAL_MONTHS", time);
-            extra.putDouble("EXTRA_PAYMENTS", extra_payment);
-            extra.putDouble("MINIMUM_PAYMENTS", payment_amount);
-            extra.putString("PRINCIPAL", principalTxt.getText().toString());
-            extra.putString("INTEREST_RATE", interestTxt.getText().toString());
-            extra.putString("EXTRA_PAYMENT_AMOUNT", extraPaymentTxt.getText().toString());
-            extra.putDoubleArray("MIN_PRINCIPAL_PAID", min_principal_paid);
-            extra.putDoubleArray("EXTRA_PRINCIPAL_PAID", extra_principal_paid);
-            extra.putDoubleArray("MIN_INTEREST_PAID", min_interest_paid);
-            extra.putDoubleArray("EXTRA_INTEREST_PAID", extra_interest_paid);
-            extra.putDoubleArray("MIN_PRINCIPAL_REMAINING", min_principal_remaining);
-            extra.putDoubleArray("EXTRA_PRINCIPAL_REMAINING", extra_principal_remaining);*/
         }
     }
     
