@@ -144,6 +144,9 @@ public class InfoGatheringActivity extends Activity {
                         Toast.makeText(InfoGatheringActivity.this, "Minimum interest rate must be greater than 0%.", Toast.LENGTH_LONG).show();
                         return;
                     }
+                    else if (extraPaymentTxt.getText().length() < 1) {
+                        Toast.makeText(InfoGatheringActivity.this, "Please enter at least $0 for an extra payment amount.", Toast.LENGTH_LONG).show();
+                    }
                     principal_original = principal = Double.parseDouble(principalTxt.getText().toString());
                     time = Double.parseDouble(numMonthsTxt.getText().toString());
                     rate = Double.parseDouble(interestTxt.getText().toString());
