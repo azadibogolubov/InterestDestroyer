@@ -26,4 +26,5 @@ Tablet version:
 
 ![Tablet Main Screen](https://github.com/azadibogolubov/InterestDestroyer/blob/master/Images/tabletScreen.png)
 
-The iOS version of this app is in progress, and will be completed as soon as I can get a bridge made for Core Plot that will work for bar graphs using Swift. Right now, I am using Objective-C, and would prefer to be able to have the whole layer in Swift instead of using bridge headers.
+UPDATE 11/8/2015:
+Updating this app to use a hamburger menu navigation system to ease the usability of the app.
