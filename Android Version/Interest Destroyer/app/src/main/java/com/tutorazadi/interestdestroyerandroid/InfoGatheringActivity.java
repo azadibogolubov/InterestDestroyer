@@ -137,24 +137,26 @@ public class InfoGatheringActivity extends Activity {
                     if (principalTxt.getText().length() < 4) {
                         Toast.makeText(InfoGatheringActivity.this, "Minimum amount for principal must be greater than $1000.", Toast.LENGTH_LONG).show();
                         return;
-                    } else if (numMonthsTxt.getText().length() < 1) {
+                    }
+                    if (numMonthsTxt.getText().length() < 1) {
                         Toast.makeText(InfoGatheringActivity.this, "Minimum number of months must be greater than 0.", Toast.LENGTH_LONG).show();
                         return;
-                    } else if (interestTxt.getText().length() < 1) {
+                    }
+                    if (interestTxt.getText().length() < 1) {
                         Toast.makeText(InfoGatheringActivity.this, "Minimum interest rate must be greater than 0%.", Toast.LENGTH_LONG).show();
                         return;
                     }
-                    else if (extraPaymentTxt.getText().length() < 1) {
+                    if (extraPaymentTxt.getText().length() < 1) {
                         Toast.makeText(InfoGatheringActivity.this, "Please enter at least $0 for an extra payment amount.", Toast.LENGTH_LONG).show();
                     }
                     principal_original = principal = Double.parseDouble(principalTxt.getText().toString());
                     time = Double.parseDouble(numMonthsTxt.getText().toString());
                     rate = Double.parseDouble(interestTxt.getText().toString());
                     extra_payment = Double.parseDouble(extraPaymentTxt.getText().toString());
+                    calculate(v);
                 } catch (NumberFormatException e) {
                     Toast.makeText(InfoGatheringActivity.this, "You have entered invalid data.", Toast.LENGTH_LONG).show();
                 }
-                calculate(v);
             }
         });
     }
