@@ -31,6 +31,7 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/rounded_green_button_phone"
             android:onClick="amortize"
+            android:contentDescription="@string/amortization_UI"
             android:text="@string/amortization_UI"
             android:textColor="@color/black" />
 

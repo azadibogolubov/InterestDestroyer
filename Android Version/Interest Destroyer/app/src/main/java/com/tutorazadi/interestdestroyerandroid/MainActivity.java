@@ -23,13 +23,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     Intent intent;
     Button graphical, amortize, email, extra, customize;
@@ -38,7 +39,8 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        // TODO: Change back to activity_main to return this to functional state.
+        setContentView(R.layout.activity_main_new);
         initializeControls();
         intent = new Intent(MainActivity.this, InfoGatheringActivity.class);
     }
