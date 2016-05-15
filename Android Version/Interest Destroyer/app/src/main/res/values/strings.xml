@@ -58,5 +58,5 @@
     <string name="title_activity_skins">Choose a Skin</string>
     <string name="title_activity_new_extra_payment_chart">Extra Payment Chart</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="app_description">This app will teach you how much money you can save on interest by making extra payments on your loan. Please click the button to choose an option and start your journey.</string>
 </resources>
