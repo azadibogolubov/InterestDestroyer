@@ -19,22 +19,31 @@
 
 package com.tutorazadi.interestdestroyerandroid;
 
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     Intent intent;
     Button graphical, amortize, email, extra, customize;
     ScrollView mainLayout;
+    FloatingActionButton mainFab, amortizeFab, graphicalResultsFab, sendResultsViaEmailFab;
+    PropertyValuesHolder animAmortize;
+    boolean animationShown;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void initializeControls()
     {
+        animationShown = false;
         mainLayout = (ScrollView) findViewById(R.id.mainLayout);
 
         graphical = (Button) findViewById(R.id.graphical);
@@ -137,5 +147,82 @@ public class MainActivity extends AppCompatActivity {
         email = (Button) findViewById(R.id.email);
         extra = (Button) findViewById(R.id.extra);
         customize = (Button) findViewById(R.id.customize);
+        mainFab = (FloatingActionButton) findViewById(R.id.mainFab);
+        amortizeFab = (FloatingActionButton) findViewById(R.id.amortizationFab);
+        graphicalResultsFab = (FloatingActionButton) findViewById(R.id.graphicalResultsFab);
+        sendResultsViaEmailFab = (FloatingActionButton) findViewById(R.id.sendResultsViaEmailFab);
+        final Runnable beforeShowAmortizeFab = new Runnable() {
+            public void run() {
+                amortizeFab.setVisibility(View.VISIBLE);
+            }
+        };
+
+        final Runnable afterHideAmortizeFab = new Runnable() {
+            public void run() {
+                amortizeFab.setVisibility(View.GONE);
+            }
+        };
+
+        final Runnable beforeShowGraphicalResultsFab = new Runnable() {
+            public void run() {
+                graphicalResultsFab.setVisibility(View.VISIBLE);
+            }
+        };
+
+        final Runnable afterHideGraphicalResultsFab = new Runnable() {
+            public void run() {
+                graphicalResultsFab.setVisibility(View.GONE);
+            }
+        };
+
+        final Runnable beforeShowSendResultsViaEmailFab = new Runnable() {
+            public void run() {
+                sendResultsViaEmailFab.setVisibility(View.VISIBLE);
+            }
+        };
+
+        final Runnable afterHideSendResultsViaEmailFab = new Runnable() {
+            public void run() {
+                sendResultsViaEmailFab.setVisibility(View.GONE);
+            }
+        };
+
+        // TODO: Clean this up.
+        mainFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!animationShown) {
+                    amortizeFab.animate().translationYBy(-200f).setDuration(100).withStartAction(beforeShowAmortizeFab);
+                    graphicalResultsFab.animate().translationYBy(-400f).setDuration(100).withStartAction(beforeShowGraphicalResultsFab);
+                    sendResultsViaEmailFab.animate().translationYBy(-600f).setDuration(100).withStartAction(beforeShowSendResultsViaEmailFab);
+                    animationShown = true;
+                } else {
+                    amortizeFab.animate().translationYBy(200f).setDuration(100).withEndAction(afterHideAmortizeFab);
+                    graphicalResultsFab.animate().translationYBy(400f).setDuration(100).withEndAction(afterHideGraphicalResultsFab);
+                    sendResultsViaEmailFab.animate().translationYBy(600f).setDuration(100).withEndAction(afterHideSendResultsViaEmailFab);
+                    animationShown = false;
+                }
+            }
+        });
+
+        amortizeFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Do something with amortization", Toast.LENGTH_LONG).show();
+            }
+        });
+        graphicalResultsFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Do something with graphical results", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        sendResultsViaEmailFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Do something with send results via EMAIL", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
