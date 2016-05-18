@@ -23,6 +23,8 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -30,8 +32,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.Toast;
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton mainFab, amortizeFab, graphicalResultsFab, sendResultsViaEmailFab;
     PropertyValuesHolder animAmortize;
     boolean animationShown;
+    Runnable beforeShowAmortizeFab, afterHideAmortizeFab, beforeShowSendResultsViaEmailFab, afterHideSendResultsViaEmailFab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         // TODO: Change back to activity_main to return this to functional state.
         setContentView(R.layout.activity_main_new);
         initializeControls();
+        initializeFabColors();
+        initializeButtons();
         intent = new Intent(MainActivity.this, InfoGatheringActivity.class);
     }
 
@@ -74,8 +77,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1 && resultCode == Activity.RESULT_OK)
-        {
+        if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
             // Change the theme...
             int buttonColor = data.getIntExtra("BUTTON_COLOR", -1);
             int backgroundColor = data.getIntExtra("BACKGROUND_COLOR", -1);
@@ -107,38 +109,50 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(savedInstanceState);
     }
 
-    public void amortize(View v)
-    {
+    public void amortize(View v) {
         intent.putExtra("ACTION", "amortize");
         startActivity(intent);
     }
 
-    public void showGraphicalResults(View v)
-    {
+    public void showGraphicalResults(View v) {
         intent.putExtra("ACTION", "graphical");
         startActivity(intent);
     }
 
-    public void sendResults(View v)
-    {
+    public void sendResults(View v) {
         intent.putExtra("ACTION", "email");
         startActivity(intent);
     }
 
-    public void extraPayment(View v)
-    {
+    public void extraPayment(View v) {
         intent.putExtra("ACTION", "extra");
         startActivity(intent);
     }
 
-    public void customize(View v)
-    {
+    public void customize(View v) {
         Intent customizeIntent = new Intent(MainActivity.this, SkinsActivity.class);
         startActivityForResult(customizeIntent, 1);
     }
+    public void initializeMainFabListener() {
+        mainFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!animationShown) {
+                    amortizeFab.animate().translationYBy(-200f).setDuration(100).withStartAction(new FabRunnable(amortizeFab, true));
+                    graphicalResultsFab.animate().translationYBy(-400f).setDuration(100).withStartAction(new FabRunnable(graphicalResultsFab, true));
+                    sendResultsViaEmailFab.animate().translationYBy(-600f).setDuration(100).withStartAction(new FabRunnable(sendResultsViaEmailFab, true));
+                    animationShown = true;
+                } else {
+                    amortizeFab.animate().translationYBy(200f).setDuration(100).withEndAction(new FabRunnable(amortizeFab, false));
+                    graphicalResultsFab.animate().translationYBy(400f).setDuration(100).withEndAction(new FabRunnable(graphicalResultsFab, false));
+                    sendResultsViaEmailFab.animate().translationYBy(600f).setDuration(100).withEndAction(new FabRunnable(sendResultsViaEmailFab, false));
+                    animationShown = false;
+                }
+            }
+        });
+    }
 
-    public void initializeControls()
-    {
+    public void initializeControls() {
         animationShown = false;
         mainLayout = (ScrollView) findViewById(R.id.mainLayout);
 
@@ -151,57 +165,23 @@ public class MainActivity extends AppCompatActivity {
         amortizeFab = (FloatingActionButton) findViewById(R.id.amortizationFab);
         graphicalResultsFab = (FloatingActionButton) findViewById(R.id.graphicalResultsFab);
         sendResultsViaEmailFab = (FloatingActionButton) findViewById(R.id.sendResultsViaEmailFab);
-        final Runnable beforeShowAmortizeFab = new Runnable() {
-            public void run() {
-                amortizeFab.setVisibility(View.VISIBLE);
-            }
-        };
+    }
 
-        final Runnable afterHideAmortizeFab = new Runnable() {
-            public void run() {
-                amortizeFab.setVisibility(View.GONE);
-            }
-        };
+    // TODO: Update these to material design compatible colors
+    public void initializeFabColors() {
+        amortizeFab.setBackgroundTintList(ColorStateList.valueOf(Color
+                .parseColor("#FF0000")));
+        graphicalResultsFab.setBackgroundTintList(ColorStateList.valueOf(Color
+                .parseColor("#00FF00")));
+        sendResultsViaEmailFab.setBackgroundTintList(ColorStateList.valueOf(Color
+                .parseColor("#0000FF")));
+    }
 
-        final Runnable beforeShowGraphicalResultsFab = new Runnable() {
-            public void run() {
-                graphicalResultsFab.setVisibility(View.VISIBLE);
-            }
-        };
-
-        final Runnable afterHideGraphicalResultsFab = new Runnable() {
-            public void run() {
-                graphicalResultsFab.setVisibility(View.GONE);
-            }
-        };
-
-        final Runnable beforeShowSendResultsViaEmailFab = new Runnable() {
-            public void run() {
-                sendResultsViaEmailFab.setVisibility(View.VISIBLE);
-            }
-        };
-
-        final Runnable afterHideSendResultsViaEmailFab = new Runnable() {
-            public void run() {
-                sendResultsViaEmailFab.setVisibility(View.GONE);
-            }
-        };
-
-        // TODO: Clean this up.
+    public void initializeButtons() {
         mainFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!animationShown) {
-                    amortizeFab.animate().translationYBy(-200f).setDuration(100).withStartAction(beforeShowAmortizeFab);
-                    graphicalResultsFab.animate().translationYBy(-400f).setDuration(100).withStartAction(beforeShowGraphicalResultsFab);
-                    sendResultsViaEmailFab.animate().translationYBy(-600f).setDuration(100).withStartAction(beforeShowSendResultsViaEmailFab);
-                    animationShown = true;
-                } else {
-                    amortizeFab.animate().translationYBy(200f).setDuration(100).withEndAction(afterHideAmortizeFab);
-                    graphicalResultsFab.animate().translationYBy(400f).setDuration(100).withEndAction(afterHideGraphicalResultsFab);
-                    sendResultsViaEmailFab.animate().translationYBy(600f).setDuration(100).withEndAction(afterHideSendResultsViaEmailFab);
-                    animationShown = false;
-                }
+                initializeMainFabListener();
             }
         });
 

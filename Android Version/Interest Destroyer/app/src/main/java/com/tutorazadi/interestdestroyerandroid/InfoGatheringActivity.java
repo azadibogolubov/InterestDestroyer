@@ -85,8 +85,6 @@ public class InfoGatheringActivity extends Activity {
 
     public void initializeControls()
     {
-        fade_in = AnimationUtils.loadAnimation(this, R.anim.fade_in);
-
         arimo = Typeface.createFromAsset(this.getAssets(), "fonts/Arimo-Regular.ttf");
 
         welcomeLbl = (TextView) findViewById(R.id.welcomeLbl);

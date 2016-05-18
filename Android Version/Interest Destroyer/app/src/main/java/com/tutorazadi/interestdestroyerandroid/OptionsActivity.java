@@ -62,12 +62,6 @@ public class OptionsActivity extends Activity {
 
         arimo = Typeface.createFromAsset(this.getAssets(), "fonts/Arimo-Regular.ttf");
 
-        fly_in_bottom = AnimationUtils.loadAnimation(this, R.anim.fly_in_bottom);
-        fly_in_top = AnimationUtils.loadAnimation(this, R.anim.fly_in_top);
-        fly_in_left = AnimationUtils.loadAnimation(this, R.anim.fly_in_left);
-        fly_in_right = AnimationUtils.loadAnimation(this, R.anim.fly_in_right);
-        fly_in_diagonal_top_left = AnimationUtils.loadAnimation(this, R.anim.fly_in_diagonal_top_left);
-
         minimumPayment = extra.getDoubleArray("MINIMUM_PAYMENTS");
         extraPayment = extra.getDoubleArray("EXTRA_PAYMENTS");
 
