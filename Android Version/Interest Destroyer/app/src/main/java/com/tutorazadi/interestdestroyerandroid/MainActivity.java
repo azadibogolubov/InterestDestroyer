@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
         graphicalResultsFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent extraPaymentChartIntent = new Intent(MainActivity.this, NewExtraPaymentChartActivity.class);
+                Intent extraPaymentChartIntent = new Intent(MainActivity.this, ExtraPaymentChartActivity.class);
                 startActivity(extraPaymentChartIntent);
             }
         });

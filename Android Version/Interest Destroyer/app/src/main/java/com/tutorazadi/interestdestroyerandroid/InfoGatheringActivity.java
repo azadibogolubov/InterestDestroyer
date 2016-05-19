@@ -20,6 +20,7 @@
 package com.tutorazadi.interestdestroyerandroid;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -30,7 +31,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 public class InfoGatheringActivity extends Activity {
 
@@ -122,6 +122,7 @@ public class InfoGatheringActivity extends Activity {
                     rate = Double.parseDouble(interestTxt.getText().toString());
                     extra_payment = Double.parseDouble(extraPaymentTxt.getText().toString());
                     calculate(v);
+                    goToViewPager();
                     Snackbar.make(mainLayout, "TODO: Implement logic to go to ViewPager activity to show amortization and results.", Snackbar.LENGTH_SHORT).show();
                 } catch (NumberFormatException e) {
                     Snackbar.make(mainLayout, "You have entered invalid data.", Snackbar.LENGTH_SHORT).show();
@@ -205,5 +206,20 @@ public class InfoGatheringActivity extends Activity {
     public static double amortize(double principal, double rate, double time) {
         rate /= 1200;
         return (principal * rate * Math.pow((1 + rate), time)) / (Math.pow((1 + rate), time) - 1);
+    }
+
+    public void goToViewPager() {
+        Intent viewPagerIntent = new Intent(InfoGatheringActivity.this, ExtraPaymentChartActivity.class);
+        viewPagerIntent.putExtra("MINIMUM_PAYMENTS", minimum_payments);
+        viewPagerIntent.putExtra("EXTRA_PAYMENTS", extra_payments);
+        viewPagerIntent.putExtra("MIN_PRINCIPAL_REMAINING", min_principal_remaining);
+        viewPagerIntent.putExtra("EXTRA_PRINCIPAL_REMAINING", extra_principal_remaining);
+        viewPagerIntent.putExtra("PRINCIPAL", principal);
+        viewPagerIntent.putExtra("INTEREST_SAVED", interestSaved);
+        viewPagerIntent.putExtra("TIME_SAVED", timeSaved);
+        viewPagerIntent.putExtra("INTEREST_RATE", interest_paid);
+        viewPagerIntent.putExtra("EXTRA_PAYMENT_AMOUNT", extra_payment);
+        viewPagerIntent.putExtra("TOTAL_MONTHS", time);
+        startActivity(viewPagerIntent);
     }
 }

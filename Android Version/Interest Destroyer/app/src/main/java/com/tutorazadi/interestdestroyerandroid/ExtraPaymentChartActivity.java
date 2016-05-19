@@ -1,108 +1,78 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-
 package com.tutorazadi.interestdestroyerandroid;
 
-/**
- * @todo Add my own Canvas based charting engine in here, as well as add Apache license file for fonts.
- */
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.Locale;
-
-/*import org.achartengine.ChartFactory;
-import org.achartengine.GraphicalView;
-import org.achartengine.chart.BarChart;
-import org.achartengine.model.XYMultipleSeriesDataset;
-import org.achartengine.model.XYSeries;
-import org.achartengine.renderer.XYMultipleSeriesRenderer;
-import org.achartengine.renderer.XYSeriesRenderer;*/
-
-import android.app.ActionBar;
 import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.RelativeLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
+
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.Locale;
+
 
 public class ExtraPaymentChartActivity extends Activity {
 
-	/*GraphicalView mChartView = null;
-	public static NumberFormat n = NumberFormat.getCurrencyInstance(Locale.US);
-	public static DecimalFormat df = new DecimalFormat("#.##");
-    public TextView interestSavedLbl, yearsSavedLbl;
-	public static double[] extraPayment, minimumPayment, min_principal_remaining, extra_principal_remaining;
-	public double timeSaved, interestSaved, totalMonths;
-	public String principal, extraPaymentAmount, interest;
+    private Typeface mTf;
+    BarChart chart;
 
-    public Typeface arimoItalic;
+    private static NumberFormat n = NumberFormat.getCurrencyInstance(Locale.US);
+    private static DecimalFormat df = new DecimalFormat("#.##");
+    private TextView interestSavedLbl, yearsSavedLbl;
+    private static double[]  min_principal_remaining, extra_principal_remaining;
+    private static double extraPayment, minimumPayment;
+    private double timeSaved, interestSaved, totalMonths;
+    private String principal, extraPaymentAmount, interest;
+    private Typeface arimoItalic;
+    private int size;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_extra_payment_chart);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_new_extra_payment_chart);
 
-		ActionBar bar = getActionBar();
-		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#066891")));
-		
-		Bundle extras = getIntent().getExtras();
+        Bundle extras = getIntent().getExtras();
 
         arimoItalic = Typeface.createFromAsset(this.getAssets(), "fonts/Arimo-Italic.ttf");
 
-		minimumPayment = extras.getDoubleArray("MINIMUM_PAYMENTS");
-		extraPayment = extras.getDoubleArray("EXTRA_PAYMENTS");
+        minimumPayment = extras.getDouble("MINIMUM_PAYMENTS");
+        extraPayment = extras.getDouble("EXTRA_PAYMENTS");
         min_principal_remaining = extras.getDoubleArray("MIN_PRINCIPAL_REMAINING");
         extra_principal_remaining = extras.getDoubleArray("EXTRA_PRINCIPAL_REMAINING");
 
-		principal = extras.getString("PRINCIPAL");
-		interestSaved = extras.getDouble("INTEREST_SAVED");
-		timeSaved = extras.getDouble("TIME_SAVED");
-		interest = extras.getString("INTEREST_RATE");
-		extraPaymentAmount = extras.getString("EXTRA_PAYMENT_AMOUNT");
+        principal = extras.getString("PRINCIPAL");
+        interestSaved = extras.getDouble("INTEREST_SAVED");
+        timeSaved = extras.getDouble("TIME_SAVED");
+        interest = extras.getString("INTEREST_RATE");
+        extraPaymentAmount = extras.getString("EXTRA_PAYMENT_AMOUNT");
 
-		int size = (int)extras.getDouble("TOTAL_MONTHS");
-		String[] mMonth = new String[size/12];
-		int[] x = new int[size];
-		int b = 0;
-		for (int i = 0; i < size; i+=12)
-		{
+        size = (int)extras.getDouble("TOTAL_MONTHS");
+        String[] mMonth = new String[size/12];
+        int[] x = new int[size];
+        int b = 0;
+        for (int i = 0; i < size; i += 12)
+        {
             try {
                 mMonth[b] = String.valueOf(b + 1);
                 x[b] = (b + 1);
                 b++;
             }
             catch (ArrayIndexOutOfBoundsException e)  { break ;}
-		}
+        }
 
-		yearsSavedLbl = (TextView) findViewById(R.id.yearsSavedLbl);
+        yearsSavedLbl = (TextView) findViewById(R.id.yearsSavedLbl);
         yearsSavedLbl.setTypeface(arimoItalic);
         yearsSavedLbl.setText(yearsSavedLbl.getText() + String.valueOf(df.format(extras.getDouble("TIME_SAVED"))));
 
@@ -110,95 +80,105 @@ public class ExtraPaymentChartActivity extends Activity {
         interestSavedLbl.setTypeface(arimoItalic);
         interestSavedLbl.setText(interestSavedLbl.getText() + String.valueOf(n.format(extras.getDouble("INTEREST_SAVED"))));
 
-        DisplayMetrics metrics = this.getResources().getDisplayMetrics();
-        float val = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 12, metrics);
-        
-        XYSeries baseSeries = new XYSeries("Base");
-        XYSeries extraPaymentSeries = new XYSeries("Extra Payment");
-        
-        int c = 0;
-        for(int i=0;i<size;i+=12)
-        {
-            baseSeries.add(c,min_principal_remaining[i] / 100);
-            extraPaymentSeries.add(c,extra_principal_remaining[i] / 100);
-            c++;
+        chart = (BarChart) findViewById(R.id.chart);
+
+        chart.setDrawBarShadow(false);
+        chart.setDrawValueAboveBar(true);
+
+        chart.setDescription("");
+
+        // if more than 60 entries are displayed in the chart, no values will be drawn
+        chart.setMaxVisibleValueCount(60);
+
+        // scaling can now only be done on x- and y-axis separately
+        chart.setPinchZoom(false);
+        chart.setDrawGridBackground(false);
+
+        mTf = Typeface.createFromAsset(getAssets(), "fonts/Arimo-Regular.ttf");
+
+        XAxis xAxis = chart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setTypeface(mTf);
+        xAxis.setDrawGridLines(false);
+        xAxis.setSpaceBetweenLabels(2);
+
+        YAxis leftAxis = chart.getAxisLeft();
+        leftAxis.setTypeface(mTf);
+        leftAxis.setLabelCount(8, false);
+        leftAxis.setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART);
+        leftAxis.setSpaceTop(15f);
+
+        YAxis rightAxis = chart.getAxisRight();
+        rightAxis.setDrawGridLines(false);
+        rightAxis.setTypeface(mTf);
+        rightAxis.setLabelCount(8, false);
+        rightAxis.setSpaceTop(15f);
+
+        Legend l = chart.getLegend();
+        l.setPosition(Legend.LegendPosition.BELOW_CHART_LEFT);
+        l.setForm(Legend.LegendForm.SQUARE);
+        l.setFormSize(9f);
+        l.setTextSize(11f);
+        l.setXEntrySpace(4f);
+
+        setData(size, 50);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_new_extra_payment_chart, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
         }
- 
-        XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
-        dataset.addSeries(baseSeries);
-        dataset.addSeries(extraPaymentSeries);
- 
-        XYSeriesRenderer baseRenderer = new XYSeriesRenderer();
-        baseRenderer.setGradientEnabled(true);
-        baseRenderer.setGradientStart(0, Color.rgb(255, 255, 255));
-        baseRenderer.setGradientStop(1000, Color.rgb(0, 0, 255));       
-        baseRenderer.setFillPoints(true);
-        baseRenderer.setLineWidth(5);
-        baseRenderer.setDisplayChartValues(false);
 
-        XYSeriesRenderer extraPaymentRenderer = new XYSeriesRenderer();
-        extraPaymentRenderer.setGradientEnabled(true);
-        extraPaymentRenderer.setGradientStart(0, Color.rgb(255, 255, 255));
-        extraPaymentRenderer.setGradientStop(1000, Color.rgb(0, 255, 0));
-        extraPaymentRenderer.setFillPoints(true);
-        extraPaymentRenderer.setLineWidth(5);
-        extraPaymentRenderer.setColor(Color.GREEN);
-        extraPaymentRenderer.setDisplayChartValues(false);
-        
-        XYMultipleSeriesRenderer multiRenderer = new XYMultipleSeriesRenderer();
-        multiRenderer.setXLabels(0);
-        multiRenderer.setYLabels(0);
-        multiRenderer.setXTitle("Year #");
-        multiRenderer.setYTitle("Principal remaining");
-        multiRenderer.setZoomButtonsVisible(true);
-        multiRenderer.setLegendTextSize(24);
-        multiRenderer.setXAxisMin(-5.0f);
-        multiRenderer.setXAxisMax(10.0f);
-        multiRenderer.setYAxisMin(0.0f);
-        multiRenderer.setYAxisMax(1000.0f);
-        multiRenderer.setAxisTitleTextSize(val);
-        multiRenderer.setLabelsColor(Color.GREEN);
-        multiRenderer.setApplyBackgroundColor(true);
-        multiRenderer.setBackgroundColor(Color.BLACK);
-        multiRenderer.setMarginsColor(Color.BLACK);
-        multiRenderer.setPanEnabled(true,  false);
-        
-        for(int i=0; i< size/12;i++)
-            multiRenderer.addXTextLabel(i, mMonth[i]);
-        
-        multiRenderer.addSeriesRenderer(baseRenderer);
-        multiRenderer.addSeriesRenderer(extraPaymentRenderer);
-        
-        mChartView = ChartFactory.getBarChartView(this, dataset, multiRenderer, BarChart.Type.DEFAULT);
-		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-		mChartView.setLayoutParams(params);
-		RelativeLayout layout = (RelativeLayout) findViewById(R.id.chartsRelativeLayout);
-		layout.addView(mChartView);
-	}
-	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) 
-	{
-		getMenuInflater().inflate(R.menu.extra_payment_chart, menu);
-		return true;
-	}
+        return super.onOptionsItemSelected(item);
+    }
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+    private void setData(int count, float range) {
 
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event)
-	{
-	    if ((keyCode == KeyEvent.KEYCODE_BACK))
-	    {
-	        finish();
-	    }
-	    return super.onKeyDown(keyCode, event);
-	}*/
+        ArrayList<String> xVals = new ArrayList<>();
+        int counter = 0;
+        for (int i = 0; i < count; i+=12) {
+            xVals.add(String.valueOf(counter));
+            counter++;
+        }
+
+        ArrayList<BarEntry> yVals1 = new ArrayList<>();
+        ArrayList<BarEntry> yVals2 = new ArrayList<>();
+        counter = 0;
+
+        for (int i = 0; i < count; i+=12) {
+            yVals1.add(new BarEntry((float) min_principal_remaining[i], counter));
+            yVals2.add(new BarEntry((float) extra_principal_remaining[i], counter));
+            counter++;
+        }
+
+        BarDataSet set1 = new BarDataSet(yVals1, "Extra Year Number");
+        set1.setBarSpacePercent(5f);
+        set1.setColor(getResources().getColor(R.color.green_button));
+
+        BarDataSet set2 = new BarDataSet(yVals2, "Minimum Year Number");
+        set2.setBarSpacePercent(5f);
+        set2.setColor(getResources().getColor(R.color.blue_button));
+
+        ArrayList<BarDataSet> dataSets = new ArrayList<>();
+        dataSets.add(set1);
+        dataSets.add(set2);
+
+        BarData data = new BarData(xVals, dataSets);
+
+        chart.setData(data);
+    }
 }
