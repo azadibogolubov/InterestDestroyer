@@ -19,28 +19,17 @@
 
 package com.tutorazadi.interestdestroyerandroid;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.Locale;
-
-import android.app.ActionBar;
 import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class InfoGatheringActivity extends Activity {
@@ -56,22 +45,17 @@ public class InfoGatheringActivity extends Activity {
     public static double net_interest;
     public double interestSaved;
     public static double principal_paid;
-    public static int payoff_years;
     public static double payoff_months;
 
     public static double[] extra_payments, minimum_payments, min_principal_remaining, extra_principal_remaining;
     public static double interest_paid = original_interest = 0.00f;
     public static double timeSaved;
     public static double[] min_interest_paid, extra_interest_paid, min_principal_paid, extra_principal_paid;
-    public static NumberFormat n = NumberFormat.getCurrencyInstance(Locale.US);
-    public static DecimalFormat df = new DecimalFormat("#.##");
-    private Animation fade_in;
 
     ImageView getInfo;
-    TextView welcomeLbl, principalLbl, interestRateLbl, numMonthsLbl, extraPaymentLbl;
     EditText principalTxt, interestTxt, numMonthsTxt, extraPaymentTxt;
 
-    LinearLayout mainLayout;
+    CoordinatorLayout mainLayout;
 
     public Typeface arimo;
 
@@ -81,6 +65,7 @@ public class InfoGatheringActivity extends Activity {
         setContentView(R.layout.activity_info_gathering);
 
         initializeControls();
+        setClickListeners();
     }
 
     public void initializeControls()
@@ -103,9 +88,12 @@ public class InfoGatheringActivity extends Activity {
         extraPaymentTxt.setTypeface(arimo);
         extraPaymentTxt.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 
-        mainLayout = (LinearLayout) findViewById(R.id.mainLayout);
+        mainLayout = (CoordinatorLayout) findViewById(R.id.mainLayout);
 
         getInfo = (ImageView) findViewById(R.id.getInfo);
+    }
+
+    public void setClickListeners() {
         getInfo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 principal = principal_original;
@@ -117,28 +105,26 @@ public class InfoGatheringActivity extends Activity {
 
                 try {
                     if (principalTxt.getText().length() < 4) {
-                        Toast.makeText(InfoGatheringActivity.this, "Minimum amount for principal must be greater than $1000.", Toast.LENGTH_LONG).show();
+                        Snackbar.make(mainLayout, "Minimum amount for principal must be greater than $1000", Snackbar.LENGTH_SHORT).show();
                         return;
                     }
-                    if (numMonthsTxt.getText().length() < 1) {
-                        Toast.makeText(InfoGatheringActivity.this, "Minimum number of months must be greater than 0.", Toast.LENGTH_LONG).show();
+                    else if (interestTxt.getText().length() < 1) {
+                        Snackbar.make(mainLayout, "Minimum interest rate must be greater than 0%.", Snackbar.LENGTH_SHORT).show();
                         return;
-                    }
-                    if (interestTxt.getText().length() < 1) {
-                        Toast.makeText(InfoGatheringActivity.this, "Minimum interest rate must be greater than 0%.", Toast.LENGTH_LONG).show();
+                    } else if (numMonthsTxt.getText().length() < 1) {
+                        Snackbar.make(mainLayout, "Minimum number of months must be greater than 0.", Snackbar.LENGTH_SHORT).show();
                         return;
-                    }
-                    if (extraPaymentTxt.getText().length() < 1) {
-                        Toast.makeText(InfoGatheringActivity.this, "Please enter at least $0 for an extra payment amount.", Toast.LENGTH_LONG).show();
+                    } else if (extraPaymentTxt.getText().length() < 1) {
+                        Snackbar.make(mainLayout, "Please enter at least $0 for an extra payment amount.", Snackbar.LENGTH_SHORT).show();
                     }
                     principal_original = principal = Double.parseDouble(principalTxt.getText().toString());
                     time = Double.parseDouble(numMonthsTxt.getText().toString());
                     rate = Double.parseDouble(interestTxt.getText().toString());
                     extra_payment = Double.parseDouble(extraPaymentTxt.getText().toString());
                     calculate(v);
-                    Toast.makeText(InfoGatheringActivity.this, "TODO: Implement logic to go to ViewPager activity to show amortization and results.", Toast.LENGTH_LONG).show();
+                    Snackbar.make(mainLayout, "TODO: Implement logic to go to ViewPager activity to show amortization and results.", Snackbar.LENGTH_SHORT).show();
                 } catch (NumberFormatException e) {
-                    Toast.makeText(InfoGatheringActivity.this, "You have entered invalid data.", Toast.LENGTH_LONG).show();
+                    Snackbar.make(mainLayout, "You have entered invalid data.", Snackbar.LENGTH_SHORT).show();
                 }
             }
         });
