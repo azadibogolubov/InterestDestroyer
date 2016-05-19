@@ -87,21 +87,6 @@ public class InfoGatheringActivity extends Activity {
     {
         arimo = Typeface.createFromAsset(this.getAssets(), "fonts/Arimo-Regular.ttf");
 
-        welcomeLbl = (TextView) findViewById(R.id.welcomeLbl);
-        welcomeLbl.setTypeface(arimo);
-
-        principalLbl = (TextView) findViewById(R.id.principalLbl);
-        principalLbl.setTypeface(arimo);
-
-        interestRateLbl = (TextView) findViewById(R.id.interestRateLbl);
-        interestRateLbl.setTypeface(arimo);
-
-        numMonthsLbl = (TextView) findViewById(R.id.numMonthsLbl);
-        numMonthsLbl.setTypeface(arimo);
-
-        extraPaymentLbl = (TextView) findViewById(R.id.extraPaymentLbl);
-        extraPaymentLbl.setTypeface(arimo);
-
         principalTxt = (EditText) findViewById(R.id.principalTxt);
         principalTxt.setTypeface(arimo);
         principalTxt.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
@@ -119,7 +104,6 @@ public class InfoGatheringActivity extends Activity {
         extraPaymentTxt.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 
         mainLayout = (LinearLayout) findViewById(R.id.mainLayout);
-        mainLayout.startAnimation(fade_in);
 
         getInfo = (ImageView) findViewById(R.id.getInfo);
         getInfo.setOnClickListener(new View.OnClickListener() {
@@ -152,6 +136,7 @@ public class InfoGatheringActivity extends Activity {
                     rate = Double.parseDouble(interestTxt.getText().toString());
                     extra_payment = Double.parseDouble(extraPaymentTxt.getText().toString());
                     calculate(v);
+                    Toast.makeText(InfoGatheringActivity.this, "TODO: Implement logic to go to ViewPager activity to show amortization and results.", Toast.LENGTH_LONG).show();
                 } catch (NumberFormatException e) {
                     Toast.makeText(InfoGatheringActivity.this, "You have entered invalid data.", Toast.LENGTH_LONG).show();
                 }
@@ -229,51 +214,6 @@ public class InfoGatheringActivity extends Activity {
         }
         timeSaved = (time - payoff_months) / 12;
         interestSaved = original_interest - interest_paid;
-
-        Bundle extra = new Bundle();
-        extra.putDouble("TIME_SAVED", timeSaved);
-        extra.putDouble("INTEREST_SAVED", interestSaved);
-        extra.putDouble("TOTAL_MONTHS", time);
-        extra.putDouble("EXTRA_PAYMENTS", extra_payment);
-        extra.putDouble("MINIMUM_PAYMENTS", payment_amount);
-        extra.putString("PRINCIPAL", principalTxt.getText().toString());
-        extra.putString("INTEREST_RATE", interestTxt.getText().toString());
-        extra.putString("EXTRA_PAYMENT_AMOUNT", extraPaymentTxt.getText().toString());
-        extra.putDoubleArray("MIN_PRINCIPAL_PAID", min_principal_paid);
-        extra.putDoubleArray("EXTRA_PRINCIPAL_PAID", extra_principal_paid);
-        extra.putDoubleArray("MIN_INTEREST_PAID", min_interest_paid);
-        extra.putDoubleArray("EXTRA_INTEREST_PAID", extra_interest_paid);
-        extra.putDoubleArray("MIN_PRINCIPAL_REMAINING", min_principal_remaining);
-        extra.putDoubleArray("EXTRA_PRINCIPAL_REMAINING", extra_principal_remaining);
-
-        Intent intent = new Intent();
-        String actionToPerform = getIntent().getStringExtra("ACTION");
-        switch (actionToPerform)
-        {
-            case "amortize": {
-                intent = new Intent(InfoGatheringActivity.this, AmortizationActivity.class);
-                break;
-            }
-            case "graphical":
-                intent = new Intent(InfoGatheringActivity.this, NewExtraPaymentChartActivity.class);
-                break;
-            // TODO: Migrate email activity to here.
-            case "email":
-                String message = "";
-
-                intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("text/html");
-                intent.putExtra(Intent.EXTRA_SUBJECT, "Interest Destroyer Amortization Results");
-                intent.putExtra(Intent.EXTRA_TEXT, message);
-
-                startActivity(Intent.createChooser(intent, "Send Email"));
-                break;
-            case "extra":
-                intent = new Intent(InfoGatheringActivity.this, ExtraSavingsActivity.class);
-                break;
-        }
-        intent.putExtras(extra);
-        startActivity(intent);
     }
 
     public static double amortize(double principal, double rate, double time) {

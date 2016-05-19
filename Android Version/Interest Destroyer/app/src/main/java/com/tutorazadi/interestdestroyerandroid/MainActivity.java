@@ -19,12 +19,9 @@
 
 package com.tutorazadi.interestdestroyerandroid;
 
-import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -50,9 +47,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: Change back to activity_main to return this to functional state.
-        setContentView(R.layout.activity_main_new);
+        setContentView(R.layout.activity_main);
         initializeControls();
-        initializeFabColors();
         initializeButtons();
         intent = new Intent(MainActivity.this, InfoGatheringActivity.class);
     }
@@ -109,30 +105,8 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(savedInstanceState);
     }
 
-    public void amortize(View v) {
-        intent.putExtra("ACTION", "amortize");
-        startActivity(intent);
-    }
-
-    public void showGraphicalResults(View v) {
-        intent.putExtra("ACTION", "graphical");
-        startActivity(intent);
-    }
-
-    public void sendResults(View v) {
-        intent.putExtra("ACTION", "email");
-        startActivity(intent);
-    }
-
-    public void extraPayment(View v) {
-        intent.putExtra("ACTION", "extra");
-        startActivity(intent);
-    }
-
-    public void customize(View v) {
-        Intent customizeIntent = new Intent(MainActivity.this, SkinsActivity.class);
-        startActivityForResult(customizeIntent, 1);
-    }
+    // TODO: Migrate this code to a later activity.
+    /*
     public void initializeMainFabListener() {
         mainFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,51 +124,36 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-    }
+    */
 
     public void initializeControls() {
         animationShown = false;
-        mainLayout = (ScrollView) findViewById(R.id.mainLayout);
-
-        graphical = (Button) findViewById(R.id.graphical);
-        amortize = (Button) findViewById(R.id.amortize);
-        email = (Button) findViewById(R.id.email);
-        extra = (Button) findViewById(R.id.extra);
-        customize = (Button) findViewById(R.id.customize);
         mainFab = (FloatingActionButton) findViewById(R.id.mainFab);
         amortizeFab = (FloatingActionButton) findViewById(R.id.amortizationFab);
         graphicalResultsFab = (FloatingActionButton) findViewById(R.id.graphicalResultsFab);
         sendResultsViaEmailFab = (FloatingActionButton) findViewById(R.id.sendResultsViaEmailFab);
     }
 
-    // TODO: Update these to material design compatible colors
-    public void initializeFabColors() {
-        amortizeFab.setBackgroundTintList(ColorStateList.valueOf(Color
-                .parseColor("#FF0000")));
-        graphicalResultsFab.setBackgroundTintList(ColorStateList.valueOf(Color
-                .parseColor("#00FF00")));
-        sendResultsViaEmailFab.setBackgroundTintList(ColorStateList.valueOf(Color
-                .parseColor("#0000FF")));
-    }
-
     public void initializeButtons() {
         mainFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                initializeMainFabListener();
+                startActivity(new Intent(MainActivity.this, InfoGatheringActivity.class));
             }
         });
 
         amortizeFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Do something with amortization", Toast.LENGTH_LONG).show();
+                Intent amortizationIntent = new Intent(MainActivity.this, AmortizationActivity.class);
+                startActivity(amortizationIntent);
             }
         });
         graphicalResultsFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Do something with graphical results", Toast.LENGTH_LONG).show();
+                Intent extraPaymentChartIntent = new Intent(MainActivity.this, NewExtraPaymentChartActivity.class);
+                startActivity(extraPaymentChartIntent);
             }
         });
 
