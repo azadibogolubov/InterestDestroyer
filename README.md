@@ -1,5 +1,8 @@
 # Interest Destroyer
 
+UPDATE 5/19/2016: 
+Refactoring app to utilize Material Design (Snackbar, FAB, ViewPager, RecyclerView).
+
 Android App to help consumers find ways to minimize interest charges.
 
 Features in progress:
