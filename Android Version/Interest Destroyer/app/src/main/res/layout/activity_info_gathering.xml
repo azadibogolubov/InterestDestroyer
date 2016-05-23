@@ -29,6 +29,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:hint="@string/principal_hint"
+            android:text="100000"
             android:textColor="@color/light_black_text"
             android:textColorHint="@color/light_black_text">
 
@@ -43,6 +44,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:hint="@string/interest_hint"
+            android:text="3.25"
             android:textColor="@color/light_black_text"
             android:textColorHint="@color/light_black_text"/>
 
@@ -55,6 +57,7 @@
             android:layout_marginStart="16dp"
             android:ems="10"
             android:hint="@string/months_hint"
+            android:text="360"
             android:textColor="@color/light_black_text"
             android:textColorHint="@color/light_black_text"/>
 
@@ -66,6 +69,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:hint="@string/extra_payment_hint"
+            android:text="200"
             android:textColor="@color/light_black_text"
             android:textColorHint="@color/light_black_text"/>
 

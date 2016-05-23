@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -78,6 +79,7 @@ public class ExtraPaymentChartFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        RelativeLayout rootLayout = (RelativeLayout) inflater.inflate(R.layout.fragment_extra_payment_chart, container, false);
         context = getActivity();
 
         // Inflate the layout for this fragment
@@ -111,15 +113,15 @@ public class ExtraPaymentChartFragment extends Fragment {
             catch (ArrayIndexOutOfBoundsException e)  { break ;}
         }
 
-        yearsSavedLbl = (TextView) context.findViewById(R.id.yearsSavedLbl);
+        yearsSavedLbl = (TextView) rootLayout.findViewById(R.id.yearsSavedLbl);
         yearsSavedLbl.setTypeface(arimoItalic);
         yearsSavedLbl.setText(yearsSavedLbl.getText() + String.valueOf(df.format(extras.getDouble("TIME_SAVED"))));
 
-        interestSavedLbl = (TextView) context.findViewById(R.id.interestSavedLbl);
+        interestSavedLbl = (TextView) rootLayout.findViewById(R.id.interestSavedLbl);
         interestSavedLbl.setTypeface(arimoItalic);
         interestSavedLbl.setText(interestSavedLbl.getText() + String.valueOf(n.format(extras.getDouble("INTEREST_SAVED"))));
 
-        chart = (BarChart) context.findViewById(R.id.chart);
+        chart = (BarChart) rootLayout.findViewById(R.id.chart);
 
         chart.setDrawBarShadow(false);
         chart.setDrawValueAboveBar(true);
@@ -162,7 +164,7 @@ public class ExtraPaymentChartFragment extends Fragment {
 
         setData(size, 50);
 
-        return inflater.inflate(R.layout.fragment_extra_payment_chart, container, false);
+        return rootLayout;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
