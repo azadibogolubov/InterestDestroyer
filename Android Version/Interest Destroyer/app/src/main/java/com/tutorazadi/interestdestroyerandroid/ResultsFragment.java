@@ -1,5 +1,6 @@
 package com.tutorazadi.interestdestroyerandroid;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,9 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 public class ResultsFragment extends Fragment {
 
     TextView savingsAmount, savingsTime;
+    Double interestSaved, timeSaved;
+    Activity context;
+    private static DecimalFormat df = new DecimalFormat("#.##");
 
     public ResultsFragment() {
         // Required empty public constructor
@@ -27,10 +33,16 @@ public class ResultsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_results, container, false);
+        context = getActivity();
+        Bundle extras = context.getIntent().getExtras();
+
+        interestSaved = extras.getDouble("INTEREST_SAVED");
+        timeSaved = extras.getDouble("TIME_SAVED");
+
         savingsAmount = (TextView) view.findViewById(R.id.savingsAmount);
-        savingsAmount.setText("$15,000");
+        savingsAmount.setText("$" + df.format(interestSaved).toString() + " in interest,");
         savingsTime = (TextView) view.findViewById(R.id.savingsTime);
-        savingsTime.setText("8.3 years");
+        savingsTime.setText("and " + df.format(timeSaved).toString() + " years of payments.");
         return view;
     }
 

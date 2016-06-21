@@ -11,10 +11,11 @@ public class ResultsActivity extends AppCompatActivity implements ResultsFragmen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_results);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.amortization_tab)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.savings_tab)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.graph_tab)));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
