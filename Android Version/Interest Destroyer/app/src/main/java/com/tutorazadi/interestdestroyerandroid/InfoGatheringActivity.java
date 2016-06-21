@@ -209,7 +209,6 @@ public class InfoGatheringActivity extends Activity {
     }
 
     public void goToViewPager() {
-        //Intent viewPagerIntent = new Intent(InfoGatheringActivity.this, ExtraPaymentChartActivity.class);
         Intent viewPagerIntent = new Intent(InfoGatheringActivity.this, ResultsActivity.class);
         viewPagerIntent.putExtra("MINIMUM_PAYMENTS", minimum_payments);
         viewPagerIntent.putExtra("EXTRA_PAYMENTS", extra_payments);

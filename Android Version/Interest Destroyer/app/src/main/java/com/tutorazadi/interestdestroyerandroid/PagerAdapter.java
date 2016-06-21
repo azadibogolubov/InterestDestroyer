@@ -17,7 +17,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                AmortizationFragment tab1 = new AmortizationFragment();
+                ResultsFragment tab1 = new ResultsFragment();
                 return tab1;
             case 1:
                 ExtraPaymentChartFragment tab2 = new ExtraPaymentChartFragment();

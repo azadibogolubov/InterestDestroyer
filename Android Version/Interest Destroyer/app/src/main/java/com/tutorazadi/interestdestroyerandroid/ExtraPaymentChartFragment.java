@@ -225,11 +225,11 @@ public class ExtraPaymentChartFragment extends Fragment {
             counter++;
         }
 
-        BarDataSet set1 = new BarDataSet(yVals1, "Extra Year Number");
+        BarDataSet set1 = new BarDataSet(yVals1, "Minimum Payment");
         set1.setBarSpacePercent(5f);
         set1.setColor(getResources().getColor(R.color.green_button));
 
-        BarDataSet set2 = new BarDataSet(yVals2, "Minimum Year Number");
+        BarDataSet set2 = new BarDataSet(yVals2, "Extra Payment");
         set2.setBarSpacePercent(5f);
         set2.setColor(getResources().getColor(R.color.blue_button));
 

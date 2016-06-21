@@ -31,17 +31,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     Intent intent;
     Button graphical, amortize, email, extra, customize;
     ScrollView mainLayout;
-    FloatingActionButton mainFab, amortizeFab, graphicalResultsFab, sendResultsViaEmailFab;
-    PropertyValuesHolder animAmortize;
+    FloatingActionButton mainFab;
     boolean animationShown;
-    Runnable beforeShowAmortizeFab, afterHideAmortizeFab, beforeShowSendResultsViaEmailFab, afterHideSendResultsViaEmailFab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,33 +102,9 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(savedInstanceState);
     }
 
-    // TODO: Migrate this code to a later activity.
-    /*
-    public void initializeMainFabListener() {
-        mainFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!animationShown) {
-                    amortizeFab.animate().translationYBy(-200f).setDuration(100).withStartAction(new FabRunnable(amortizeFab, true));
-                    graphicalResultsFab.animate().translationYBy(-400f).setDuration(100).withStartAction(new FabRunnable(graphicalResultsFab, true));
-                    sendResultsViaEmailFab.animate().translationYBy(-600f).setDuration(100).withStartAction(new FabRunnable(sendResultsViaEmailFab, true));
-                    animationShown = true;
-                } else {
-                    amortizeFab.animate().translationYBy(200f).setDuration(100).withEndAction(new FabRunnable(amortizeFab, false));
-                    graphicalResultsFab.animate().translationYBy(400f).setDuration(100).withEndAction(new FabRunnable(graphicalResultsFab, false));
-                    sendResultsViaEmailFab.animate().translationYBy(600f).setDuration(100).withEndAction(new FabRunnable(sendResultsViaEmailFab, false));
-                    animationShown = false;
-                }
-            }
-        });
-    */
-
     public void initializeControls() {
         animationShown = false;
         mainFab = (FloatingActionButton) findViewById(R.id.mainFab);
-        amortizeFab = (FloatingActionButton) findViewById(R.id.amortizationFab);
-        graphicalResultsFab = (FloatingActionButton) findViewById(R.id.graphicalResultsFab);
-        sendResultsViaEmailFab = (FloatingActionButton) findViewById(R.id.sendResultsViaEmailFab);
     }
 
     public void initializeButtons() {
@@ -139,28 +112,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, InfoGatheringActivity.class));
-            }
-        });
-
-        amortizeFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent amortizationIntent = new Intent(MainActivity.this, AmortizationActivity.class);
-                startActivity(amortizationIntent);
-            }
-        });
-        graphicalResultsFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent extraPaymentChartIntent = new Intent(MainActivity.this, ExtraPaymentChartActivity.class);
-                startActivity(extraPaymentChartIntent);
-            }
-        });
-
-        sendResultsViaEmailFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Do something with send results via EMAIL", Toast.LENGTH_LONG).show();
             }
         });
     }
