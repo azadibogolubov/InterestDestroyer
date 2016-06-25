@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/green_background"
+    android:background="@color/primary"
     android:orientation="vertical">
 
     <LinearLayout
@@ -19,6 +19,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="16dp"
+            android:textColor="@color/primary_text"
             android:text="@string/info_gathering"
             android:textSize="36sp"/>
 
@@ -31,8 +32,8 @@
             android:layout_marginStart="16dp"
             android:hint="@string/principal_hint"
             android:text="100000"
-            android:textColor="@color/light_black_text"
-            android:textColorHint="@color/light_black_text">
+            android:textColor="@color/primary_text"
+            android:textColorHint="@color/primary_text">
 
             <requestFocus/>
         </EditText>
@@ -46,8 +47,8 @@
             android:layout_marginStart="16dp"
             android:hint="@string/interest_hint"
             android:text="3.25"
-            android:textColor="@color/light_black_text"
-            android:textColorHint="@color/light_black_text"/>
+            android:textColor="@color/primary_text"
+            android:textColorHint="@color/primary_text"/>
 
         <EditText
             android:id="@+id/numMonthsTxt"
@@ -59,8 +60,8 @@
             android:ems="10"
             android:hint="@string/months_hint"
             android:text="360"
-            android:textColor="@color/light_black_text"
-            android:textColorHint="@color/light_black_text"/>
+            android:textColor="@color/primary_text"
+            android:textColorHint="@color/primary_text"/>
 
         <EditText
             android:id="@+id/extraPaymentTxt"
@@ -71,8 +72,8 @@
             android:layout_marginStart="16dp"
             android:hint="@string/extra_payment_hint"
             android:text="200"
-            android:textColor="@color/light_black_text"
-            android:textColorHint="@color/light_black_text"/>
+            android:textColor="@color/primary_text"
+            android:textColorHint="@color/primary_text"/>
 
         <ImageView
             android:id="@+id/getInfo"

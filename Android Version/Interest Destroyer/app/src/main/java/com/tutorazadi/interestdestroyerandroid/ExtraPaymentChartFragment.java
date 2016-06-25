@@ -227,11 +227,11 @@ public class ExtraPaymentChartFragment extends Fragment {
 
         BarDataSet set1 = new BarDataSet(yVals1, "Minimum Payment");
         set1.setBarSpacePercent(5f);
-        set1.setColor(getResources().getColor(R.color.green_button));
+        set1.setColor(getResources().getColor(R.color.minimum_payment_bar));
 
         BarDataSet set2 = new BarDataSet(yVals2, "Extra Payment");
         set2.setBarSpacePercent(5f);
-        set2.setColor(getResources().getColor(R.color.blue_button));
+        set2.setColor(getResources().getColor(R.color.extra_payment_bar));
 
         ArrayList<BarDataSet> dataSets = new ArrayList<>();
         dataSets.add(set1);

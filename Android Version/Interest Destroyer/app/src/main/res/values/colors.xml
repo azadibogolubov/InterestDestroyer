@@ -3,12 +3,14 @@
 	<!-- MATERIAL DESIGN COLORS -->
 	<color name="dark_primary">#388E3C</color>
 	<color name="primary">#4CAF50</color>
-	<color name="light_primary">#C8E6C9</color>
+	<color name="light_primary">#81C784</color>
 	<color name="text_icons">#FFFFFF</color>
 	<color name="accent">#536DFE</color>
-	<color name="primary_text">#212121</color>
+	<color name="primary_text">#E8F5E9</color>
 	<color name="secondary_text">#727272</color>
 	<color name="divider">#B6B6B6</color>
+	<color name="minimum_payment_bar">#2E7D32</color>
+	<color name="extra_payment_bar">#1B5E20</color>
 
 	<!-- OLD COLORS -->
     <color name="fountain_blue">#51A5BA</color>
