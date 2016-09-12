@@ -31,6 +31,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     Intent intent;
     Button graphical, amortize, email, extra, customize;
     ScrollView mainLayout;
-    FloatingActionButton mainFab;
+    LinearLayout homeLoan, carLoan, studentLoan;
     boolean animationShown;
 
     @Override
@@ -105,15 +107,40 @@ public class MainActivity extends AppCompatActivity {
 
     public void initializeControls() {
         animationShown = false;
-        mainFab = (FloatingActionButton) findViewById(R.id.mainFab);
+//        mainFab = (FloatingActionButton) findViewById(R.id.mainFab);
+        homeLoan = (LinearLayout) findViewById(R.id.homeLoan);
+        carLoan = (LinearLayout) findViewById(R.id.carLoan);
+        studentLoan = (LinearLayout) findViewById(R.id.studentLoan);
     }
 
     public void initializeButtons() {
-        mainFab.setOnClickListener(new View.OnClickListener() {
+//        mainFab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(MainActivity.this, InfoGatheringActivity.class));
+//            }
+//        });
+
+        homeLoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, InfoGatheringActivity.class));
             }
         });
+
+        carLoan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, InfoGatheringActivity.class));
+            }
+        });
+
+        studentLoan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, InfoGatheringActivity.class));
+            }
+        });
+
     }
 }

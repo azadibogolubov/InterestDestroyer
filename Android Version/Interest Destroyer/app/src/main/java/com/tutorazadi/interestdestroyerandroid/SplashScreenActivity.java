@@ -31,7 +31,7 @@ import android.widget.TextView;
 public class SplashScreenActivity extends Activity {
 
     Typeface parisish;
-    TextView interestTxt, destroyerTxt;
+    TextView interestTxt;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +51,6 @@ public class SplashScreenActivity extends Activity {
 
         interestTxt = (TextView) findViewById(R.id.interestTxt);
         interestTxt.setTypeface(parisish);
-
-        destroyerTxt = (TextView) findViewById(R.id.destroyerTxt);
-        destroyerTxt.setTypeface(parisish);
     }
 
 	@Override

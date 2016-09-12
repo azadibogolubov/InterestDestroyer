@@ -2,8 +2,7 @@
 <resources>
 
     <string name="app_name">Interest Destroyer</string>
-    <string name="interest_logo">Intere$t</string>
-    <string name="destroyer_logo">De$troyer</string>
+    <string name="interest_logo">Intere$t De$troyer</string>
     <string name="info_gathering">Basic information</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">Gathering Information</string>

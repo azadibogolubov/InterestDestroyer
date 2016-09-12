@@ -12,7 +12,7 @@
         android:gravity="center_horizontal"
         android:textSize="18sp"
         android:layout_margin="16dp"
-        android:textColor="@color/primary_text"
+        android:textColor="@color/text_icons"
         android:text="@string/savings_amount"/>
 
     <TextView
@@ -22,7 +22,7 @@
         android:textSize="18sp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:textColor="@color/primary_text"
+        android:textColor="@color/text_icons"
         android:layout_below="@id/mainTxt"/>
 
     <TextView
@@ -32,6 +32,6 @@
         android:textSize="18sp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:textColor="@color/primary_text"
+        android:textColor="@color/text_icons"
         android:layout_below="@id/savingsAmount"/>
 </RelativeLayout>

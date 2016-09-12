@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.text.InputType;
 import android.view.Menu;
@@ -52,7 +53,7 @@ public class InfoGatheringActivity extends Activity {
     public static double timeSaved;
     public static double[] min_interest_paid, extra_interest_paid, min_principal_paid, extra_principal_paid;
 
-    ImageView getInfo;
+    FloatingActionButton fab;
     EditText principalTxt, interestTxt, numMonthsTxt, extraPaymentTxt;
 
     CoordinatorLayout mainLayout;
@@ -90,11 +91,11 @@ public class InfoGatheringActivity extends Activity {
 
         mainLayout = (CoordinatorLayout) findViewById(R.id.mainLayout);
 
-        getInfo = (ImageView) findViewById(R.id.getInfo);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
     }
 
     public void setClickListeners() {
-        getInfo.setOnClickListener(new View.OnClickListener() {
+        fab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 principal = principal_original;
                 simple_interest = principal * (rate / 100) * (time / 12);

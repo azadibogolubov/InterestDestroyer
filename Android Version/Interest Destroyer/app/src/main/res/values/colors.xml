@@ -1,39 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<!-- MATERIAL DESIGN COLORS -->
-	<color name="dark_primary">#388E3C</color>
-	<color name="primary">#4CAF50</color>
-	<color name="light_primary">#81C784</color>
-	<color name="text_icons">#FFFFFF</color>
-	<color name="accent">#536DFE</color>
-	<color name="primary_text">#E8F5E9</color>
-	<color name="secondary_text">#727272</color>
-	<color name="divider">#B6B6B6</color>
-	<color name="minimum_payment_bar">#2E7D32</color>
-	<color name="extra_payment_bar">#1B5E20</color>
+    <color name="primary">#009688</color>
+    <color name="dark_primary">#00796B</color>
+    <color name="light_primary">#B2DFDB</color>
+    <color name="accent">#00BCD4</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="text_icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="minimum_payment_bar">@color/primary_text</color>
+    <color name="extra_payment_bar">@color/secondary_text</color>
 
-	<!-- OLD COLORS -->
+    <!-- OLD COLORS -->
     <color name="fountain_blue">#51A5BA</color>
-	<color name="teal_green">#41924B</color>
-	<color name="light_green">#AFEAAA</color>
-	<color name="granny_smith">#87E293</color>
-	<color name="white">#FFFFFF</color>
-	<color name="green_background">#64C750</color>
-	<color name="pastel_blue">#67E6EC</color>
-	<color name="headline_text">#000000</color>
-	<color name="light_black_text">#444444</color>
-	<color name="green_gradient_start">#5E9C56</color>
-	<color name="green_gradient_end">#8DF082</color>
-	<color name="blue_gradient_start">#3DFDFF</color>
-	<color name="blue_gradient_end">#A1FCFD</color>
-	<color name="orange_gradient_start">#ff9649</color>
-	<color name="orange_gradient_end">#ffa25d</color>
-	<color name="action_bar_blue">#46A0C6</color>
-	<color name="black">#000000</color>
+    <color name="teal_green">#41924B</color>
+    <color name="light_green">#AFEAAA</color>
+    <color name="granny_smith">#87E293</color>
+    <color name="white">#FFFFFF</color>
+    <color name="green_background">#64C750</color>
+    <color name="pastel_blue">#67E6EC</color>
+    <color name="headline_text">#000000</color>
+    <color name="light_black_text">#444444</color>
+    <color name="green_gradient_start">#5E9C56</color>
+    <color name="green_gradient_end">#8DF082</color>
+    <color name="blue_gradient_start">#3DFDFF</color>
+    <color name="blue_gradient_end">#A1FCFD</color>
+    <color name="orange_gradient_start">#ff9649</color>
+    <color name="orange_gradient_end">#ffa25d</color>
+    <color name="action_bar_blue">#46A0C6</color>
+    <color name="black">#000000</color>
     <color name="blue">#0000FF</color>
     <color name="gray">#C2C2C2</color>
-	<color name="action_bar">#066891</color>
-	<color name="blue_button">#00a2ff</color>
-	<color name="yellow_button">#f1ff01</color>
-	<color name="green_button">#64C750</color>
+    <color name="action_bar">#066891</color>
+    <color name="blue_button">#00a2ff</color>
+    <color name="yellow_button">#f1ff01</color>
+    <color name="green_button">#64C750</color>
 </resources>
