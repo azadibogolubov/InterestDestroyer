@@ -107,38 +107,37 @@ public class MainActivity extends AppCompatActivity {
 
     public void initializeControls() {
         animationShown = false;
-//        mainFab = (FloatingActionButton) findViewById(R.id.mainFab);
         homeLoan = (LinearLayout) findViewById(R.id.homeLoan);
         carLoan = (LinearLayout) findViewById(R.id.carLoan);
         studentLoan = (LinearLayout) findViewById(R.id.studentLoan);
     }
 
     public void initializeButtons() {
-//        mainFab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(MainActivity.this, InfoGatheringActivity.class));
-//            }
-//        });
 
         homeLoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, InfoGatheringActivity.class));
+                Intent intent = new Intent(MainActivity.this, InfoGatheringActivity.class);
+                intent.putExtra("TYPE", "house");
+                startActivity(intent);
             }
         });
 
         carLoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, InfoGatheringActivity.class));
+                Intent intent = new Intent(MainActivity.this, InfoGatheringActivity.class);
+                intent.putExtra("TYPE", "car");
+                startActivity(intent);
             }
         });
 
         studentLoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, InfoGatheringActivity.class));
+                Intent intent = new Intent(MainActivity.this, InfoGatheringActivity.class);
+                intent.putExtra("TYPE", "student");
+                startActivity(intent);
             }
         });
 

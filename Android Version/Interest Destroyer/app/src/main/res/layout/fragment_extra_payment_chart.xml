@@ -21,16 +21,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/instructions"
-        android:textColor="@color/primary_text"
-        android:text="Years Saved: "/>
+        android:textColor="@color/text_icons"
+        android:text="@string/years_saved"/>
 
     <TextView
         android:id="@+id/interestSavedLbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/yearsSavedLbl"
-        android:textColor="@color/primary_text"
-        android:text="Interest Saved: "/>
+        android:textColor="@color/text_icons"
+        android:text="@string/interest_saved"/>
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/chart"

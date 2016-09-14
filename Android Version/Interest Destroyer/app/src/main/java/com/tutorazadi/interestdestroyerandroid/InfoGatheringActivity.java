@@ -26,6 +26,7 @@ import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -59,6 +60,7 @@ public class InfoGatheringActivity extends Activity {
     CoordinatorLayout mainLayout;
 
     public Typeface arimo;
+    private ImageView icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +94,20 @@ public class InfoGatheringActivity extends Activity {
         mainLayout = (CoordinatorLayout) findViewById(R.id.mainLayout);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
+
+        icon = (ImageView) findViewById(R.id.icon);
+        String type = getIntent().getStringExtra("TYPE");
+        switch (type) {
+            case "house":
+                icon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.house));
+                break;
+            case "car":
+                icon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.car));
+                break;
+            case "student":
+                icon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.student));
+                break;
+        }
     }
 
     public void setClickListeners() {

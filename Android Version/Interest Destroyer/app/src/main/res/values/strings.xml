@@ -17,8 +17,8 @@
     <string name="extra_payment_hint">Extra payment amount?</string>
     <string name="title_activity_options">Choose an Option</string>
     <string name="content_desc">Content Description</string>
-    <string name="interest_saved">Interest Saved:</string>
-    <string name="years_saved">Years Saved:</string>
+    <string name="interest_saved">Interest Saved: </string>
+    <string name="years_saved">Years Saved: </string>
     <string name="results_ready">Your results are ready!</string>
     <string name="what_next">What would you like to do now?</string>
     <string name="amortization">Amortization:</string>

@@ -73,11 +73,12 @@
             android:textColorHint="@color/text_icons"/>
 
         <ImageView
+            android:id="@+id/icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/car"/>
+            android:layout_gravity="center_horizontal"/>
+
     </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
@@ -87,8 +88,8 @@
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
         android:src="@drawable/dollarsign"
+        android:clickable="true"
         app:backgroundTint="@color/accent"
-        app:elevation="8dp"
-        />
+        app:elevation="8dp"/>
 
 </android.support.design.widget.CoordinatorLayout>
