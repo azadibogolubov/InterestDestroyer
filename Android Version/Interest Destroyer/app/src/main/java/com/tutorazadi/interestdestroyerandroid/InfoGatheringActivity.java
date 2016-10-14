@@ -30,72 +30,56 @@ import android.support.v4.content.ContextCompat;
 import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class InfoGatheringActivity extends Activity {
 
-    public static double rate;
-    public static double principal, principal_original;
-    public static double time;
-    public static double payment_amount;
-    public static double extra_payment;
-    public static double simple_interest;
-    public static double compound_interest;
-    public static double original_interest;
-    public static double net_interest;
+    public static double rate, principal, principal_original, time, payment_amount, extra_payment, simple_interest;
+    public static double compound_interest, original_interest, net_interest, principal_paid, payoff_months, timeSaved;
+    public static double interest_paid = original_interest = 0.00f;
+
     public double interestSaved;
-    public static double principal_paid;
-    public static double payoff_months;
 
     public static double[] extra_payments, minimum_payments, min_principal_remaining, extra_principal_remaining;
-    public static double interest_paid = original_interest = 0.00f;
-    public static double timeSaved;
     public static double[] min_interest_paid, extra_interest_paid, min_principal_paid, extra_principal_paid;
 
-    FloatingActionButton fab;
-    EditText principalTxt, interestTxt, numMonthsTxt, extraPaymentTxt;
-
-    CoordinatorLayout mainLayout;
+    @Bind(R.id.fab) FloatingActionButton fab;
+    @Bind(R.id.principalTxt) EditText principalTxt;
+    @Bind(R.id.interestTxt) EditText interestTxt;
+    @Bind(R.id.numMonthsTxt) EditText numMonthsTxt;
+    @Bind(R.id.extraPaymentTxt) EditText extraPaymentTxt;
+    @Bind(R.id.mainLayout) CoordinatorLayout mainLayout;
+    @Bind(R.id.icon) ImageView icon;
 
     public Typeface arimo;
-    private ImageView icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_gathering);
-
+        ButterKnife.bind(this);
         initializeControls();
-        setClickListeners();
     }
 
-    public void initializeControls()
-    {
+    public void initializeControls() {
         arimo = Typeface.createFromAsset(this.getAssets(), "fonts/Arimo-Regular.ttf");
 
-        principalTxt = (EditText) findViewById(R.id.principalTxt);
-        principalTxt.setTypeface(arimo);
-        principalTxt.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        List<EditText> fields = Arrays.asList(principalTxt, numMonthsTxt, interestTxt, extraPaymentTxt);
 
-        numMonthsTxt = (EditText) findViewById(R.id.numMonthsTxt);
-        numMonthsTxt.setTypeface(arimo);
-        numMonthsTxt.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        for (EditText field: fields) {
+            field.setTypeface(arimo);
+            field.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        }
 
-        interestTxt = (EditText) findViewById(R.id.interestTxt);
-        interestTxt.setTypeface(arimo);
-        interestTxt.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-
-        extraPaymentTxt = (EditText) findViewById(R.id.extraPaymentTxt);
-        extraPaymentTxt.setTypeface(arimo);
-        extraPaymentTxt.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-
-        mainLayout = (CoordinatorLayout) findViewById(R.id.mainLayout);
-
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-
-        icon = (ImageView) findViewById(R.id.icon);
         String type = getIntent().getStringExtra("TYPE");
         switch (type) {
             case "house":
@@ -110,42 +94,39 @@ public class InfoGatheringActivity extends Activity {
         }
     }
 
-    public void setClickListeners() {
-        fab.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                principal = principal_original;
-                simple_interest = principal * (rate / 100) * (time / 12);
-                interest_paid = 0.00;
-                net_interest = 0.00;
-                principal_paid = 0.00;
-                payment_amount = amortize(principal, rate, time);
+    @OnClick(R.id.fab)
+    void submit() {
+        principal = principal_original;
+        simple_interest = principal * (rate / 100) * (time / 12);
+        interest_paid = 0.00;
+        net_interest = 0.00;
+        principal_paid = 0.00;
+        payment_amount = amortize(principal, rate, time);
 
-                try {
-                    if (principalTxt.getText().length() < 4) {
-                        Snackbar.make(mainLayout, "Minimum amount for principal must be greater than $1000", Snackbar.LENGTH_SHORT).show();
-                        return;
-                    }
-                    else if (interestTxt.getText().length() < 1) {
-                        Snackbar.make(mainLayout, "Minimum interest rate must be greater than 0%.", Snackbar.LENGTH_SHORT).show();
-                        return;
-                    } else if (numMonthsTxt.getText().length() < 1) {
-                        Snackbar.make(mainLayout, "Minimum number of months must be greater than 0.", Snackbar.LENGTH_SHORT).show();
-                        return;
-                    } else if (extraPaymentTxt.getText().length() < 1) {
-                        Snackbar.make(mainLayout, "Please enter at least $0 for an extra payment amount.", Snackbar.LENGTH_SHORT).show();
-                    }
-                    principal_original = principal = Double.parseDouble(principalTxt.getText().toString());
-                    time = Double.parseDouble(numMonthsTxt.getText().toString());
-                    rate = Double.parseDouble(interestTxt.getText().toString());
-                    extra_payment = Double.parseDouble(extraPaymentTxt.getText().toString());
-                    calculate(v);
-                    goToViewPager();
-                    Snackbar.make(mainLayout, "TODO: Implement logic to go to ViewPager activity to show amortization and results.", Snackbar.LENGTH_SHORT).show();
-                } catch (NumberFormatException e) {
-                    Snackbar.make(mainLayout, "You have entered invalid data.", Snackbar.LENGTH_SHORT).show();
-                }
+        try {
+            if (principalTxt.getText().length() < 4) {
+                Snackbar.make(mainLayout, "Minimum amount for principal must be greater than $1000", Snackbar.LENGTH_SHORT).show();
+                return;
+            } else if (interestTxt.getText().length() < 1) {
+                Snackbar.make(mainLayout, "Minimum interest rate must be greater than 0%.", Snackbar.LENGTH_SHORT).show();
+                return;
+            } else if (numMonthsTxt.getText().length() < 1) {
+                Snackbar.make(mainLayout, "Minimum number of months must be greater than 0.", Snackbar.LENGTH_SHORT).show();
+                return;
+            } else if (extraPaymentTxt.getText().length() < 1) {
+                Snackbar.make(mainLayout, "Please enter at least $0 for an extra payment amount.", Snackbar.LENGTH_SHORT).show();
             }
-        });
+            principal_original = principal = Double.parseDouble(principalTxt.getText().toString());
+            time = Double.parseDouble(numMonthsTxt.getText().toString());
+            rate = Double.parseDouble(interestTxt.getText().toString());
+            extra_payment = Double.parseDouble(extraPaymentTxt.getText().toString());
+            calculate();
+            goToViewPager();
+            Snackbar.make(mainLayout, "TODO: Implement logic to go to ViewPager activity to show amortization and results.", Snackbar.LENGTH_SHORT).show();
+        } catch (NumberFormatException e) {
+            Snackbar.make(mainLayout, "You have entered invalid data.", Snackbar.LENGTH_SHORT).show();
+        }
+
     }
 
     @Override
@@ -165,7 +146,7 @@ public class InfoGatheringActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void calculate(View v) {
+    public void calculate() {
         extra_payments = new double[(int) time];
         minimum_payments = new double[(int) time];
         min_principal_paid = new double[(int) time];
@@ -202,7 +183,7 @@ public class InfoGatheringActivity extends Activity {
 
         interest_paid = compound_interest = principal_paid = simple_interest = 0;
         payment_amount = amortize(principal, rate, time);
-        System.out.println("Monthly payment amount: " + payment_amount);
+
         for (int i = 0; i < time; i++) {
             compound_interest = principal * (1 + (rate / 1200)) - principal;
             if (compound_interest <= 0) {

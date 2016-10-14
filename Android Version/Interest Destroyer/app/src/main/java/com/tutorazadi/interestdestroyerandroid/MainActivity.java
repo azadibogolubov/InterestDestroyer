@@ -19,28 +19,25 @@
 
 package com.tutorazadi.interestdestroyerandroid;
 
-import android.animation.PropertyValuesHolder;
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
     Intent intent;
-    Button graphical, amortize, email, extra, customize;
-    ScrollView mainLayout;
-    LinearLayout homeLoan, carLoan, studentLoan;
+
+    @Bind(R.id.homeLoan) LinearLayout homeLoan;
+    @Bind(R.id.carLoan) LinearLayout carLoan;
+    @Bind(R.id.studentLoan) LinearLayout studentLoan;
+
     boolean animationShown;
 
     @Override
@@ -48,98 +45,37 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
-        initializeControls();
-        initializeButtons();
+        ButterKnife.bind(this);
+        animationShown = false;
+
         intent = new Intent(MainActivity.this, InfoGatheringActivity.class);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+    @OnClick(R.id.homeLoan)
+    public void clickHomeLoan() {
+        Intent intent = new Intent(MainActivity.this, InfoGatheringActivity.class);
+        intent.putExtra("TYPE", "house");
+        startActivity(intent);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
-            // Change the theme...
-            int buttonColor = data.getIntExtra("BUTTON_COLOR", -1);
-            int backgroundColor = data.getIntExtra("BACKGROUND_COLOR", -1);
-            Drawable btnColor = getResources().getDrawable(buttonColor);
-            Drawable bgColor = getResources().getDrawable(backgroundColor);
-
-            amortize.setBackground(btnColor);
-            graphical.setBackground(btnColor);
-            email.setBackground(btnColor);
-            extra.setBackground(btnColor);
-            customize.setBackground(btnColor);
-
-            mainLayout.setBackground(bgColor);
-        }
+    @OnClick(R.id.carLoan)
+    public void clickCarLoan() {
+        Intent intent = new Intent(MainActivity.this, InfoGatheringActivity.class);
+        intent.putExtra("TYPE", "car");
+        startActivity(intent);
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-
-
-        // Always call the superclass so it can save the view hierarchy state
-        super.onSaveInstanceState(savedInstanceState);
-    }
-
-    @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
-
-        // Always call the superclass so it can save the view hierarchy state
-        super.onSaveInstanceState(savedInstanceState);
-    }
-
-    public void initializeControls() {
-        animationShown = false;
-        homeLoan = (LinearLayout) findViewById(R.id.homeLoan);
-        carLoan = (LinearLayout) findViewById(R.id.carLoan);
-        studentLoan = (LinearLayout) findViewById(R.id.studentLoan);
-    }
-
-    public void initializeButtons() {
-
-        homeLoan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, InfoGatheringActivity.class);
-                intent.putExtra("TYPE", "house");
-                startActivity(intent);
-            }
-        });
-
-        carLoan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, InfoGatheringActivity.class);
-                intent.putExtra("TYPE", "car");
-                startActivity(intent);
-            }
-        });
-
-        studentLoan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, InfoGatheringActivity.class);
-                intent.putExtra("TYPE", "student");
-                startActivity(intent);
-            }
-        });
-
+    @OnClick(R.id.studentLoan)
+    public void clickStudentLoan() {
+        Intent intent = new Intent(MainActivity.this, InfoGatheringActivity.class);
+        intent.putExtra("TYPE", "student");
+        startActivity(intent);
     }
 }

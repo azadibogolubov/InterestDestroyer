@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,10 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import butterknife.Bind;
+import butterknife.BindColor;
+import butterknife.ButterKnife;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,14 +47,14 @@ public class ExtraPaymentChartFragment extends Fragment {
 
     private static NumberFormat n = NumberFormat.getCurrencyInstance(Locale.US);
     private static DecimalFormat df = new DecimalFormat("#.##");
-    private TextView interestSavedLbl, yearsSavedLbl;
     private static double[]  min_principal_remaining, extra_principal_remaining;
-    private static double extraPayment, minimumPayment;
-    private double timeSaved, interestSaved, totalMonths;
+    private static double extraPayment, minimumPayment, timeSaved, interestSaved, totalMonths;
     private String principal, extraPaymentAmount, interest;
     private Typeface arimoItalic;
     private int size;
-    private Activity context;
+
+    @Bind(R.id.interestSavedLbl) TextView interestSavedLbl;
+    @Bind(R.id.yearsSavedLbl) TextView yearsSavedLbl;
 
     public ExtraPaymentChartFragment() {
         // Required empty public constructor
@@ -72,21 +77,19 @@ public class ExtraPaymentChartFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         RelativeLayout rootLayout = (RelativeLayout) inflater.inflate(R.layout.fragment_extra_payment_chart, container, false);
-        context = getActivity();
+        ButterKnife.bind(this, rootLayout);
 
         // Inflate the layout for this fragment
-        Bundle extras = context.getIntent().getExtras();
+        Bundle extras = getActivity().getIntent().getExtras();
 
 
-        arimoItalic = Typeface.createFromAsset(context.getAssets(), "fonts/Arimo-Italic.ttf");
+        arimoItalic = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Arimo-Italic.ttf");
 
         minimumPayment = extras.getDouble("MINIMUM_PAYMENTS");
         extraPayment = extras.getDouble("EXTRA_PAYMENTS");
@@ -113,11 +116,11 @@ public class ExtraPaymentChartFragment extends Fragment {
             catch (ArrayIndexOutOfBoundsException e)  { break ;}
         }
 
-        yearsSavedLbl = (TextView) rootLayout.findViewById(R.id.yearsSavedLbl);
+        //yearsSavedLbl = (TextView) rootLayout.findViewById(R.id.yearsSavedLbl);
         yearsSavedLbl.setTypeface(arimoItalic);
         yearsSavedLbl.setText(yearsSavedLbl.getText() + String.valueOf(df.format(extras.getDouble("TIME_SAVED"))));
 
-        interestSavedLbl = (TextView) rootLayout.findViewById(R.id.interestSavedLbl);
+        //interestSavedLbl = (TextView) rootLayout.findViewById(R.id.interestSavedLbl);
         interestSavedLbl.setTypeface(arimoItalic);
         interestSavedLbl.setText(interestSavedLbl.getText() + String.valueOf(n.format(extras.getDouble("INTEREST_SAVED"))));
 
@@ -135,7 +138,7 @@ public class ExtraPaymentChartFragment extends Fragment {
         chart.setPinchZoom(false);
         chart.setDrawGridBackground(false);
 
-        mTf = Typeface.createFromAsset(context.getAssets(), "fonts/Arimo-Regular.ttf");
+        mTf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Arimo-Regular.ttf");
 
         XAxis xAxis = chart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
@@ -227,11 +230,11 @@ public class ExtraPaymentChartFragment extends Fragment {
 
         BarDataSet set1 = new BarDataSet(yVals1, "Minimum Payment");
         set1.setBarSpacePercent(5f);
-        set1.setColor(getResources().getColor(R.color.minimum_payment_bar));
+        set1.setColor(ContextCompat.getColor(getActivity(), R.color.minimum_payment_bar));
 
         BarDataSet set2 = new BarDataSet(yVals2, "Extra Payment");
         set2.setBarSpacePercent(5f);
-        set2.setColor(getResources().getColor(R.color.extra_payment_bar));
+        set2.setColor(ContextCompat.getColor(getActivity(), R.color.extra_payment_bar));
 
         ArrayList<BarDataSet> dataSets = new ArrayList<>();
         dataSets.add(set1);

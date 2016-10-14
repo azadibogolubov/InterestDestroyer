@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 public class ResultsActivity extends AppCompatActivity implements ResultsFragment.OnFragmentInteractionListener, ExtraPaymentChartFragment.OnFragmentInteractionListener {
+    TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,7 +15,7 @@ public class ResultsActivity extends AppCompatActivity implements ResultsFragmen
         getSupportActionBar().hide();
         setContentView(R.layout.activity_results);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.savings_tab)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.graph_tab)));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
