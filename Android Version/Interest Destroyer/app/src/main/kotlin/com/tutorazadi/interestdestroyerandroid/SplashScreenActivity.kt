@@ -15,7 +15,8 @@ class SplashScreenActivity: Activity() {
         setContentView(R.layout.activity_splash_screen)
         Handler().postDelayed({
             /* Create an Intent that will start the Menu-Activity. */
-            val intent = Intent(this@SplashScreenActivity, MainActivity::class.java)
+//            val intent = Intent(this@SplashScreenActivity, MainActivity::class.java)
+            val intent = Intent(this@SplashScreenActivity, AmortizationActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000)

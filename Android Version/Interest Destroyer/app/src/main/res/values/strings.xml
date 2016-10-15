@@ -59,4 +59,11 @@
     <string name="graph_tab">Graphical</string>
 
     <string name="savings_amount">By sending extra, you will save:</string>
+    <string name="amortization_ready">Amortization Results!</string>
+    <string name="results_delivery">How would you like to receive your results?</string>
+
+    <string name="email">Email</string>
+    <string name="amortization_subject">Your Amortization Schedule from Interest Destroyer</string>
+    <string name="print">Print</string>
+
 </resources>

@@ -8,6 +8,10 @@
         android:minSdkVersion="16"
         android:targetSdkVersion="21"/>
 
+    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="true"
@@ -25,6 +29,7 @@
             android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
@@ -35,6 +40,10 @@
         <activity
             android:name=".ResultsActivity"
             android:label="@string/title_activity_results">
+        </activity>
+        <activity
+            android:name=".AmortizationActivity"
+            android:label="@string/title_activity_amortization">
         </activity>
     </application>
 
