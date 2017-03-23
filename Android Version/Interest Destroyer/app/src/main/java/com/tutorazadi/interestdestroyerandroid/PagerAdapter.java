@@ -4,27 +4,23 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-public class PagerAdapter extends FragmentStatePagerAdapter {
-    int mNumOfTabs;
+class PagerAdapter extends FragmentStatePagerAdapter {
+    private int mNumOfTabs;
 
-    public PagerAdapter(FragmentManager fm, int NumOfTabs) {
+    PagerAdapter(FragmentManager fm, int NumOfTabs) {
         super(fm);
         this.mNumOfTabs = NumOfTabs;
     }
 
     @Override
     public Fragment getItem(int position) {
-
         switch (position) {
             case 0:
-                ResultsFragment tab1 = new ResultsFragment();
-                return tab1;
+                return new ResultsFragment();
             case 1:
-                ExtraPaymentChartFragment tab2 = new ExtraPaymentChartFragment();
-                return tab2;
-            default:
-                return null;
+                return new ExtraPaymentChartFragment();
         }
+        return null;
     }
 
     @Override

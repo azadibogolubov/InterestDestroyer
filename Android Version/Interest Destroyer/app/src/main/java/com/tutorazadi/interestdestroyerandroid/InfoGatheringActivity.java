@@ -65,9 +65,10 @@ public class InfoGatheringActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info_gathering);
-        ButterKnife.bind(this);
-        initializeControls();
+        //setContentView(R.layout.activity_info_gathering);
+        setContentView(R.layout.results);
+//        ButterKnife.bind(this);
+//        initializeControls();
     }
 
     public void initializeControls() {

@@ -17,7 +17,11 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
-	<style name="BlueActionBarTheme" parent="@android:style/Widget.Holo.Light.ActionBar">
+    <style name="BlueActionBarTheme" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:background">#46A0C6</item>
     </style>
+
+    <declare-styleable name="DonutChart">
+        <attr name="radius" format="dimension" />
+    </declare-styleable>
 </resources>

@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Interest Destroyer/Interest Destroyer.iml" filepath="$PROJECT_DIR$/Interest Destroyer/Interest Destroyer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Interest Destroyer/bin/bin.iml" filepath="$PROJECT_DIR$/Interest Destroyer/bin/bin.iml" />
     </modules>
   </component>
 </project>
-
