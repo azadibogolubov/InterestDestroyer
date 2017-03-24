@@ -65,10 +65,10 @@ public class InfoGatheringActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_info_gathering);
-        setContentView(R.layout.results);
-//        ButterKnife.bind(this);
-//        initializeControls();
+        setContentView(R.layout.activity_info_gathering);
+//        setContentView(R.layout.results);
+        ButterKnife.bind(this);
+        initializeControls();
     }
 
     public void initializeControls() {
@@ -79,19 +79,6 @@ public class InfoGatheringActivity extends Activity {
         for (EditText field: fields) {
             field.setTypeface(arimo);
             field.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        }
-
-        String type = getIntent().getStringExtra("TYPE");
-        switch (type) {
-            case "house":
-                icon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.house));
-                break;
-            case "car":
-                icon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.car));
-                break;
-            case "student":
-                icon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.student));
-                break;
         }
     }
 
@@ -216,9 +203,11 @@ public class InfoGatheringActivity extends Activity {
         viewPagerIntent.putExtra("PRINCIPAL", principal);
         viewPagerIntent.putExtra("INTEREST_SAVED", interestSaved);
         viewPagerIntent.putExtra("TIME_SAVED", timeSaved);
-        viewPagerIntent.putExtra("INTEREST_RATE", interest_paid);
+        viewPagerIntent.putExtra("INTEREST_PAID", interest_paid);
         viewPagerIntent.putExtra("EXTRA_PAYMENT_AMOUNT", extra_payment);
         viewPagerIntent.putExtra("TOTAL_MONTHS", time);
+        DonutVariables.PRINCIPAL = (float) principal_original;
+        DonutVariables.INTEREST = (float) interest_paid;
         startActivity(viewPagerIntent);
     }
 }

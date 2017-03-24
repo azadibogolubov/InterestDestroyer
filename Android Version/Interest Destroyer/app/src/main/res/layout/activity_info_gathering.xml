@@ -4,7 +4,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/primary"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -20,8 +19,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="16dp"
-            android:textColor="@color/text_icons"
             android:text="@string/info_gathering"
+            android:textColor="#008800"
             android:textSize="36sp"/>
 
         <EditText
@@ -31,9 +30,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
-            android:hint="@string/principal_hint"
-            android:textColor="@color/text_icons"
-            android:textColorHint="@color/text_icons">
+            android:hint="@string/principal_hint">
 
             <requestFocus/>
         </EditText>
@@ -45,9 +42,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
-            android:hint="@string/interest_hint"
-            android:textColor="@color/text_icons"
-            android:textColorHint="@color/text_icons"/>
+            android:hint="@string/interest_hint" />
 
         <EditText
             android:id="@+id/numMonthsTxt"
@@ -57,9 +52,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:ems="10"
-            android:hint="@string/months_hint"
-            android:textColor="@color/text_icons"
-            android:textColorHint="@color/text_icons"/>
+            android:hint="@string/months_hint" />
 
         <EditText
             android:id="@+id/extraPaymentTxt"
@@ -68,9 +61,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
-            android:hint="@string/extra_payment_hint"
-            android:textColor="@color/text_icons"
-            android:textColorHint="@color/text_icons"/>
+            android:hint="@string/extra_payment_hint" />
 
         <ImageView
             android:id="@+id/icon"

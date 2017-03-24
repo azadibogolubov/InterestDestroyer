@@ -8,8 +8,8 @@
     <color name="secondary_text">#757575</color>
     <color name="text_icons">#FFFFFF</color>
     <color name="divider">#BDBDBD</color>
-    <color name="minimum_payment_bar">@color/primary_text</color>
-    <color name="extra_payment_bar">@color/secondary_text</color>
+    <color name="minimum_payment_bar">#00AAAA</color>
+    <color name="extra_payment_bar">#0000AA</color>
 
     <!-- OLD COLORS -->
     <color name="fountain_blue">#51A5BA</color>

@@ -83,6 +83,9 @@ public class DonutChart extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        float total = DonutVariables.PRINCIPAL + DonutVariables.INTEREST;
+        float principalPercent = (DonutVariables.PRINCIPAL / total) * 360;
+        float interestPercent = (DonutVariables.INTEREST / total) * 360;
 
         // draw shadow
         paint.setShader(null);
@@ -90,22 +93,13 @@ public class DonutChart extends View {
         paint.setShadowLayer(8, adjust, -adjust, 0xaa000000);
         drawDonut(canvas,paint, 0,359.9f);
 
-
         // green
         setGradient(0xff84BC3D,0xff5B8829);
-        drawDonut(canvas,paint, 0,120);
+        drawDonut(canvas,paint, 0, principalPercent);
 
         //red
         setGradient(0xffe04a2f,0xffB7161B);
-        drawDonut(canvas,paint, 120,240);
-
-//        // blue
-//        setGradient(0xff4AB6C1,0xff2182AD);
-//        drawDonut(canvas,paint, 120,60);
-//
-//        // yellow
-//        setGradient(0xffFFFF00,0xfffed325);
-//        drawDonut(canvas,paint, 180,180);
+        drawDonut(canvas,paint, principalPercent,interestPercent);
     }
 
     public void drawDonut(Canvas canvas, Paint paint, float start,float sweep){

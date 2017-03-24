@@ -81,7 +81,7 @@ public class ExtraPaymentChartFragment extends Fragment {
         principal = extras.getString("PRINCIPAL");
         interestSaved = extras.getDouble("INTEREST_SAVED");
         timeSaved = extras.getDouble("TIME_SAVED");
-        interest = extras.getString("INTEREST_RATE");
+        interest = extras.getString("INTEREST_PAID");
         extraPaymentAmount = extras.getString("EXTRA_PAYMENT_AMOUNT");
 
         size = (int)extras.getDouble("TOTAL_MONTHS");
