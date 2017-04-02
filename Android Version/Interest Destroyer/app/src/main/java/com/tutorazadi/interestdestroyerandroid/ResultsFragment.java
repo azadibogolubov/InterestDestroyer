@@ -4,12 +4,20 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
+
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -18,14 +26,15 @@ public class ResultsFragment extends Fragment {
 
     @Bind(R.id.savingsAmount) TextView savingsAmount;
     @Bind(R.id.savingsTime) TextView savingsTime;
+    @Bind(R.id.chart) PieChart pieChart;
 
     Double interestSaved, timeSaved;
 
+    PieChart chart;
+
     private static DecimalFormat df = new DecimalFormat("#.##");
 
-    public ResultsFragment() {
-        // Required empty public constructor
-    }
+    public ResultsFragment() {}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,8 +52,27 @@ public class ResultsFragment extends Fragment {
         interestSaved = extras.getDouble("INTEREST_SAVED");
         timeSaved = extras.getDouble("TIME_SAVED");
 
-        savingsAmount.setText("$" + df.format(interestSaved).toString() + " in interest,");
-        savingsTime.setText("and " + df.format(timeSaved).toString() + " years of payments.");
+        savingsAmount.setText("$" + df.format(interestSaved) + " in interest,");
+        savingsTime.setText("and " + df.format(timeSaved) + " years of payments.");
+
+        ArrayList<Entry> entries = new ArrayList<>();
+        entries.add(new Entry(DonutVariables.PRINCIPAL, 0));
+        entries.add(new Entry(DonutVariables.INTEREST, 1));
+
+        PieDataSet dataset = new PieDataSet(entries, "");
+
+        ArrayList<String> labels = new ArrayList<>();
+        labels.add("Principal");
+        labels.add("Interest");
+
+        PieData data = new PieData(labels, dataset);
+        int[] colorList = { ContextCompat.getColor(getContext(), R.color.minimum_payment_bar), ContextCompat.getColor(getContext(), R.color.extra_payment_bar) };
+        dataset.setColors(colorList);
+
+        pieChart.setData(data);
+        pieChart.animateY(1000);
+        pieChart.setDescription("");
+        pieChart.saveToGallery("/sd/mychart.jpg", 85); // 85 is the quality of the image
         return view;
     }
 

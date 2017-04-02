@@ -30,112 +30,12 @@
         android:layout_marginEnd="16dp"
         android:layout_below="@id/savingsAmount"/>
 
-    <!-- Minimum payments -->
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_marginTop="120dp"-->
-        <!--android:layout_marginStart="16dp"-->
-        <!--android:textSize="18sp"-->
-        <!--android:text="Minimum payments:"/>-->
-
-    <com.tutorazadi.interestdestroyerandroid.DonutChart
-        android:id="@+id/donutChart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/chart"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="160dp"
-        android:layout_marginStart="48dp"
-        app:radius="60dp" />
-
-    <View
-        android:id="@+id/red"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:background="#FF0000"
-        android:layout_toEndOf="@id/donutChart"
-        android:layout_alignTop="@id/donutChart"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="24dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/red"
-        android:layout_alignTop="@id/red"
-        android:layout_marginStart="16dp"
-        android:text="Interest" />
-
-    <View
-        android:id="@+id/green"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:background="#00AA00"
-        android:layout_below="@id/red"
-        android:layout_alignStart="@id/red"
-        android:layout_marginTop="24dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/green"
-        android:layout_alignTop="@id/green"
-        android:layout_marginStart="16dp"
-        android:text="Principal" />
-
-    <!--&lt;!&ndash; Extra payments &ndash;&gt;-->
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="25dp"-->
-        <!--android:layout_marginStart="16dp"-->
-        <!--android:layout_below="@id/donutChart"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:textSize="18sp"-->
-        <!--android:text="Extra payments:"/>-->
-
-    <!--<com.tutorazadi.interestdestroyerandroid.DonutChart-->
-        <!--android:id="@+id/donutChart2"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@id/donutChart"-->
-        <!--android:layout_marginTop="60dp"-->
-        <!--android:layout_marginStart="48dp"-->
-        <!--app:radius="60dp" />-->
-
-    <!--<View-->
-        <!--android:id="@+id/red2"-->
-        <!--android:layout_width="16dp"-->
-        <!--android:layout_height="16dp"-->
-        <!--android:background="#FF0000"-->
-        <!--android:layout_toEndOf="@id/donutChart2"-->
-        <!--android:layout_alignTop="@id/donutChart2"-->
-        <!--android:layout_marginTop="24dp"-->
-        <!--android:layout_marginStart="24dp" />-->
-
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_toEndOf="@id/red2"-->
-        <!--android:layout_alignTop="@id/red2"-->
-        <!--android:layout_marginStart="16dp"-->
-        <!--android:text="Interest" />-->
-
-    <!--<View-->
-        <!--android:id="@+id/green2"-->
-        <!--android:layout_width="16dp"-->
-        <!--android:layout_height="16dp"-->
-        <!--android:background="#00AA00"-->
-        <!--android:layout_below="@id/red2"-->
-        <!--android:layout_alignStart="@id/red2"-->
-        <!--android:layout_marginTop="24dp"/>-->
-
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_toEndOf="@id/green2"-->
-        <!--android:layout_alignTop="@id/green2"-->
-        <!--android:layout_marginStart="16dp"-->
-        <!--android:text="Principal" />-->
+        android:layout_marginStart="48dp" />
 
 </RelativeLayout>
