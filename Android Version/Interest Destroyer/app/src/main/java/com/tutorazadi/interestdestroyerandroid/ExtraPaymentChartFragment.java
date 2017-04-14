@@ -37,9 +37,9 @@ public class ExtraPaymentChartFragment extends Fragment {
 
     private static NumberFormat n = NumberFormat.getCurrencyInstance(Locale.US);
     private static DecimalFormat df = new DecimalFormat("#.##");
-    private static double[]  min_principal_remaining, extra_principal_remaining;
-    private static double extraPayment, minimumPayment, timeSaved, interestSaved, totalMonths;
-    private String principal, extraPaymentAmount, interest;
+    private static double[] minimumPayment, extraPayment, min_principal_remaining, extra_principal_remaining;
+    private static double timeSaved, interestSaved, totalMonths;
+    private double principal, extraPaymentAmount, interest;
     private Typeface arimoItalic;
     private int size;
 
@@ -73,16 +73,16 @@ public class ExtraPaymentChartFragment extends Fragment {
 
         arimoItalic = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Arimo-Italic.ttf");
 
-        minimumPayment = extras.getDouble("MINIMUM_PAYMENTS");
-        extraPayment = extras.getDouble("EXTRA_PAYMENTS");
-        min_principal_remaining = extras.getDoubleArray("MIN_PRINCIPAL_REMAINING");
-        extra_principal_remaining = extras.getDoubleArray("EXTRA_PRINCIPAL_REMAINING");
+        minimumPayment = Item.minimum_payments;
+        extraPayment = Item.extra_payments;
+        min_principal_remaining = Item.min_principal_remaining;
+        extra_principal_remaining = Item.extra_principal_remaining;
 
-        principal = extras.getString("PRINCIPAL");
-        interestSaved = extras.getDouble("INTEREST_SAVED");
-        timeSaved = extras.getDouble("TIME_SAVED");
-        interest = extras.getString("INTEREST_PAID");
-        extraPaymentAmount = extras.getString("EXTRA_PAYMENT_AMOUNT");
+        principal = Item.principal;
+        interestSaved = Item.interestSaved;
+        timeSaved = Item.timeSaved;
+        interest = Item.interest_paid;
+        extraPaymentAmount = Item.extra_payment;
 
         size = (int)extras.getDouble("TOTAL_MONTHS");
         String[] mMonth = new String[size/12];

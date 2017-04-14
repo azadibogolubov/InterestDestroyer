@@ -49,8 +49,8 @@ public class ResultsFragment extends Fragment {
         Bundle extras = getActivity().getIntent().getExtras();
         ButterKnife.bind(this, view);
 
-        interestSaved = extras.getDouble("INTEREST_SAVED");
-        timeSaved = extras.getDouble("TIME_SAVED");
+        interestSaved = Item.interestSaved;
+        timeSaved = Item.timeSaved;
 
         savingsAmount.setText("$" + df.format(interestSaved) + " in interest,");
         savingsTime.setText("and " + df.format(timeSaved) + " years of payments.");

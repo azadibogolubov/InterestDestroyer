@@ -43,13 +43,9 @@ import butterknife.OnClick;
 
 public class InfoGatheringActivity extends Activity {
 
-    public static double rate, principal, principal_original, time, payment_amount, extra_payment, simple_interest;
-    public static double compound_interest, original_interest, net_interest, principal_paid, payoff_months, timeSaved;
-    public static double interest_paid = original_interest = 0.00f;
+    public static double rate, principal_original, payment_amount, simple_interest;
+    public static double compound_interest, original_interest = 0.00f, net_interest, principal_paid, payoff_months;
 
-    public double interestSaved;
-
-    public static double[] extra_payments, minimum_payments, min_principal_remaining, extra_principal_remaining;
     public static double[] min_interest_paid, extra_interest_paid, min_principal_paid, extra_principal_paid;
 
     @Bind(R.id.fab) FloatingActionButton fab;
@@ -83,12 +79,12 @@ public class InfoGatheringActivity extends Activity {
 
     @OnClick(R.id.fab)
     void submit() {
-        principal = principal_original;
-        simple_interest = principal * (rate / 100) * (time / 12);
-        interest_paid = 0.00;
+        Item.principal = principal_original;
+        simple_interest = Item.principal * (rate / 100) * (Item.time / 12);
+        Item.interest_paid = 0.00;
         net_interest = 0.00;
         principal_paid = 0.00;
-        payment_amount = amortize(principal, rate, time);
+        payment_amount = amortize(Item.principal, rate, Item.time);
 
         try {
             if (principalTxt.getText().length() < 4) {
@@ -103,10 +99,10 @@ public class InfoGatheringActivity extends Activity {
             } else if (extraPaymentTxt.getText().length() < 1) {
                 Snackbar.make(mainLayout, "Please enter at least $0 for an extra payment amount.", Snackbar.LENGTH_SHORT).show();
             }
-            principal_original = principal = Double.parseDouble(principalTxt.getText().toString());
-            time = Double.parseDouble(numMonthsTxt.getText().toString());
+            principal_original = Item.principal = Double.parseDouble(principalTxt.getText().toString());
+            Item.time = Double.parseDouble(numMonthsTxt.getText().toString());
             rate = Double.parseDouble(interestTxt.getText().toString());
-            extra_payment = Double.parseDouble(extraPaymentTxt.getText().toString());
+            Item.extra_payment = Double.parseDouble(extraPaymentTxt.getText().toString());
             calculate();
             goToViewPager();
             Snackbar.make(mainLayout, "TODO: Implement logic to go to ViewPager activity to show amortization and results.", Snackbar.LENGTH_SHORT).show();
@@ -130,79 +126,73 @@ public class InfoGatheringActivity extends Activity {
     }
 
     public void calculate() {
-        extra_payments = new double[(int) time];
-        minimum_payments = new double[(int) time];
-        min_principal_paid = new double[(int) time];
-        extra_principal_paid = new double[(int) time];
-        min_interest_paid = new double[(int) time];
-        extra_interest_paid = new double[(int) time];
-        min_principal_remaining = new double[(int) time];
-        extra_principal_remaining = new double[(int) time];
+        Item.extra_payments = new double[(int) Item.time];
+        Item.minimum_payments = new double[(int) Item.time];
+        min_principal_paid = new double[(int) Item.time];
+        extra_principal_paid = new double[(int) Item.time];
+        min_interest_paid = new double[(int) Item.time];
+        extra_interest_paid = new double[(int) Item.time];
+        Item.min_principal_remaining = new double[(int) Item.time];
+        Item.extra_principal_remaining = new double[(int) Item.time];
 
-        for (int i = 0; i < extra_payments.length; i++) {
-            minimum_payments[i] = 0.00f;
-            extra_payments[i] = 0.00f;
+        for (int i = 0; i < Item.extra_payments.length; i++) {
+            Item.minimum_payments[i] = 0.00f;
+            Item.extra_payments[i] = 0.00f;
         }
 
-        payment_amount = amortize(principal, rate, time);
-        for (int i = 0; i < time; i++) {
-            compound_interest = principal * (1 + (rate / 1200)) - principal;
+        payment_amount = amortize(Item.principal, rate, Item.time);
+        for (int i = 0; i < Item.time; i++) {
+            compound_interest = Item.principal * (1 + (rate / 1200)) - Item.principal;
             if (compound_interest <= 0)
                 break;
-            interest_paid += compound_interest;
+            Item.interest_paid += compound_interest;
             min_interest_paid[i] = compound_interest;
             principal_paid = payment_amount - compound_interest;
             min_principal_paid[i] = principal_paid;
-            min_principal_remaining[i] = principal;
-            principal -= principal_paid;
+            Item.min_principal_remaining[i] = Item.principal;
+            Item.principal -= principal_paid;
         }
 
-        original_interest = interest_paid;
+        original_interest = Item.interest_paid;
 
-        principal_original = principal = Double.parseDouble(principalTxt.getText().toString());
-        time = Double.parseDouble(numMonthsTxt.getText().toString());
+        principal_original = Item.principal = Double.parseDouble(principalTxt.getText().toString());
+        Item.time = Double.parseDouble(numMonthsTxt.getText().toString());
         rate = Double.parseDouble(interestTxt.getText().toString());
-        extra_payment = Double.parseDouble(extraPaymentTxt.getText().toString());
+        Item.extra_payment = Double.parseDouble(extraPaymentTxt.getText().toString());
 
-        interest_paid = compound_interest = principal_paid = simple_interest = 0;
-        payment_amount = amortize(principal, rate, time);
+        Item.interest_paid = compound_interest = principal_paid = simple_interest = 0;
+        payment_amount = amortize(Item.principal, rate, Item.time);
 
-        for (int i = 0; i < time; i++) {
-            compound_interest = principal * (1 + (rate / 1200)) - principal;
+        for (int i = 0; i < Item.time; i++) {
+            compound_interest = Item.principal * (1 + (rate / 1200)) - Item.principal;
             if (compound_interest <= 0) {
                 payoff_months = i;
                 break;
             }
-            interest_paid += compound_interest;
-            extra_interest_paid[i] = interest_paid - extra_payment;
-            principal_paid = (payment_amount + extra_payment) - compound_interest;
+            Item.interest_paid += compound_interest;
+            extra_interest_paid[i] = Item.interest_paid - Item.extra_payment;
+            principal_paid = (payment_amount + Item.extra_payment) - compound_interest;
             extra_principal_paid[i] = principal_paid;
-            extra_principal_remaining[i] = principal;
-            principal -= principal_paid;
+            Item.extra_principal_remaining[i] = Item.principal;
+            Item.principal -= principal_paid;
         }
-        timeSaved = (time - payoff_months) / 12;
-        interestSaved = original_interest - interest_paid;
+        Item.timeSaved = (Item.time - payoff_months) / 12;
+        Item.interestSaved = original_interest - Item.interest_paid;
     }
 
     public static double amortize(double principal, double rate, double time) {
         rate /= 1200;
-        return (principal * rate * Math.pow((1 + rate), time)) / (Math.pow((1 + rate), time) - 1);
+        return (principal * rate * Math.pow((1 + rate), time)) / (Math.pow((1 + rate), Item.time) - 1);
     }
 
     public void goToViewPager() {
         Intent viewPagerIntent = new Intent(InfoGatheringActivity.this, ResultsActivity.class);
-        viewPagerIntent.putExtra("MINIMUM_PAYMENTS", minimum_payments);
-        viewPagerIntent.putExtra("EXTRA_PAYMENTS", extra_payments);
-        viewPagerIntent.putExtra("MIN_PRINCIPAL_REMAINING", min_principal_remaining);
-        viewPagerIntent.putExtra("EXTRA_PRINCIPAL_REMAINING", extra_principal_remaining);
-        viewPagerIntent.putExtra("PRINCIPAL", principal);
-        viewPagerIntent.putExtra("INTEREST_SAVED", interestSaved);
-        viewPagerIntent.putExtra("TIME_SAVED", timeSaved);
-        viewPagerIntent.putExtra("INTEREST_PAID", interest_paid);
-        viewPagerIntent.putExtra("EXTRA_PAYMENT_AMOUNT", extra_payment);
-        viewPagerIntent.putExtra("TOTAL_MONTHS", time);
+        viewPagerIntent.putExtra("PRINCIPAL", Item.principal);
+        viewPagerIntent.putExtra("INTEREST_PAID", Item.interest_paid);
+        viewPagerIntent.putExtra("EXTRA_PAYMENT_AMOUNT", Item.extra_payment);
+        viewPagerIntent.putExtra("TOTAL_MONTHS", Item.time);
         DonutVariables.PRINCIPAL = (float) principal_original;
-        DonutVariables.INTEREST = (float) interest_paid;
+        DonutVariables.INTEREST = (float) Item.interest_paid;
         startActivity(viewPagerIntent);
     }
 }
