@@ -84,7 +84,7 @@ public class ExtraPaymentChartFragment extends Fragment {
         interest = Item.interest_paid;
         extraPaymentAmount = Item.extra_payment;
 
-        size = (int)extras.getDouble("TOTAL_MONTHS");
+        size = Item.total_months;
         String[] mMonth = new String[size/12];
         int[] x = new int[size];
         int b = 0;
@@ -100,11 +100,11 @@ public class ExtraPaymentChartFragment extends Fragment {
 
         //yearsSavedLbl = (TextView) rootLayout.findViewById(R.id.yearsSavedLbl);
         yearsSavedLbl.setTypeface(arimoItalic);
-        yearsSavedLbl.setText(yearsSavedLbl.getText() + String.valueOf(df.format(extras.getDouble("TIME_SAVED"))));
+        yearsSavedLbl.setText(yearsSavedLbl.getText() + String.valueOf(df.format(Item.timeSaved)));
 
         //interestSavedLbl = (TextView) rootLayout.findViewById(R.id.interestSavedLbl);
         interestSavedLbl.setTypeface(arimoItalic);
-        interestSavedLbl.setText(interestSavedLbl.getText() + String.valueOf(n.format(extras.getDouble("INTEREST_SAVED"))));
+        interestSavedLbl.setText(interestSavedLbl.getText() + String.valueOf(n.format(Item.interestSaved)));
 
         chart = (BarChart) rootLayout.findViewById(R.id.chart);
 

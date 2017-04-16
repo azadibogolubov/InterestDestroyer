@@ -15,4 +15,5 @@ class Item {
     static double extra_payment;
 
     static double time;
+    static int total_months;
 }

@@ -45,7 +45,6 @@ public class InfoGatheringActivity extends Activity {
 
     public static double rate, principal_original, payment_amount, simple_interest;
     public static double compound_interest, original_interest = 0.00f, net_interest, principal_paid, payoff_months;
-
     public static double[] min_interest_paid, extra_interest_paid, min_principal_paid, extra_principal_paid;
 
     @Bind(R.id.fab) FloatingActionButton fab;
@@ -104,25 +103,15 @@ public class InfoGatheringActivity extends Activity {
             rate = Double.parseDouble(interestTxt.getText().toString());
             Item.extra_payment = Double.parseDouble(extraPaymentTxt.getText().toString());
             calculate();
-            goToViewPager();
-            Snackbar.make(mainLayout, "TODO: Implement logic to go to ViewPager activity to show amortization and results.", Snackbar.LENGTH_SHORT).show();
+
+            Item.total_months = Integer.parseInt(numMonthsTxt.getText().toString());
+            DonutVariables.PRINCIPAL = (float) principal_original;
+            DonutVariables.INTEREST = (float) Item.interest_paid;
+            startActivity(new Intent(InfoGatheringActivity.this, ResultsActivity.class));
         } catch (NumberFormatException e) {
             Snackbar.make(mainLayout, "You have entered invalid data.", Snackbar.LENGTH_SHORT).show();
         }
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
     }
 
     public void calculate() {
@@ -183,16 +172,5 @@ public class InfoGatheringActivity extends Activity {
     public static double amortize(double principal, double rate, double time) {
         rate /= 1200;
         return (principal * rate * Math.pow((1 + rate), time)) / (Math.pow((1 + rate), Item.time) - 1);
-    }
-
-    public void goToViewPager() {
-        Intent viewPagerIntent = new Intent(InfoGatheringActivity.this, ResultsActivity.class);
-        viewPagerIntent.putExtra("PRINCIPAL", Item.principal);
-        viewPagerIntent.putExtra("INTEREST_PAID", Item.interest_paid);
-        viewPagerIntent.putExtra("EXTRA_PAYMENT_AMOUNT", Item.extra_payment);
-        viewPagerIntent.putExtra("TOTAL_MONTHS", Item.time);
-        DonutVariables.PRINCIPAL = (float) principal_original;
-        DonutVariables.INTEREST = (float) Item.interest_paid;
-        startActivity(viewPagerIntent);
     }
 }
